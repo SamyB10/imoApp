@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEB82C5A7A350006F4E9 /* HomeView.swift */; };
+		1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */; };
+		1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */; };
+		1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5315382C5BC3F300EFCC94 /* MainTabView.swift */; };
+		1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */; };
+		1C5315412C5BE42000EFCC94 /* AnticDidone-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C53153D2C5BE42000EFCC94 /* AnticDidone-Regular.ttf */; };
+		1C5315422C5BE42000EFCC94 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1C53153E2C5BE42000EFCC94 /* OFL.txt */; };
+		1C5315452C5BF22B00EFCC94 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5315442C5BF22B00EFCC94 /* CardViewModel.swift */; };
+		1C5315492C5D0FF800EFCC94 /* CarouselHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5315482C5D0FF800EFCC94 /* CarouselHeaderView.swift */; };
+		1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */; };
+		1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588D92C4D42D7009DDDEA /* Assets.xcassets */; };
+		1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C15FEB82C5A7A350006F4E9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		1C5315382C5BC3F300EFCC94 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		1C53153D2C5BE42000EFCC94 /* AnticDidone-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnticDidone-Regular.ttf"; sourceTree = "<group>"; };
+		1C53153E2C5BE42000EFCC94 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		1C5315432C5BE59F00EFCC94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1C5315442C5BF22B00EFCC94 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		1C5315482C5D0FF800EFCC94 /* CarouselHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselHeaderView.swift; sourceTree = "<group>"; };
+		1CE588D22C4D42D6009DDDEA /* ImoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImoAppApp.swift; sourceTree = "<group>"; };
+		1CE588D92C4D42D7009DDDEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CE588DB2C4D42D7009DDDEA /* ImoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImoApp.entitlements; sourceTree = "<group>"; };
+		1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CE588CF2C4D42D6009DDDEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C15FEBA2C5A7A6D0006F4E9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1C15FEB82C5A7A350006F4E9 /* HomeView.swift */,
+				1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */,
+				1C5315482C5D0FF800EFCC94 /* CarouselHeaderView.swift */,
+				1C5315442C5BF22B00EFCC94 /* CardViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1C15FEBB2C5A7B390006F4E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C5315382C5BC3F300EFCC94 /* MainTabView.swift */,
+				1C15FEBA2C5A7A6D0006F4E9 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C15FEBC2C5A7B400006F4E9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		1C15FEBD2C5A7B4A0006F4E9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1C15FEC02C5A7D930006F4E9 /* Home */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1C15FEC02C5A7D930006F4E9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1C53153C2C5BE40600EFCC94 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1C5315402C5BE42000EFCC94 /* Font */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1C53153F2C5BE42000EFCC94 /* Antic_Didone */ = {
+			isa = PBXGroup;
+			children = (
+				1C53153D2C5BE42000EFCC94 /* AnticDidone-Regular.ttf */,
+				1C53153E2C5BE42000EFCC94 /* OFL.txt */,
+			);
+			path = Antic_Didone;
+			sourceTree = "<group>";
+		};
+		1C5315402C5BE42000EFCC94 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1C53153F2C5BE42000EFCC94 /* Antic_Didone */,
+			);
+			name = Font;
+			path = ImoApp/Font;
+			sourceTree = SOURCE_ROOT;
+		};
+		1CE588C92C4D42D6009DDDEA = {
+			isa = PBXGroup;
+			children = (
+				1CE588D42C4D42D6009DDDEA /* ImoApp */,
+				1CE588D32C4D42D6009DDDEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1CE588D32C4D42D6009DDDEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CE588D22C4D42D6009DDDEA /* ImoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CE588D42C4D42D6009DDDEA /* ImoApp */ = {
+			isa = PBXGroup;
+			children = (
+				1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */,
+				1C5315432C5BE59F00EFCC94 /* Info.plist */,
+				1C53153C2C5BE40600EFCC94 /* Shared */,
+				1C15FEBB2C5A7B390006F4E9 /* View */,
+				1C15FEBC2C5A7B400006F4E9 /* Interactor */,
+				1C15FEBD2C5A7B4A0006F4E9 /* Presenter */,
+				1CE588D92C4D42D7009DDDEA /* Assets.xcassets */,
+				1CE588DB2C4D42D7009DDDEA /* ImoApp.entitlements */,
+				1CE588DC2C4D42D7009DDDEA /* Preview Content */,
+			);
+			path = ImoApp;
+			sourceTree = "<group>";
+		};
+		1CE588DC2C4D42D7009DDDEA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CE588D12C4D42D6009DDDEA /* ImoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CE588E12C4D42D7009DDDEA /* Build configuration list for PBXNativeTarget "ImoApp" */;
+			buildPhases = (
+				1CE588CE2C4D42D6009DDDEA /* Sources */,
+				1CE588CF2C4D42D6009DDDEA /* Frameworks */,
+				1CE588D02C4D42D6009DDDEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImoApp;
+			productName = ImoApp;
+			productReference = 1CE588D22C4D42D6009DDDEA /* ImoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CE588CA2C4D42D6009DDDEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					1CE588D12C4D42D6009DDDEA = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 1CE588CD2C4D42D6009DDDEA /* Build configuration list for PBXProject "ImoApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CE588C92C4D42D6009DDDEA;
+			productRefGroup = 1CE588D32C4D42D6009DDDEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CE588D12C4D42D6009DDDEA /* ImoApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CE588D02C4D42D6009DDDEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C5315412C5BE42000EFCC94 /* AnticDidone-Regular.ttf in Resources */,
+				1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */,
+				1C5315422C5BE42000EFCC94 /* OFL.txt in Resources */,
+				1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CE588CE2C4D42D6009DDDEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */,
+				1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */,
+				1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */,
+				1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */,
+				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
+				1C5315492C5D0FF800EFCC94 /* CarouselHeaderView.swift in Sources */,
+				1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */,
+				1C5315452C5BF22B00EFCC94 /* CardViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1CE588DF2C4D42D7009DDDEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1CE588E02C4D42D7009DDDEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		1CE588E22C4D42D7009DDDEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ImoApp/ImoApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ImoApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 4Z5XMTP2KH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImoApp/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Samy.ImoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CE588E32C4D42D7009DDDEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ImoApp/ImoApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ImoApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 4Z5XMTP2KH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImoApp/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Samy.ImoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CE588CD2C4D42D6009DDDEA /* Build configuration list for PBXProject "ImoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CE588DF2C4D42D7009DDDEA /* Debug */,
+				1CE588E02C4D42D7009DDDEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CE588E12C4D42D7009DDDEA /* Build configuration list for PBXNativeTarget "ImoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CE588E22C4D42D7009DDDEA /* Debug */,
+				1CE588E32C4D42D7009DDDEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CE588CA2C4D42D6009DDDEA /* Project object */;
+}
