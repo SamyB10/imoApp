@@ -8,6 +8,8 @@
 import SwiftUI
 struct CarouselView: View {
     @State var viewModel: CarouselViewModel
+    @State private var isPressed = false
+    @State private var navigateToNextPage = false
     @Environment(\.horizontalSizeClass) private var sizeClass
 
     private var columns: Int {
@@ -17,6 +19,13 @@ struct CarouselView: View {
     var body: some View {
         VStack(alignment: .leading) {
             imageHouse
+                .scaleEffect(isPressed ? 0.95 : 1.0)
+                .gesture(handleGesture)
+                .animation(.spring(response: 0.6, dampingFraction: 0.6), value: isPressed)
+           
+            NavigationLink(destination: Text(""), isActive: $navigateToNextPage) {
+                EmptyView()
+            }
 
             Spacer()
 
@@ -45,22 +54,20 @@ struct CarouselView: View {
                spacing: 20) {
             Text(viewModel.titleHouse)
                 .font(.customTitleFont(size: 22))
+                .foregroundColor(.black)
 
             Text(viewModel.addressHouse)
+                .foregroundColor(.black)
 
             HStack {
                 ForEach(itemDetailHouse, id: \.self) { item in
-                    NavigationLink {
-                        Text("\(item)")
-                    } label: {
-                        switch item {
-                        case .numberOfRoom:
-                            createItemDetailHouse(with: String(viewModel.numberRoom))
-                        case .price:
-                            createItemDetailHouse(with: String(viewModel.price))
-                        case .surface:
-                            createItemDetailHouse(with: "\(String(viewModel.houseSurfaceArea))m2")
-                        }
+                    switch item {
+                    case .numberOfRoom:
+                        createItemDetailHouse(with: String(viewModel.numberRoom))
+                    case .price:
+                        createItemDetailHouse(with: String(viewModel.price))
+                    case .surface:
+                        createItemDetailHouse(with: "\(String(viewModel.houseSurfaceArea))m2")
                     }
                 }
             }
@@ -79,6 +86,21 @@ struct CarouselView: View {
                 .bold()
                 .foregroundStyle(.black)
         }
+    }
+
+    private var handleGesture: some Gesture {
+        DragGesture(minimumDistance: 0)
+            .onChanged { gesture in
+                isPressed = true
+            }
+            .onEnded { value in
+                isPressed = false
+                if value.startLocation == value.predictedEndLocation {
+                    navigateToNextPage = true
+                }
+                
+            }
+        
     }
 }
 

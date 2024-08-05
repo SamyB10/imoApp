@@ -12,7 +12,7 @@ struct CarouselHeaderView: View {
         Text("Trend")
             .font(.title)
             .bold()
-            .padding(.horizontal, 20)
+//            .padding(.horizontal, 20)
     }
 }
 

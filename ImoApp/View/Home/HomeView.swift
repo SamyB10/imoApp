@@ -15,35 +15,43 @@ public protocol HomeDisplayLogic {
 
 struct HomeView: View {
     var homeInteractor: HomeBusinessLogic?
+    @State private var navigateToNextPage = false
 
     var body: some View {
         NavigationStack {
-                ScrollView(.vertical) {
-                    VStack(alignment: .leading) {
-                        createSectionTrend
-                    }
+            ScrollView(.vertical) {
+                VStack(alignment: .leading) {
+                    createSectionTrend
+                }
             }
-                .navigationTitle("Home")
-                .background(.ultraThickMaterial)
+            .navigationTitle("Home")
+            .background(.ultraThickMaterial)
         }
     }
-
 
     private var createSectionTrend: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: hSpacing) {
-                    ForEach(0...6, id: \.self) { _ in
-                        CarouselView(viewModel: .viewModelTest)
-                    }
-                }
-                .scrollTargetLayout()
+                createItemCarousel
+                    .scrollTargetLayout()
             }
             .contentMargins(.horizontal, hMargin)
             .scrollTargetBehavior(.paging)
         } header: {
-            CarouselHeaderView()
-                .padding(.top)
+            VStack(alignment: .leading) {
+                CarouselHeaderView()
+            }
+            .padding()
+        }
+    }
+
+    private var createItemCarousel: some View {
+        LazyHStack(spacing: hSpacing) {
+            ForEach(0...6, id: \.self) { _ in
+//                NavigationLink(destination: Text("Detail Page")) {
+                    CarouselView(viewModel: .viewModelTest)
+//                }
+            }
         }
     }
 
