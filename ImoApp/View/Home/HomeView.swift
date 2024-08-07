@@ -35,6 +35,7 @@ struct HomeView: View {
                 createItemCarousel
                     .scrollTargetLayout()
             }
+            .simultaneousGesture(DragGesture())
             .contentMargins(.horizontal, hMargin)
             .scrollTargetBehavior(.paging)
         } header: {
@@ -48,9 +49,7 @@ struct HomeView: View {
     private var createItemCarousel: some View {
         LazyHStack(spacing: hSpacing) {
             ForEach(0...6, id: \.self) { _ in
-//                NavigationLink(destination: Text("Detail Page")) {
-                    CarouselView(viewModel: .viewModelTest)
-//                }
+                CarouselView(viewModel: .viewModelTest)
             }
         }
     }

@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum ItemDetailHouse: CaseIterable {
-    case surface
-    case price
-    case numberOfRoom
-}
-
 struct CarouselViewModel: Hashable {
     let imageHouse: String
     let titleHouse: String
