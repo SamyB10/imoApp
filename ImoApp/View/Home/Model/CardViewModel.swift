@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct CarouselViewModel: Hashable {
+struct CardHomeViewModel: Hashable, Identifiable {
+    let id: String = UUID().uuidString
     let imageHouse: String
     let titleHouse: String
     let addressHouse: String
@@ -16,7 +17,21 @@ struct CarouselViewModel: Hashable {
     let houseSurfaceArea: Int
 }
 
-extension CarouselViewModel {
+extension [CardHomeViewModel] {
+    var hMargin: CGFloat {
+#if os(macOS)
+        40.0
+#else
+        20.0
+#endif
+    }
+    
+    var hSpacing: CGFloat {
+        10.0
+    }
+}
+
+extension CardHomeViewModel {
     var stackPadding: CGFloat {
         20.0
     }
@@ -38,8 +53,8 @@ extension CarouselViewModel {
     }
 }
 
-extension CarouselViewModel {
-    static var viewModelTest = CarouselViewModel(imageHouse: "coucher_soleil",
+extension CardHomeViewModel {
+    static var viewModelTest = CardHomeViewModel(imageHouse: "coucher_soleil",
                                                  titleHouse: "Title House",
                                                  addressHouse: "Address House",
                                                  numberRoom: 4,

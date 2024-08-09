@@ -7,7 +7,7 @@
 
 import SwiftUI
 struct CarouselView: View {
-    @State var viewModel: CarouselViewModel
+    @State var viewModel: CardHomeViewModel
     @State private var isPressed = false
     @State private var navigateToNextPage = false
     @Environment(\.horizontalSizeClass) private var sizeClass
@@ -56,37 +56,9 @@ struct CarouselView: View {
                 .foregroundColor(.black)
 
             ListItemDetailHouseView(viewModelItem: ItemDetailHouse.itemViewModelTest)
-
-//            HStack {
-//                ForEach(itemDetailHouse, id: \.self) { item in
-//                    switch item {
-//                    case .numberOfRoom:
-//                        createItemDetailHouse(with: String(viewModel.numberRoom))
-//                    case .price:
-//                        createItemDetailHouse(with: String(viewModel.price))
-//                    case .surface:
-//                        createItemDetailHouse(with: "\(String(viewModel.houseSurfaceArea))m2")
-//                    }
-//                }
-//            }
         }
     }
-//
-//    @ViewBuilder
-//    private func createItemDetailHouse(with text: String)-> some View {
-//        ZStack {
-//            Color.clear
-//                .frame(width: 80, height: 40)
-//                .border(.yellow, width: 2.5)
-//                .cornerRadius(5)
-//            Text("\(text)")
-//                .font(.subheadline)
-//                .bold()
-//                .foregroundStyle(.black)
-//        }
-//    }
 
-    
     private var handleGesture: some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged { gesture in

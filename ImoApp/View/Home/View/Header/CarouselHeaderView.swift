@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct CarouselHeaderView: View {
+    @State var title: String
     var body: some View {
-        Text("Trend")
+        Text(title)
             .font(.title)
             .bold()
-//            .padding(.horizontal, 20)
     }
 }
 
 #Preview {
-    CarouselHeaderView()
+    CarouselHeaderView(title: "Title")
 }

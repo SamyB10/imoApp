@@ -13,10 +13,34 @@ struct DetailPageView: View {
     var viewModel: DetailPageViewModel
 
     var body: some View {
-        VStack {
+        VStack(spacing: 50) {
             overlayImageHouse
+
+            ScrollView {
+                DescriptionDetailPageView()
+                ScrollView(.horizontal) {
+                    VStack(alignment: .leading) {
+                        Section {
+                            HStack {
+                                ForEach(0..<10) {_ in
+                                    Color.blue
+                                        .cornerRadius(10)
+                                        .frame(width: 120, height: 120)
+                                }
+                            }
+                        } header: {
+                            Text("Galery")
+                                .font(.title)
+                                .foregroundStyle(.black)
+                        }
+                    }
+                    .padding()
+                }
+            }
         }
         .ignoresSafeArea()
+
+        Spacer()
 
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -57,7 +81,7 @@ struct DetailPageView: View {
     }
 
     private var overlayImageHouse: some View {
-        VStack(spacing: 50) {
+
             imageHouseDetail
                 .overlay(alignment: .bottom) {
                     detailOverlay
@@ -69,11 +93,11 @@ struct DetailPageView: View {
                                         detailOverlayMidY = geometry.frame(in: .local).midY
                                     }
                             })
-                }
 
-            ScrollView {
-                DescriptionDetailPageView()
-            }
+
+//            ScrollView {
+//                DescriptionDetailPageView()
+//            }
 
         }
     }
