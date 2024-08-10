@@ -30,7 +30,10 @@ struct CarouselView: View {
             .cornerRadius(viewModel.cornerRadius)
         }
         .navigationDestination(isPresented: $navigateToNextPage) {
-            DetailPageView(viewModel: .sampleViewModel)
+            DetailPageView(viewModel: DetailPageViewModel(image: viewModel.imageHouse,
+                                                          title: viewModel.titleHouse,
+                                                          ownerName: "Samy",
+                                                          price: Int(viewModel.price)))
         }
     }
 

@@ -8,13 +8,11 @@
 import SwiftUI
 import UIKit
 
-/// A DVImage kind
 public enum DVImage: Hashable, Sendable {
     case urlString(String)
     case asset(String)
 }
 
-/// An image loader view that load image from a DVImage
 public struct ImageLoaderView: View {
     private let dvImage: DVImage
     private let ratio: Double?

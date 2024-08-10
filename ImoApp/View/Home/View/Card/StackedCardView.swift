@@ -60,7 +60,7 @@ extension [Item] {
     }
 }
 
-    struct HouseCardItemView: View {
+    struct StackedCardView: View {
         var body: some View {
             GeometryReader {
                 let size = $0.size
@@ -91,6 +91,7 @@ extension [Item] {
     func cardView() -> some View {
         RoundedRectangle(cornerRadius: 15)
             .fill(Color.random)
+
     }
 
     func minX(_ proxy: GeometryProxy) -> CGFloat {
@@ -128,5 +129,5 @@ extension [Item] {
 }
 
 #Preview {
-    HouseCardItemView()
+    StackedCardView()
 }

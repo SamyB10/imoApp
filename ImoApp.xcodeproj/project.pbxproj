@@ -24,10 +24,14 @@
 		1C53155A2C63833100EFCC94 /* DescriptionDetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5315592C63833100EFCC94 /* DescriptionDetailPageView.swift */; };
 		1C53155D2C639E9900EFCC94 /* ListItemDetailHouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C53155C2C639E9900EFCC94 /* ListItemDetailHouseView.swift */; };
 		1C53155F2C63B34100EFCC94 /* ListItemDetailHouseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C53155E2C63B34100EFCC94 /* ListItemDetailHouseViewModel.swift */; };
-		1C6A9C7B2C6516DC008E01FE /* HouseCardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C7A2C6516DC008E01FE /* HouseCardItemView.swift */; };
+		1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C7A2C6516DC008E01FE /* StackedCardView.swift */; };
 		1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C7C2C66549B008E01FE /* HomeViewModel.swift */; };
 		1C6A9C8A2C66563E008E01FE /* DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C892C66563E008E01FE /* DisplayLogic.swift */; };
 		1C6A9C8C2C6658CE008E01FE /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C8B2C6658CE008E01FE /* HomeSection.swift */; };
+		1C7B50702C67BA41004683C3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B506F2C67BA41004683C3 /* CardView.swift */; };
+		1C7B50732C67C885004683C3 /* SectionCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50722C67C885004683C3 /* SectionCarousel.swift */; };
+		1C7B50752C67C88E004683C3 /* SectionStackedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */; };
+		1C7B50772C67C8EC004683C3 /* SectionDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50762C67C8EC004683C3 /* SectionDefault.swift */; };
 		1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */; };
 		1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588D92C4D42D7009DDDEA /* Assets.xcassets */; };
 		1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */; };
@@ -51,10 +55,14 @@
 		1C5315592C63833100EFCC94 /* DescriptionDetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDetailPageView.swift; sourceTree = "<group>"; };
 		1C53155C2C639E9900EFCC94 /* ListItemDetailHouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemDetailHouseView.swift; sourceTree = "<group>"; };
 		1C53155E2C63B34100EFCC94 /* ListItemDetailHouseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemDetailHouseViewModel.swift; sourceTree = "<group>"; };
-		1C6A9C7A2C6516DC008E01FE /* HouseCardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCardItemView.swift; sourceTree = "<group>"; };
+		1C6A9C7A2C6516DC008E01FE /* StackedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedCardView.swift; sourceTree = "<group>"; };
 		1C6A9C7C2C66549B008E01FE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1C6A9C892C66563E008E01FE /* DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLogic.swift; sourceTree = "<group>"; };
 		1C6A9C8B2C6658CE008E01FE /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
+		1C7B506F2C67BA41004683C3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1C7B50722C67C885004683C3 /* SectionCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCarousel.swift; sourceTree = "<group>"; };
+		1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionStackedCard.swift; sourceTree = "<group>"; };
+		1C7B50762C67C8EC004683C3 /* SectionDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDefault.swift; sourceTree = "<group>"; };
 		1CE588D22C4D42D6009DDDEA /* ImoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImoAppApp.swift; sourceTree = "<group>"; };
 		1CE588D92C4D42D7009DDDEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,9 +183,9 @@
 		1C6A9C7E2C6654A4008E01FE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C7B50712C67C876004683C3 /* Section */,
+				1C7B506E2C67A5D7004683C3 /* Card */,
 				1C6A9C802C6654D9008E01FE /* Header */,
-				1C6A9C7A2C6516DC008E01FE /* HouseCardItemView.swift */,
-				1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */,
 				1C15FEB82C5A7A350006F4E9 /* HomeView.swift */,
 				1C6A9C8B2C6658CE008E01FE /* HomeSection.swift */,
 			);
@@ -265,6 +273,26 @@
 				1C6A9C892C66563E008E01FE /* DisplayLogic.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1C7B506E2C67A5D7004683C3 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */,
+				1C6A9C7A2C6516DC008E01FE /* StackedCardView.swift */,
+				1C7B506F2C67BA41004683C3 /* CardView.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		1C7B50712C67C876004683C3 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				1C7B50722C67C885004683C3 /* SectionCarousel.swift */,
+				1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */,
+				1C7B50762C67C8EC004683C3 /* SectionDefault.swift */,
+			);
+			path = Section;
 			sourceTree = "<group>";
 		};
 		1CE588C92C4D42D6009DDDEA = {
@@ -387,23 +415,27 @@
 			files = (
 				1C5315502C62606200EFCC94 /* DetailPageViewModel.swift in Sources */,
 				1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */,
-				1C6A9C7B2C6516DC008E01FE /* HouseCardItemView.swift in Sources */,
+				1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */,
 				1C53155A2C63833100EFCC94 /* DescriptionDetailPageView.swift in Sources */,
 				1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */,
 				1C5315582C6266A900EFCC94 /* AsyncImageLoaderView.swift in Sources */,
 				1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */,
 				1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */,
+				1C7B50732C67C885004683C3 /* SectionCarousel.swift in Sources */,
 				1C6A9C8C2C6658CE008E01FE /* HomeSection.swift in Sources */,
 				1C5315522C6260A000EFCC94 /* ImageView.swift in Sources */,
+				1C7B50752C67C88E004683C3 /* SectionStackedCard.swift in Sources */,
 				1C53154E2C624B1500EFCC94 /* DetailPageView.swift in Sources */,
 				1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */,
 				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
 				1C5315492C5D0FF800EFCC94 /* CarouselHeaderView.swift in Sources */,
+				1C7B50702C67BA41004683C3 /* CardView.swift in Sources */,
 				1C53155D2C639E9900EFCC94 /* ListItemDetailHouseView.swift in Sources */,
 				1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */,
 				1C53155F2C63B34100EFCC94 /* ListItemDetailHouseViewModel.swift in Sources */,
 				1C5315452C5BF22B00EFCC94 /* CardViewModel.swift in Sources */,
 				1C6A9C8A2C66563E008E01FE /* DisplayLogic.swift in Sources */,
+				1C7B50772C67C8EC004683C3 /* SectionDefault.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
