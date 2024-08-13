@@ -18,11 +18,6 @@ struct HomeViewModel: Equatable, Hashable {
             case paris = "Paris"
             case marseille = "Marseille"
             case lyon = "Lyon"
-            case toulouse = "Toulouse"
-            case nice = "Nice"
-            case nantes = "Nantes"
-            case montpellier = "Montpellier"
-            case strasbourg = "Strasbourg"
         }
     }
 }

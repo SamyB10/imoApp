@@ -17,9 +17,12 @@ struct CarouselView: View {
             VStack(alignment: .leading) {
                 imageHouse
                 // MARK: Review gesture for not conflict between scrool View and item Gesture
-                    .scaleEffect(isPressed ? 0.95 : 1.0)
+                    .scaleEffect(isPressed ? 0.90 : 1.0)
+                    .onTapGesture {
+                        navigateToNextPage = true
+                    }
                     .gesture(handleGesture)
-                    .animation(.spring(response: 0.6, dampingFraction: 0.6), value: isPressed)
+                    .animation(.spring(), value: isPressed)
 
                 Spacer()
 
@@ -66,6 +69,9 @@ struct CarouselView: View {
         DragGesture(minimumDistance: 0)
             .onChanged { gesture in
                 isPressed = true
+                if gesture.startLocation != gesture.predictedEndLocation {
+                    isPressed = false
+                }
             }
             .onEnded { value in
                 isPressed = false
@@ -82,4 +88,31 @@ struct CarouselView: View {
 
 #Preview {
     CarouselView(viewModel: .viewModelTest)
+}
+
+
+
+struct DemoImageScale: View {
+    @GestureState private var isDetectingPress = false
+
+    var body: some View {
+        Image("1")
+            .resizable().aspectRatio(contentMode: .fit)
+            .scaleEffect(isDetectingPress ? 0.5 : 1)
+            .animation(.spring())
+            .gesture(LongPressGesture(minimumDuration: 0.1)
+                .sequenced(before:DragGesture(minimumDistance: 0))
+                .updating($isDetectingPress) { value, state, _ in
+                    switch value {
+                        case .second(true, nil):
+                            state = true
+                        default:
+                            break
+                    }
+            })
+    }
+}
+
+#Preview {
+    DemoImageScale()
 }

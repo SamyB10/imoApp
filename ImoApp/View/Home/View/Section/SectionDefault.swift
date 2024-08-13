@@ -12,33 +12,16 @@ struct SectionDefault: View {
 
     var body: some View {
         Section {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    createDefaultItem
+            LazyVStack {
+                ForEach(0..<100) { i in
+                    CardView()
                 }
             }
-            .contentMargins(.horizontal, section.horizontalMarginScrollView)
-
         } header: {
             VStack(alignment: .leading) {
                 CarouselHeaderView(title: section.titleSection.rawValue)
             }
             .padding()
-        }
-    }
-
-    private var createDefaultItem: some View {
-        ForEach(section.itemHouse) { item in
-            switch section.titleSection {
-            case .lyon,
-                    .nantes,
-                    .strasbourg:
-                CardView(height: 200, width: 150)
-                    .cornerRadius(10)
-            default:
-                CardView(height: 120, width: 120)
-                    .cornerRadius(10)
-            }
         }
     }
 }

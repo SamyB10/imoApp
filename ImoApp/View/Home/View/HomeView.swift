@@ -21,6 +21,7 @@ struct HomeView: View {
         NavigationStack {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
+                    GabaritListView(viewModel: .viewModel)
                     ForEach(viewModel.section, id: \.self) { section in
                         HomeSection(section: section)
                     }
