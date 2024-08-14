@@ -28,6 +28,7 @@
 		1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C7C2C66549B008E01FE /* HomeViewModel.swift */; };
 		1C6A9C8A2C66563E008E01FE /* DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C892C66563E008E01FE /* DisplayLogic.swift */; };
 		1C6A9C8C2C6658CE008E01FE /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A9C8B2C6658CE008E01FE /* HomeSection.swift */; };
+		1C7464332C6CCDDD005634AE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7464322C6CCDDD005634AE /* Extension.swift */; };
 		1C7B50702C67BA41004683C3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B506F2C67BA41004683C3 /* CardView.swift */; };
 		1C7B50732C67C885004683C3 /* SectionCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50722C67C885004683C3 /* SectionCarousel.swift */; };
 		1C7B50752C67C88E004683C3 /* SectionStackedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */; };
@@ -62,6 +63,7 @@
 		1C6A9C7C2C66549B008E01FE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1C6A9C892C66563E008E01FE /* DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLogic.swift; sourceTree = "<group>"; };
 		1C6A9C8B2C6658CE008E01FE /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
+		1C7464322C6CCDDD005634AE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1C7B506F2C67BA41004683C3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1C7B50722C67C885004683C3 /* SectionCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCarousel.swift; sourceTree = "<group>"; };
 		1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionStackedCard.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		1C53153C2C5BE40600EFCC94 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1C7464312C6CCDCE005634AE /* Extension */,
 				1C5315402C5BE42000EFCC94 /* Font */,
 			);
 			path = Shared;
@@ -281,6 +284,14 @@
 				1C6A9C892C66563E008E01FE /* DisplayLogic.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1C7464312C6CCDCE005634AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1C7464322C6CCDDD005634AE /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		1C7B506E2C67A5D7004683C3 /* Card */ = {
@@ -448,6 +459,7 @@
 				1C53154E2C624B1500EFCC94 /* DetailPageView.swift in Sources */,
 				1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */,
 				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
+				1C7464332C6CCDDD005634AE /* Extension.swift in Sources */,
 				1C5315492C5D0FF800EFCC94 /* CarouselHeaderView.swift in Sources */,
 				1C7B50702C67BA41004683C3 /* CardView.swift in Sources */,
 				1C53155D2C639E9900EFCC94 /* ListItemDetailHouseView.swift in Sources */,
@@ -608,11 +620,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Samy.ImoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
@@ -648,11 +660,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Samy.ImoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Release;
 		};

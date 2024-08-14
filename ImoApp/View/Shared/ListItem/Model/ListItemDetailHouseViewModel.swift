@@ -21,8 +21,10 @@ struct ItemDetailHouse: Hashable {
 
 extension ItemDetailHouse {
     static var itemViewModelTest: [ItemDetail] {
-        [ItemDetail.numberOfRoom("4"),
-         ItemDetail.numberOfbathRoom("2"),
-         ItemDetail.surface("100")]
+        [
+            ItemDetail.numberOfRoom("4"),
+            ItemDetail.numberOfbathRoom("2"),
+            ItemDetail.surface("100")
+        ]
     }
 }

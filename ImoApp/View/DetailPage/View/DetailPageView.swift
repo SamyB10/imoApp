@@ -45,16 +45,20 @@ struct DetailPageView: View {
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    dismiss.callAsFunction()
-                } label: {
-                    Image(systemName: "arrowshape.backward.circle.fill")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.white)
-                        .opacity(0.5)
-                }
+                backButton
             }
+        }
+    }
+
+    private var backButton: some View {
+        Button {
+            dismiss.callAsFunction()
+        } label: {
+            Image(systemName: "arrow.left.circle.fill")
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.black)
+                .opacity(0.8)
         }
     }
 
@@ -93,12 +97,6 @@ struct DetailPageView: View {
                                         detailOverlayMidY = geometry.frame(in: .local).midY
                                     }
                             })
-
-
-//            ScrollView {
-//                DescriptionDetailPageView()
-//            }
-
         }
     }
 
@@ -106,7 +104,6 @@ struct DetailPageView: View {
         ImageLoaderView(dvImage: .asset(viewModel.image),
                         ratio: 4 / 3,
                         contentMode: .fit)
-        //        .frame(width: .infinity, height: 350)
         .ignoresSafeArea()
     }
 }

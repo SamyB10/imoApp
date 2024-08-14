@@ -9,18 +9,20 @@ import SwiftUI
 struct HomeSection: View {
     var section: HomeViewModel.SectionViewModel
     var body: some View {
-        switch section.titleSection {
-        case .paris:
-            SectionCarousel(section: section)
-        case .marseille:
-            SectionStackedCard(section: section)
-        default:
-            SectionDefault(section: section)
-        }
+        switch section.itemHouse {
+        case .carousel(let title, let items):
+            SectionCarousel(titleSection: title, items: items)
+        case .stacked(let title, let items):
+            SectionStackedCard(titleSection: title, items: items)
+        case .default(let title, let items):
+            SectionDefault(titleSection: title, items: items)
+        }    
     }
 }
 
+
+
 #Preview {
-    HomeSection(section: HomeViewModel.SectionViewModel(titleSection: .lyon,
-                                                        itemHouse: [CardHomeViewModel.viewModelTest]))
+    HomeSection(section: HomeViewModel.SectionViewModel(itemHouse: .carousel(titleSection: HomeViewModel.TitleSection.paris.rawValue,
+                                                                             CardHomeViewModel.viewModelSample)))
 }

@@ -13,25 +13,23 @@ struct CarouselView: View {
     @Environment(\.horizontalSizeClass) private var sizeClass
 
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading) {
-                imageHouse
-                // MARK: Review gesture for not conflict between scrool View and item Gesture
-                    .scaleEffect(isPressed ? 0.90 : 1.0)
-                    .onTapGesture {
-                        navigateToNextPage = true
-                    }
-                    .gesture(handleGesture)
-                    .animation(.spring(), value: isPressed)
-
-                Spacer()
-
-                detailHouse
-                    .padding()
-            }
-            .background(Color.white)
-            .cornerRadius(viewModel.cornerRadius)
+        VStack(alignment: .leading) {
+            imageHouse
+            // MARK: Review gesture for not conflict between scrool View and item Gesture
+                .scaleEffect(isPressed ? 0.90 : 1.0)
+                .onTapGesture {
+                    navigateToNextPage = true
+                }
+                .gesture(handleGesture)
+                .animation(.spring(), value: isPressed)
+            
+            Spacer()
+            
+            detailHouse
+                .padding()
         }
+        .background(Color.white)
+        .cornerRadius(viewModel.cornerRadius)
         .navigationDestination(isPresented: $navigateToNextPage) {
             DetailPageView(viewModel: DetailPageViewModel(image: viewModel.imageHouse,
                                                           title: viewModel.titleHouse,
@@ -88,31 +86,4 @@ struct CarouselView: View {
 
 #Preview {
     CarouselView(viewModel: .viewModelTest)
-}
-
-
-
-struct DemoImageScale: View {
-    @GestureState private var isDetectingPress = false
-
-    var body: some View {
-        Image("1")
-            .resizable().aspectRatio(contentMode: .fit)
-            .scaleEffect(isDetectingPress ? 0.5 : 1)
-            .animation(.spring())
-            .gesture(LongPressGesture(minimumDuration: 0.1)
-                .sequenced(before:DragGesture(minimumDistance: 0))
-                .updating($isDetectingPress) { value, state, _ in
-                    switch value {
-                        case .second(true, nil):
-                            state = true
-                        default:
-                            break
-                    }
-            })
-    }
-}
-
-#Preview {
-    DemoImageScale()
 }

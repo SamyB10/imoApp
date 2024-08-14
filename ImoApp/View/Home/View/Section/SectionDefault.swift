@@ -8,26 +8,42 @@
 import SwiftUI
 
 struct SectionDefault: View {
-    var section: HomeViewModel.SectionViewModel
+    var titleSection: String
+    var items: [CardHomeViewModel]
+
+    @State private var selectedItem: CardHomeViewModel?
+    @State private var navigateToNextPage = false
+
 
     var body: some View {
         Section {
             LazyVStack {
-                ForEach(0..<100) { i in
-                    CardView()
+                ForEach(items) { item in
+                    CardView(viewModel: item)
+                        .onTapGesture {
+                            selectedItem = item
+                            navigateToNextPage = true
+                        }
                 }
             }
         } header: {
             VStack(alignment: .leading) {
-                CarouselHeaderView(title: section.titleSection.rawValue)
+                CarouselHeaderView(title: titleSection)
             }
             .padding()
+        }
+        .navigationDestination(isPresented: $navigateToNextPage) {
+            if let selectedItem = selectedItem {
+                DetailPageView(viewModel: DetailPageViewModel(image: selectedItem.imageHouse,
+                                                              title: selectedItem.titleHouse,
+                                                              ownerName: "Samy",
+                                                              price: Int(selectedItem.price)))
+            }
         }
     }
 }
 
 #Preview {
-    SectionDefault(section: HomeViewModel.SectionViewModel(titleSection: .lyon,
-                                                           itemHouse: Array(repeating: .viewModelTest,
-                                                                            count: 10)))
+    SectionDefault(titleSection: HomeViewModel.TitleSection.lyon.rawValue,
+                   items: CardHomeViewModel.viewModelSample)
 }

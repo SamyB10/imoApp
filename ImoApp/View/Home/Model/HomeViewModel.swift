@@ -11,36 +11,27 @@ struct HomeViewModel: Equatable, Hashable {
     let section: [SectionViewModel]
 
     struct SectionViewModel: Equatable, Hashable {
-        let titleSection: TypeSection
-        let itemHouse: [CardHomeViewModel]
-
-        enum TypeSection: String, Hashable, CaseIterable {
-            case paris = "Paris"
-            case marseille = "Marseille"
-            case lyon = "Lyon"
-        }
+        let itemHouse: TypeCardHome
     }
-}
 
-extension HomeViewModel.SectionViewModel {
-    var horizontalMarginScrollView: CGFloat {
-#if os(macOS)
-        40.0
-#else
-        20.0
-#endif
+    enum TitleSection: String, Hashable, CaseIterable {
+        case paris = "Paris"
+        case marseille = "Marseille"
+        case lyon = "Lyon"
     }
 }
 
 extension HomeViewModel {
     static var viewModelSample: HomeViewModel {
-        let title = SectionViewModel.TypeSection.allCases
+        let title = HomeViewModel.TitleSection.allCases
         var homeSection: [SectionViewModel] = []
-        var itemHouse: [CardHomeViewModel] = []
+        var itemHouseCarousel: [CardHomeViewModel] = []
+        var itemHouseStacked: [CardHomeViewModel] = []
+        var itemHouseDefault: [CardHomeViewModel] = []
 
         for _ in 1...4 {
             let randomImage = Int.random(in: 1...4)
-            itemHouse.append(CardHomeViewModel(imageHouse: String(randomImage),
+            itemHouseCarousel.append(CardHomeViewModel(imageHouse: String(randomImage),
                                                titleHouse: "Title House",
                                                addressHouse: "Address House",
                                                numberRoom: .random(in: 0...10),
@@ -48,9 +39,41 @@ extension HomeViewModel {
                                                houseSurfaceArea: .random(in: 10...1000)))
         }
 
+        for _ in 1...10 {
+            let randomImage = Int.random(in: 1...4)
+            itemHouseStacked.append(CardHomeViewModel(imageHouse: String(randomImage),
+                                               titleHouse: "Title House",
+                                               addressHouse: "Address House",
+                                               numberRoom: .random(in: 0...10),
+                                               price: .random(in: 50000.0...2000000.0),
+                                               houseSurfaceArea: .random(in: 10...1000)))
+        }
+
+        for _ in 1...100 {
+            let randomImage = Int.random(in: 1...4)
+            itemHouseDefault.append(CardHomeViewModel(imageHouse: String(randomImage),
+                                               titleHouse: "Title House",
+                                               addressHouse: "Address House",
+                                               numberRoom: .random(in: 0...10),
+                                               price: .random(in: 50000.0...2000000.0),
+                                               houseSurfaceArea: .random(in: 10...1000)))
+        }
+
+
         for item in title {
-            let section = SectionViewModel(titleSection: item,
-                                           itemHouse: itemHouse)
+            let section: SectionViewModel
+            switch item {
+            case .paris:
+                section = SectionViewModel(itemHouse: .carousel(titleSection: item.rawValue,
+                                                                itemHouseCarousel))
+            case .marseille:
+                section = SectionViewModel(itemHouse: .stacked(titleSection: item.rawValue,
+                                                               itemHouseStacked))
+
+            case .lyon:
+                section = SectionViewModel(itemHouse: .default(titleSection: item.rawValue,
+                                                               itemHouseDefault))
+            }
             homeSection.append(section)
         }
         

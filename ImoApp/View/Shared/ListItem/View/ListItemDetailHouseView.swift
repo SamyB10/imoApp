@@ -23,7 +23,10 @@ struct ListItemDetailHouseView: View {
                 }
             }
         }
-        .padding(.trailing, UIScreen.main.bounds.width / 4)
+#if !os(visionOS)
+//        .padding(.trailing, UIScreen.main.bounds.width / 4)
+        .padding(.trailing)
+#endif
     }
 
     private func createItemDetailHouse(with text: String, image: String)-> some View {

@@ -30,9 +30,3 @@ struct ImoAppApp: App {
         return MainTabView(tabs: tabs)
     }
 }
-
-extension Font {
-    static func customTitleFont(size: CGFloat) -> Font {
-        return Font.custom("AnticDidone-Regular", size: size)
-    }
-}
