@@ -30,6 +30,9 @@ struct HomeView: View {
             .navigationTitle("Home")
             .background(.ultraThickMaterial)
         }
+        .onAppear {
+            homeInteractor?.start()
+        }
     }
 }
 

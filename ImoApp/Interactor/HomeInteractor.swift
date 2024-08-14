@@ -13,6 +13,11 @@ protocol HomeBusinessLogic {
 
 final class HomeInteractor {
     private var presenter: HomePresentationLogic?
+    private var service: HomeService
+
+    init(service: HomeService) {
+        self.service = service
+    }
 
     func inject(presenter: HomePresentationLogic?) {
         self.presenter = presenter
@@ -21,7 +26,15 @@ final class HomeInteractor {
 
 extension HomeInteractor: HomeBusinessLogic {
     func start() {
-        presenter?.presentInterface()
-        print("Start")
+        Task {
+            switch await service.fetchRegions() {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error)
+            }
+        }
+
+//        presenter?.presentInterface()
     }
 }

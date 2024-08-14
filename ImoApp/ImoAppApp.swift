@@ -16,8 +16,9 @@ struct ImoAppApp: App {
     }
 
     func constructHomeView() -> some View {
+        let service = RequestHome()
         var homeView = HomeView(viewModel: .viewModelSample)
-        let homeInteractor = HomeInteractor()
+        let homeInteractor = HomeInteractor(service: service)
         let homePresenter = HomePresenter()
         homeView.homeInteractor = homeInteractor
         homeInteractor.inject(presenter: homePresenter)

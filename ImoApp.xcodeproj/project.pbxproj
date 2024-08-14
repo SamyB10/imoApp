@@ -39,6 +39,9 @@
 		1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */; };
 		1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588D92C4D42D7009DDDEA /* Assets.xcassets */; };
 		1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */; };
+		1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */; };
+		1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA702C6D0C360033C894 /* RequestHome.swift */; };
+		1CEFBA742C6D0CC50033C894 /* BusinessModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		1CE588D92C4D42D7009DDDEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CE588DB2C4D42D7009DDDEA /* ImoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImoApp.entitlements; sourceTree = "<group>"; };
 		1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModelRegions.swift; sourceTree = "<group>"; };
+		1CEFBA702C6D0C360033C894 /* RequestHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHome.swift; sourceTree = "<group>"; };
+		1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessModelRegions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +354,7 @@
 				1C15FEBB2C5A7B390006F4E9 /* View */,
 				1C15FEBC2C5A7B400006F4E9 /* Interactor */,
 				1C15FEBD2C5A7B4A0006F4E9 /* Presenter */,
+				1CEFBA6B2C6D0B560033C894 /* Service */,
 				1CE588D92C4D42D7009DDDEA /* Assets.xcassets */,
 				1CE588DB2C4D42D7009DDDEA /* ImoApp.entitlements */,
 				1CE588DC2C4D42D7009DDDEA /* Preview Content */,
@@ -361,6 +368,40 @@
 				1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CEFBA6B2C6D0B560033C894 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1CEFBA722C6D0C720033C894 /* BusinessModel */,
+				1CEFBA6F2C6D0C240033C894 /* Request */,
+				1CEFBA6E2C6D0B9F0033C894 /* RestModel */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1CEFBA6E2C6D0B9F0033C894 /* RestModel */ = {
+			isa = PBXGroup;
+			children = (
+				1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */,
+			);
+			path = RestModel;
+			sourceTree = "<group>";
+		};
+		1CEFBA6F2C6D0C240033C894 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				1CEFBA702C6D0C360033C894 /* RequestHome.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		1CEFBA722C6D0C720033C894 /* BusinessModel */ = {
+			isa = PBXGroup;
+			children = (
+				1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */,
+			);
+			path = BusinessModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,9 +484,11 @@
 			files = (
 				1C5315502C62606200EFCC94 /* DetailPageViewModel.swift in Sources */,
 				1C7B507F2C6B8FBE004683C3 /* ConfigureViewModel.swift in Sources */,
+				1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */,
 				1C7B507B2C6B55DF004683C3 /* GabaritListView.swift in Sources */,
 				1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */,
 				1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */,
+				1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */,
 				1C53155A2C63833100EFCC94 /* DescriptionDetailPageView.swift in Sources */,
 				1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */,
 				1C5315582C6266A900EFCC94 /* AsyncImageLoaderView.swift in Sources */,
@@ -460,6 +503,7 @@
 				1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */,
 				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
 				1C7464332C6CCDDD005634AE /* Extension.swift in Sources */,
+				1CEFBA742C6D0CC50033C894 /* BusinessModelRegions.swift in Sources */,
 				1C5315492C5D0FF800EFCC94 /* CarouselHeaderView.swift in Sources */,
 				1C7B50702C67BA41004683C3 /* CardView.swift in Sources */,
 				1C53155D2C639E9900EFCC94 /* ListItemDetailHouseView.swift in Sources */,
