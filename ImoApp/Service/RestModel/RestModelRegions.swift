@@ -11,10 +11,10 @@ import Foundation
 
 public struct RestModelRegions: Decodable {
     let name: String?
-    let id: String?
+    let key: String?
 
     private enum CodingKeys: String, CodingKey {
         case name = "nom"
-        case id = "code"
+        case key = "code"
     }
 }

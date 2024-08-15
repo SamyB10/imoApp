@@ -42,6 +42,8 @@
 		1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */; };
 		1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA702C6D0C360033C894 /* RequestHome.swift */; };
 		1CEFBA742C6D0CC50033C894 /* BusinessModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */; };
+		1CEFBA762C6E288F0033C894 /* Region.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CEFBA752C6E288F0033C894 /* Region.json */; };
+		1CEFBA792C6E29CD0033C894 /* HomeViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModelRegions.swift; sourceTree = "<group>"; };
 		1CEFBA702C6D0C360033C894 /* RequestHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHome.swift; sourceTree = "<group>"; };
 		1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessModelRegions.swift; sourceTree = "<group>"; };
+		1CEFBA752C6E288F0033C894 /* Region.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Region.json; sourceTree = "<group>"; };
+		1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				1C6A9C892C66563E008E01FE /* DisplayLogic.swift */,
+				1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 		1CEFBA6B2C6D0B560033C894 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				1CEFBA772C6E28D00033C894 /* Mock */,
 				1CEFBA722C6D0C720033C894 /* BusinessModel */,
 				1CEFBA6F2C6D0C240033C894 /* Request */,
 				1CEFBA6E2C6D0B9F0033C894 /* RestModel */,
@@ -402,6 +408,14 @@
 				1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */,
 			);
 			path = BusinessModel;
+			sourceTree = "<group>";
+		};
+		1CEFBA772C6E28D00033C894 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1CEFBA752C6E288F0033C894 /* Region.json */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,6 +486,7 @@
 				1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */,
 				1C5315422C5BE42000EFCC94 /* OFL.txt in Resources */,
 				1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */,
+				1CEFBA762C6E288F0033C894 /* Region.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CEFBA792C6E29CD0033C894 /* HomeViewManager.swift in Sources */,
 				1C5315502C62606200EFCC94 /* DetailPageViewModel.swift in Sources */,
 				1C7B507F2C6B8FBE004683C3 /* ConfigureViewModel.swift in Sources */,
 				1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */,

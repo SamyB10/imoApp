@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeBusinessLogic {
-    func start()
+    func didLoad()
 }
 
 final class HomeInteractor {
@@ -25,16 +25,18 @@ final class HomeInteractor {
 }
 
 extension HomeInteractor: HomeBusinessLogic {
-    func start() {
+    func didLoad() {
         Task {
-            switch await service.fetchRegions() {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error)
-            }
+            let response = await service.mockTest()
+            presenter?.presentInterface(with: response)
         }
-
-//        presenter?.presentInterface()
+//        Task {
+//            switch await service.fetchRegions() {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }

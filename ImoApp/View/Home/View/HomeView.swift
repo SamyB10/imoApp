@@ -9,20 +9,23 @@
 import SwiftUI
 
 struct HomeView: View {
-    var homeInteractor: HomeBusinessLogic?
-    @State private var viewModel: HomeViewModel
+//    var homeInteractor: HomeBusinessLogic?
+//    @State private var viewModel: HomeViewModel
     @State private var navigateToNextPage = false
 
-    init(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
+    // MARK: - Properties
+    @ObservedObject private var manager: HomeViewManager
+
+    init(manager: HomeViewManager) {
+        self.manager = manager
     }
 
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    GabaritListView(viewModel: .viewModel)
-                    ForEach(viewModel.section, id: \.self) { section in
+                    GabaritListView(viewModel: manager.gabaritListViewModel)
+                    ForEach(manager.viewModel.section, id: \.self) { section in
                         HomeSection(section: section)
                     }
                 }
@@ -31,17 +34,7 @@ struct HomeView: View {
             .background(.ultraThickMaterial)
         }
         .onAppear {
-            homeInteractor?.start()
+            manager.didLoad()
         }
     }
-}
-
-extension HomeView: HomeDisplayLogic {
-    func displayInterface() {
-        print("dis")
-    }
-}
-
-#Preview {
-    HomeView(viewModel: .viewModelSample)
 }

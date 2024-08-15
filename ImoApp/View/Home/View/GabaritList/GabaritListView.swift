@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct GabaritListView: View {
-    @State var viewModel: GabaritListViewModel
+    var viewModel: GabaritListViewModel
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -15,7 +15,7 @@ struct GabaritListView: View {
                 ForEach(viewModel.items) { item in
                     createItem(with: item)
                         .onTapGesture {
-                            handleGesture()
+//                            handleGesture()
                         }
                         .containerRelativeFrame(.horizontal,
                                                 count: viewModel.numberItemDisplay,
@@ -27,19 +27,37 @@ struct GabaritListView: View {
     }
 
     private func createItem(with item: GabaritListViewModel.ItemGabaritList) -> some View {
-        ZStack {
+        var itemList: [String: String]
+        switch item.type {
+        case .regions(let key, let name):
+            itemList = [key: name]
+        case .department(let key, let name):
+            itemList = [key: name]
+        case .city(let key, let name):
+            itemList = [key: name]
+        }
+
+
+        return ZStack {
             RoundedRectangle(cornerRadius: 15)
-                .foregroundStyle(Color.random)
+                .foregroundStyle(Color.gray)
                 .frame(height: 40)
-            Text("\(item.title)")
+
+            Text(itemList.values.formatted())
+                .font(.system(size: 10, weight: .regular))
+
+
+                .lineLimit(0)
+                .padding()
         }
     }
 
-    private func handleGesture() {
-        viewModel = GabaritListViewModel(items: (1...Int.random(in: 1...10)).map { i in
-            GabaritListViewModel.ItemGabaritList(title: "\(i)")
-        })
-    }
+//    private func handleGesture() {
+//        viewModel = GabaritListViewModel(items: (1...Int.random(in: 1...10)).map { i in
+//            GabaritListViewModel.ItemGabaritList(id: UUID().uuidString,
+//                                                 type: .regions("\(i)", "\(i)"))
+//        })
+//    }
 }
 
 #Preview {

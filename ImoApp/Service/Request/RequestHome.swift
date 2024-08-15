@@ -15,17 +15,17 @@ public enum HomeServiceError: Error {
 
 protocol HomeService {
     func fetchRegions() async -> Result<[RestModelRegions], HomeServiceError>
-//    func mockTest() async -> [RestModelRegions]
+    func mockTest() async -> [RestModelRegions]
 }
 
 final class RequestHome: HomeService {
-//    func mockTest() async -> [RestModelRegions] {
-//        let path = Bundle.main.path(forResource: "MockHome", ofType: "json")
-//        let data = try! Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
-//
-//        let decodeResponse = try! JSONDecoder().decode([Home].self, from: data)
-//        return decodeResponse
-//    }
+    func mockTest() async -> [RestModelRegions] {
+        let path = Bundle.main.path(forResource: "Region", ofType: "json")
+        let data = try! Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
+
+        let decodeResponse = try! JSONDecoder().decode([RestModelRegions].self, from: data)
+        return decodeResponse
+    }
 
 
     // MARK: - HomeRequest
