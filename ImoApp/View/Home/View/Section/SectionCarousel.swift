@@ -16,6 +16,7 @@ struct SectionCarousel: View {
                 HStack {
                     createItemCarousel
                 }
+                .padding(.bottom)
             }
             .contentMargins(.horizontal, items.horizontalMarginScrollViewCarousel)
             .scrollTargetBehavior(.paging)
@@ -23,7 +24,8 @@ struct SectionCarousel: View {
             VStack(alignment: .leading) {
                 CarouselHeaderView(title: titleSection)
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.bottom)
         }
     }
     

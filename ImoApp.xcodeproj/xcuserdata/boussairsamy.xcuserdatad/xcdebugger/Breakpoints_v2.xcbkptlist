@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E92CCEBF-6B7E-4FE0-BFBF-73BF7AC9683E"
+            uuid = "26F38AA6-D6BA-430F-BAF4-EC633792B815"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ImoApp/View/Home/View/HomeView.swift"
+            filePath = "ImoApp/Interactor/HomeInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "didSelectGabaritList(with:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6653BA68-FB90-4CF5-9CB8-652D131483EC"
+            uuid = "0F00BA27-4B06-4E22-816C-E2BD5A15E80A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ImoApp/View/Home/Protocol/HomeViewManager.swift"
+            filePath = "ImoApp/Interactor/HomeInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "displayInterface(with:)"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "didSelectGabaritList(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

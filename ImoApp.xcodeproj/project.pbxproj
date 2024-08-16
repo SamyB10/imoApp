@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C146C982C6F8DB000AAE5F7 /* RestModelDepartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C146C972C6F8DB000AAE5F7 /* RestModelDepartment.swift */; };
+		1C146C9A2C6F8DC500AAE5F7 /* RestModelCommunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C146C992C6F8DC500AAE5F7 /* RestModelCommunes.swift */; };
+		1C146C9C2C6F8FF600AAE5F7 /* Departments.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C146C9B2C6F8FF600AAE5F7 /* Departments.json */; };
+		1C146C9E2C6F902300AAE5F7 /* City.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C146C9D2C6F902300AAE5F7 /* City.json */; };
 		1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEB82C5A7A350006F4E9 /* HomeView.swift */; };
 		1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */; };
 		1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */; };
@@ -42,11 +46,15 @@
 		1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */; };
 		1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA702C6D0C360033C894 /* RequestHome.swift */; };
 		1CEFBA742C6D0CC50033C894 /* BusinessModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */; };
-		1CEFBA762C6E288F0033C894 /* Region.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CEFBA752C6E288F0033C894 /* Region.json */; };
+		1CEFBA762C6E288F0033C894 /* Regions.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CEFBA752C6E288F0033C894 /* Regions.json */; };
 		1CEFBA792C6E29CD0033C894 /* HomeViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C146C972C6F8DB000AAE5F7 /* RestModelDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModelDepartment.swift; sourceTree = "<group>"; };
+		1C146C992C6F8DC500AAE5F7 /* RestModelCommunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModelCommunes.swift; sourceTree = "<group>"; };
+		1C146C9B2C6F8FF600AAE5F7 /* Departments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Departments.json; sourceTree = "<group>"; };
+		1C146C9D2C6F902300AAE5F7 /* City.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = City.json; sourceTree = "<group>"; };
 		1C15FEB82C5A7A350006F4E9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -84,7 +92,7 @@
 		1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModelRegions.swift; sourceTree = "<group>"; };
 		1CEFBA702C6D0C360033C894 /* RequestHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHome.swift; sourceTree = "<group>"; };
 		1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessModelRegions.swift; sourceTree = "<group>"; };
-		1CEFBA752C6E288F0033C894 /* Region.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Region.json; sourceTree = "<group>"; };
+		1CEFBA752C6E288F0033C894 /* Regions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Regions.json; sourceTree = "<group>"; };
 		1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -390,6 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */,
+				1C146C972C6F8DB000AAE5F7 /* RestModelDepartment.swift */,
+				1C146C992C6F8DC500AAE5F7 /* RestModelCommunes.swift */,
 			);
 			path = RestModel;
 			sourceTree = "<group>";
@@ -413,7 +423,9 @@
 		1CEFBA772C6E28D00033C894 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				1CEFBA752C6E288F0033C894 /* Region.json */,
+				1CEFBA752C6E288F0033C894 /* Regions.json */,
+				1C146C9B2C6F8FF600AAE5F7 /* Departments.json */,
+				1C146C9D2C6F902300AAE5F7 /* City.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -482,11 +494,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C146C9E2C6F902300AAE5F7 /* City.json in Resources */,
 				1C5315412C5BE42000EFCC94 /* AnticDidone-Regular.ttf in Resources */,
 				1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */,
 				1C5315422C5BE42000EFCC94 /* OFL.txt in Resources */,
+				1C146C9C2C6F8FF600AAE5F7 /* Departments.json in Resources */,
 				1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */,
-				1CEFBA762C6E288F0033C894 /* Region.json in Resources */,
+				1CEFBA762C6E288F0033C894 /* Regions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +516,7 @@
 				1C7B507F2C6B8FBE004683C3 /* ConfigureViewModel.swift in Sources */,
 				1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */,
 				1C7B507B2C6B55DF004683C3 /* GabaritListView.swift in Sources */,
+				1C146C9A2C6F8DC500AAE5F7 /* RestModelCommunes.swift in Sources */,
 				1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */,
 				1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */,
 				1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */,
@@ -520,6 +535,7 @@
 				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
 				1C7464332C6CCDDD005634AE /* Extension.swift in Sources */,
 				1CEFBA742C6D0CC50033C894 /* BusinessModelRegions.swift in Sources */,
+				1C146C982C6F8DB000AAE5F7 /* RestModelDepartment.swift in Sources */,
 				1C5315492C5D0FF800EFCC94 /* CarouselHeaderView.swift in Sources */,
 				1C7B50702C67BA41004683C3 /* CardView.swift in Sources */,
 				1C53155D2C639E9900EFCC94 /* ListItemDetailHouseView.swift in Sources */,

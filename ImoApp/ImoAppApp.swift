@@ -14,19 +14,8 @@ struct ImoAppApp: App {
             constructHomeView()
         }
     }
-//
-//    let service = RequestHome()
-//    let viewModel = HomeViewModel.sampleViewModel
-//    let homePresenter = HomePresenter(service: service,
-//                                      viewModel: viewModel)
-//    let homeInteractor = HomeInteractor(presenter: homePresenter,
-//                                        service: service)
-//    let manager = HomeViewManager(interacor: homeInteractor,
-//                                  viewModel: viewModel)
-//    let _ = homePresenter.inject(display: manager)
 
-
-    func constructHomeView() -> some View {
+    private func constructHomeView() -> some View {
         let service = RequestHome()
         let viewModel = HomeViewModel.viewModelSample
         let gabaritListViewModel = GabaritListViewModel.viewModel

@@ -4,23 +4,22 @@
 //
 //  Created by Boussair Samy on 13/08/2024.
 //
-
-
-
-
-
-
 import Foundation
 public class GabaritListViewModel: Equatable, ObservableObject {
     public static func == (lhs: GabaritListViewModel, rhs: GabaritListViewModel) -> Bool {
         lhs.items == rhs.items
     }
     
+    
+    let titleSection: String
     let items: [ItemGabaritList]
-
-    init(items: [ItemGabaritList]) {
+    
+    init(titleSection: String,
+         items: [ItemGabaritList]) {
+        self.titleSection = titleSection
         self.items = items
     }
+
 
     struct ItemGabaritList: Equatable, Hashable, Identifiable {
         let id: String
@@ -57,7 +56,6 @@ extension GabaritListViewModel {
         } else {
             return items.count
         }
-
     }
 }
 
@@ -69,6 +67,7 @@ extension GabaritListViewModel {
                                          type: .regions("\(i)", "String")))
         }
 
-        return GabaritListViewModel(items: items)
+        return GabaritListViewModel(titleSection: "Region",
+                                    items: items)
     }
 }

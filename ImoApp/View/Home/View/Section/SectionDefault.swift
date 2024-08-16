@@ -19,7 +19,8 @@ struct SectionDefault: View {
         Section {
             LazyVStack {
                 ForEach(items) { item in
-                    CardView(viewModel: item)
+                    CardViewTest(viewModel: item)
+                        .padding()
                         .onTapGesture {
                             selectedItem = item
                             navigateToNextPage = true
@@ -30,7 +31,7 @@ struct SectionDefault: View {
             VStack(alignment: .leading) {
                 CarouselHeaderView(title: titleSection)
             }
-            .padding()
+            .padding(.horizontal)
         }
         .navigationDestination(isPresented: $navigateToNextPage) {
             if let selectedItem = selectedItem {

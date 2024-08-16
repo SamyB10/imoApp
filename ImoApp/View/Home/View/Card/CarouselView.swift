@@ -28,7 +28,7 @@ struct CarouselView: View {
             detailHouse
                 .padding()
         }
-        .background(Color.white)
+        .background(.white)
         .cornerRadius(viewModel.cornerRadius)
         .navigationDestination(isPresented: $navigateToNextPage) {
             DetailPageView(viewModel: DetailPageViewModel(image: viewModel.imageHouse,

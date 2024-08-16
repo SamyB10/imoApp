@@ -9,7 +9,7 @@ import Foundation
 
 import Foundation
 
-public struct RestModelRegions: Decodable {
+public struct RestModelRegions: Decodable, Equatable {
     let name: String?
     let key: String?
 

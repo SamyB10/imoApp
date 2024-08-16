@@ -28,6 +28,7 @@ struct SectionStackedCard: View {
                             .zIndex(items.zIndex(item))
                     }
                 }
+                .padding(.bottom)
             }
             .scrollTargetBehavior(.paging)
             .scrollIndicators(.hidden)
@@ -35,7 +36,7 @@ struct SectionStackedCard: View {
             VStack(alignment: .leading) {
                 CarouselHeaderView(title: titleSection)
             }
-            .padding()
+            .padding(.horizontal)
         }
     }
 

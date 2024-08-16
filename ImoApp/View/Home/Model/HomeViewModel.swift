@@ -30,7 +30,7 @@ extension HomeViewModel {
         var itemHouseDefault: [CardHomeViewModel] = []
 
         for _ in 1...4 {
-            let randomImage = Int.random(in: 1...4)
+            let randomImage = Int.random(in: 1...8)
             itemHouseCarousel.append(CardHomeViewModel(imageHouse: String(randomImage),
                                                titleHouse: "Title House",
                                                addressHouse: "Address House",
@@ -40,7 +40,7 @@ extension HomeViewModel {
         }
 
         for _ in 1...10 {
-            let randomImage = Int.random(in: 1...4)
+            let randomImage = Int.random(in: 1...8)
             itemHouseStacked.append(CardHomeViewModel(imageHouse: String(randomImage),
                                                titleHouse: "Title House",
                                                addressHouse: "Address House",
@@ -50,7 +50,7 @@ extension HomeViewModel {
         }
 
         for _ in 1...100 {
-            let randomImage = Int.random(in: 1...4)
+            let randomImage = Int.random(in: 1...8)
             itemHouseDefault.append(CardHomeViewModel(imageHouse: String(randomImage),
                                                titleHouse: "Title House",
                                                addressHouse: "Address House",

@@ -10,7 +10,6 @@ import SwiftUI
 
 final class HomeViewManager: ObservableObject {
     private let interacor: HomeBusinessLogic?
-
     @Published var viewModel: HomeViewModel
     @Published var gabaritListViewModel: GabaritListViewModel
 
@@ -24,6 +23,10 @@ final class HomeViewManager: ObservableObject {
 
     func didLoad() {
         interacor?.didLoad()
+    }
+
+    func didSelectItemGabaritList(with action: TypeActionGabaritList) {
+        interacor?.didSelectGabaritList(with: action)
     }
 }
 
