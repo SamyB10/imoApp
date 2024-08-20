@@ -17,14 +17,14 @@ struct ImoAppApp: App {
 
     private func constructHomeView() -> some View {
         let service = RequestHome()
-        let viewModel = HomeViewModel.viewModelSample
-        let gabaritListViewModel = GabaritListViewModel.viewModel
+        let viewModel = HomeViewModel.homeViewModelSample
 
         let homeInteractor = HomeInteractor(service: service)
         let homePresenter = HomePresenter()
+        let searchLocationViewModel = SearchLocationViewModel()
         let manager = HomeViewManager(interacor: homeInteractor,
-                                      viewModel: viewModel,
-                                      gabaritListViewModel: gabaritListViewModel)
+                                      searchLocationViewModel: searchLocationViewModel,
+                                      viewModel: viewModel)
 
         let homeView = HomeView(manager: manager)
         homeInteractor.inject(presenter: homePresenter)

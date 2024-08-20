@@ -37,17 +37,17 @@
 		1C7B50732C67C885004683C3 /* SectionCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50722C67C885004683C3 /* SectionCarousel.swift */; };
 		1C7B50752C67C88E004683C3 /* SectionStackedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */; };
 		1C7B50772C67C8EC004683C3 /* SectionDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50762C67C8EC004683C3 /* SectionDefault.swift */; };
-		1C7B507B2C6B55DF004683C3 /* GabaritListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B507A2C6B55DF004683C3 /* GabaritListView.swift */; };
-		1C7B507D2C6B8FA2004683C3 /* GabaritListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B507C2C6B8FA2004683C3 /* GabaritListViewModel.swift */; };
 		1C7B507F2C6B8FBE004683C3 /* ConfigureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B507E2C6B8FBE004683C3 /* ConfigureViewModel.swift */; };
+		1CC3EA1C2C73BE65007EEC4A /* ToolBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA1B2C73BE65007EEC4A /* ToolBarCustom.swift */; };
+		1CC3EA1F2C749366007EEC4A /* HomeViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA1E2C749366007EEC4A /* HomeViewManager.swift */; };
 		1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */; };
 		1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588D92C4D42D7009DDDEA /* Assets.xcassets */; };
 		1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */; };
+		1CED438A2C734F6600E4BD81 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED43892C734F6600E4BD81 /* SearchViewModel.swift */; };
 		1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */; };
 		1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA702C6D0C360033C894 /* RequestHome.swift */; };
 		1CEFBA742C6D0CC50033C894 /* BusinessModelRegions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */; };
 		1CEFBA762C6E288F0033C894 /* Regions.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CEFBA752C6E288F0033C894 /* Regions.json */; };
-		1CEFBA792C6E29CD0033C894 /* HomeViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,19 +81,19 @@
 		1C7B50722C67C885004683C3 /* SectionCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCarousel.swift; sourceTree = "<group>"; };
 		1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionStackedCard.swift; sourceTree = "<group>"; };
 		1C7B50762C67C8EC004683C3 /* SectionDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDefault.swift; sourceTree = "<group>"; };
-		1C7B507A2C6B55DF004683C3 /* GabaritListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabaritListView.swift; sourceTree = "<group>"; };
-		1C7B507C2C6B8FA2004683C3 /* GabaritListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabaritListViewModel.swift; sourceTree = "<group>"; };
 		1C7B507E2C6B8FBE004683C3 /* ConfigureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewModel.swift; sourceTree = "<group>"; };
+		1CC3EA1B2C73BE65007EEC4A /* ToolBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarCustom.swift; sourceTree = "<group>"; };
+		1CC3EA1E2C749366007EEC4A /* HomeViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewManager.swift; sourceTree = "<group>"; };
 		1CE588D22C4D42D6009DDDEA /* ImoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImoAppApp.swift; sourceTree = "<group>"; };
 		1CE588D92C4D42D7009DDDEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CE588DB2C4D42D7009DDDEA /* ImoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImoApp.entitlements; sourceTree = "<group>"; };
 		1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CED43892C734F6600E4BD81 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		1CEFBA6C2C6D0B730033C894 /* RestModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModelRegions.swift; sourceTree = "<group>"; };
 		1CEFBA702C6D0C360033C894 /* RequestHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHome.swift; sourceTree = "<group>"; };
 		1CEFBA732C6D0CC50033C894 /* BusinessModelRegions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessModelRegions.swift; sourceTree = "<group>"; };
 		1CEFBA752C6E288F0033C894 /* Regions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Regions.json; sourceTree = "<group>"; };
-		1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +111,7 @@
 		1C15FEBA2C5A7A6D0006F4E9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1CC3EA1D2C749355007EEC4A /* Manager */,
 				1C6A9C882C66562D008E01FE /* Protocol */,
 				1C6A9C7F2C6654BA008E01FE /* Model */,
 				1C6A9C7E2C6654A4008E01FE /* View */,
@@ -211,7 +212,6 @@
 		1C6A9C7E2C6654A4008E01FE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1C7B50792C6B55B1004683C3 /* GabaritList */,
 				1C7B50712C67C876004683C3 /* Section */,
 				1C7B506E2C67A5D7004683C3 /* Card */,
 				1C6A9C802C6654D9008E01FE /* Header */,
@@ -226,6 +226,7 @@
 			children = (
 				1C5315442C5BF22B00EFCC94 /* CardViewModel.swift */,
 				1C6A9C7C2C66549B008E01FE /* HomeViewModel.swift */,
+				1CED43892C734F6600E4BD81 /* SearchViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				1C5315482C5D0FF800EFCC94 /* CarouselHeaderView.swift */,
+				1CC3EA1B2C73BE65007EEC4A /* ToolBarCustom.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -300,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				1C6A9C892C66563E008E01FE /* DisplayLogic.swift */,
-				1CEFBA782C6E29CD0033C894 /* HomeViewManager.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -333,13 +334,12 @@
 			path = Section;
 			sourceTree = "<group>";
 		};
-		1C7B50792C6B55B1004683C3 /* GabaritList */ = {
+		1CC3EA1D2C749355007EEC4A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				1C7B507A2C6B55DF004683C3 /* GabaritListView.swift */,
-				1C7B507C2C6B8FA2004683C3 /* GabaritListViewModel.swift */,
+				1CC3EA1E2C749366007EEC4A /* HomeViewManager.swift */,
 			);
-			path = GabaritList;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		1CE588C92C4D42D6009DDDEA = {
@@ -511,11 +511,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CEFBA792C6E29CD0033C894 /* HomeViewManager.swift in Sources */,
 				1C5315502C62606200EFCC94 /* DetailPageViewModel.swift in Sources */,
 				1C7B507F2C6B8FBE004683C3 /* ConfigureViewModel.swift in Sources */,
 				1CEFBA6D2C6D0B730033C894 /* RestModelRegions.swift in Sources */,
-				1C7B507B2C6B55DF004683C3 /* GabaritListView.swift in Sources */,
 				1C146C9A2C6F8DC500AAE5F7 /* RestModelCommunes.swift in Sources */,
 				1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */,
 				1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */,
@@ -527,16 +525,17 @@
 				1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */,
 				1C7B50732C67C885004683C3 /* SectionCarousel.swift in Sources */,
 				1C6A9C8C2C6658CE008E01FE /* HomeSection.swift in Sources */,
-				1C7B507D2C6B8FA2004683C3 /* GabaritListViewModel.swift in Sources */,
 				1C5315522C6260A000EFCC94 /* ImageView.swift in Sources */,
 				1C7B50752C67C88E004683C3 /* SectionStackedCard.swift in Sources */,
 				1C53154E2C624B1500EFCC94 /* DetailPageView.swift in Sources */,
+				1CED438A2C734F6600E4BD81 /* SearchViewModel.swift in Sources */,
 				1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */,
 				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
 				1C7464332C6CCDDD005634AE /* Extension.swift in Sources */,
 				1CEFBA742C6D0CC50033C894 /* BusinessModelRegions.swift in Sources */,
 				1C146C982C6F8DB000AAE5F7 /* RestModelDepartment.swift in Sources */,
 				1C5315492C5D0FF800EFCC94 /* CarouselHeaderView.swift in Sources */,
+				1CC3EA1C2C73BE65007EEC4A /* ToolBarCustom.swift in Sources */,
 				1C7B50702C67BA41004683C3 /* CardView.swift in Sources */,
 				1C53155D2C639E9900EFCC94 /* ListItemDetailHouseView.swift in Sources */,
 				1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */,
@@ -544,6 +543,7 @@
 				1C5315452C5BF22B00EFCC94 /* CardViewModel.swift in Sources */,
 				1C6A9C8A2C66563E008E01FE /* DisplayLogic.swift in Sources */,
 				1C7B50772C67C8EC004683C3 /* SectionDefault.swift in Sources */,
+				1CC3EA1F2C749366007EEC4A /* HomeViewManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

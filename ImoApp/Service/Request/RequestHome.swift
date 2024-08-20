@@ -18,10 +18,10 @@ protocol HomeService {
     func mockRegions() async -> [RestModelRegions]
 
     func fetchDepartments(with keyRegion: String) async -> Result<[RestModelDepartment], HomeServiceError>
-    func mockDepartments(with keyRegion: String) async -> [RestModelDepartment]
+    func mockDepartments(with keyRegion: String?) async -> [RestModelDepartment]
 
     func fetchCity(with keyDepartment: String) async -> Result<[RestModelCity], HomeServiceError>
-    func mockCity(with keyDepartment: String) async -> [RestModelCity]
+    func mockCity(with keyDepartment: String?) async -> [RestModelCity]
 }
 
 // MARK: - HomeRequest
@@ -64,13 +64,17 @@ final class RequestHome: HomeService {
         }
     }
 
-    func mockDepartments(with keyRegion: String) async -> [RestModelDepartment] {
+    func mockDepartments(with keyRegion: String?) async -> [RestModelDepartment] {
         let path = Bundle.main.path(forResource: "Departments", ofType: "json")
         let data = try! Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
 
         let decodeResponse = try! JSONDecoder().decode([RestModelDepartment].self, from: data)
-        let filteredDepartments = decodeResponse.filter { $0.keyRegion == keyRegion }
-        return filteredDepartments
+        if let keyRegion {
+            let filteredDepartments = decodeResponse.filter { $0.keyRegion == keyRegion }
+            return filteredDepartments
+        } else {
+            return decodeResponse
+        }
     }
 
     func fetchDepartments(with keyRegion: String) async -> Result<[RestModelDepartment], HomeServiceError> {
@@ -106,13 +110,17 @@ final class RequestHome: HomeService {
         }
     }
 
-    func mockCity(with keyDepartment: String) async -> [RestModelCity] {
+    func mockCity(with keyDepartment: String?) async -> [RestModelCity] {
         let path = Bundle.main.path(forResource: "City", ofType: "json")
         let data = try! Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
 
         let decodeResponse = try! JSONDecoder().decode([RestModelCity].self, from: data)
-        let filteredCity = decodeResponse.filter { $0.keyDepartment == keyDepartment }
-        return filteredCity
+        if let keyDepartment {
+            let filteredCity = decodeResponse.filter { $0.keyDepartment == keyDepartment }
+            return filteredCity
+        } else {
+            return decodeResponse
+        }
     }
 
     func fetchCity(with keyDepartment: String) async -> Result<[RestModelCity], HomeServiceError> {

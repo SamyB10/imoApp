@@ -9,5 +9,5 @@ import Foundation
 
 @MainActor
 public protocol HomeDisplayLogic {
-    func displayInterface(with GabaritListViewModel: GabaritListViewModel)
+    func displayInterface(with GabaritListViewModel: HomeViewModel)
 }

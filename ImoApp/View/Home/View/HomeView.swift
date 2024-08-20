@@ -7,14 +7,15 @@
 
 
 import SwiftUI
+import MapKit
 
 struct HomeView: View {
-//    var homeInteractor: HomeBusinessLogic?
-//    @State private var viewModel: HomeViewModel
-    @State private var navigateToNextPage = false
 
     // MARK: - Properties
+    @State private var searchIsActive: Bool = false
     @ObservedObject private var manager: HomeViewManager
+    @State private var searchText: String = ""
+//    @StateObject private var searchLocationViewModelTest = SearchLocationViewModelTest()
 
     init(manager: HomeViewManager) {
         self.manager = manager
@@ -23,47 +24,51 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
-                VStack(alignment: .leading) {
-                    withAnimation {
-                        sectionGabaritList
-                    }
-                    ForEach(manager.viewModel.section, id: \.self) { section in
-                        HomeSection(section: section)
-                    }
-                }
+                section
             }
             .navigationTitle( "Home" )
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    ImageLoaderView(dvImage: .asset("Avatar"),
-                                    contentMode: .fit)
-                    .frame(width: 30, height: 30)
-                }
+                ToolBarCustom()
             }
             .background(.ultraThickMaterial)
-//            .background(.testHome)
         }
+        .searchable(text: $manager.searchLocationViewModel.searchText, prompt: "Region, Department, Location") {
+            if !manager.searchLocationViewModel.searchText.isEmpty {
+                listLocationSuggestions
+            }
+        }
+
+        .onChange(of: manager.searchLocationViewModel.searchText) {
+            manager.searchLocationViewModel.search()
+        }
+
         .onAppear {
             manager.didLoad()
         }
     }
 
-    private var sectionGabaritList: some View {
-        Section {
-            GabaritListView(viewModel: manager.gabaritListViewModel) { action in
-                manager.didSelectItemGabaritList(with: action)
+    private var section: some View {
+        VStack(alignment: .leading) {
+            ForEach(manager.viewModel.section, id: \.self) { section in
+                HomeSection(section: section)
             }
-                .padding(.bottom)
-        } header: {
-            VStack(alignment: .leading) {
-                CarouselHeaderView(cleanFilter: true,
-                                   title: manager.gabaritListViewModel.titleSection) {
-                    manager.didSelectItemGabaritList(with: .clean)
-                }
+        }
+    }
+
+
+    private var listLocationSuggestions: some View {
+        ForEach(manager.searchLocationViewModel.suggestions, id: \.self) { suggestion in
+            Button(action: {
+                // Action lorsqu'une suggestion est sélectionnée.
+                manager.searchLocationViewModel.searchText = suggestion.title
+                manager.searchLocationViewModel.suggestions.removeAll() // Masquer les suggestions après la sélection
+                print(suggestion.title) // Afficher la suggestion sélectionnée
+            }) {
+                Text(suggestion.title)
+                    .foregroundStyle(.black)
+                    .searchCompletion(suggestion.title)
             }
-            .padding(.horizontal)
-            .padding(.top)
         }
     }
 }
@@ -72,7 +77,7 @@ struct HomeView: View {
     let service = RequestHome()
     let interactor = HomeInteractor(service: service)
     let manager = HomeViewManager(interacor: interactor,
-                                  viewModel: .viewModelSample,
-                                  gabaritListViewModel: .viewModel)
+                                  searchLocationViewModel: SearchLocationViewModel(),
+                                  viewModel: .homeViewModelSample)
     return HomeView(manager: manager)
 }

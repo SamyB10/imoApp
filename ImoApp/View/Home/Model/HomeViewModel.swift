@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomeViewModel: Equatable, Hashable {
+public struct HomeViewModel: Equatable, Hashable {
     let section: [SectionViewModel]
 
     struct SectionViewModel: Equatable, Hashable {
@@ -22,7 +22,7 @@ struct HomeViewModel: Equatable, Hashable {
 }
 
 extension HomeViewModel {
-    static var viewModelSample: HomeViewModel {
+    static var sectionViewModel: [SectionViewModel] {
         let title = HomeViewModel.TitleSection.allCases
         var homeSection: [SectionViewModel] = []
         var itemHouseCarousel: [CardHomeViewModel] = []
@@ -76,7 +76,10 @@ extension HomeViewModel {
             }
             homeSection.append(section)
         }
-        
-        return HomeViewModel(section: homeSection)
+        return homeSection
+    }
+
+    static var homeViewModelSample: HomeViewModel {
+        return HomeViewModel(section: sectionViewModel)
     }
 }
