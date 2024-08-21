@@ -8,10 +8,22 @@
 import Foundation
 import MapKit
 class SearchLocationViewModel: NSObject, ObservableObject {
-    @Published var suggestions: [MKLocalSearchCompletion] = []
-    @Published var searchText = ""
+    @Published private(set) var suggestions: [MKLocalSearchCompletion] = []
+    @Published var searchText = "" {
+        didSet {
+            guard searchText.isEmpty else { return }
+            suggestions = []
+        }
+    }
 
-    private var searchCompleter: MKLocalSearchCompleter
+    var locationChoice: String? {
+        didSet {
+            guard locationChoice != oldValue else { return }
+        }
+    }
+
+    private(set) var searchCompleter: MKLocalSearchCompleter
+    private(set) var findLocation: Bool = false
 
     override init() {
         searchCompleter = MKLocalSearchCompleter()
@@ -22,6 +34,14 @@ class SearchLocationViewModel: NSObject, ObservableObject {
 
     func search() {
         searchCompleter.queryFragment = searchText
+    }
+
+    func finishSearch() {
+        guard !suggestions.contains(where: { suggestion in
+            searchText == suggestion.title
+        }) else {
+            return findLocation = true
+        }
     }
 }
 
@@ -35,26 +55,3 @@ extension SearchLocationViewModel: MKLocalSearchCompleterDelegate {
     }
 }
 
-
-
-
-
-
-
-
-
-//public enum TypeLocationSearchable: Equatable, Hashable {
-//    case region
-//    case department
-//    case city
-//}
-//
-//struct SearchLocationViewModel: Equatable, Hashable {
-//    let itemsSearchable: [TypeLocationSearchable: [ItemSearchableLocation]]
-//
-//    struct ItemSearchableLocation: Equatable, Hashable {
-//        let id: String
-//        let name: String
-//    }
-//}
-//

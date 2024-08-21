@@ -20,7 +20,8 @@ struct SectionDefault: View {
             LazyVStack {
                 ForEach(items) { item in
                     CardViewTest(viewModel: item)
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.vertical, 5)
                         .onTapGesture {
                             selectedItem = item
                             navigateToNextPage = true

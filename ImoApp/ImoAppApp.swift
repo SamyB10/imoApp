@@ -12,6 +12,7 @@ struct ImoAppApp: App {
     var body: some Scene {
         WindowGroup {
             constructHomeView()
+//            SampleSearch(searchedViewModel: SearchedViewModel())
         }
     }
 

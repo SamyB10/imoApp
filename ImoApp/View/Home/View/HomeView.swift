@@ -12,10 +12,8 @@ import MapKit
 struct HomeView: View {
 
     // MARK: - Properties
-    @State private var searchIsActive: Bool = false
     @ObservedObject private var manager: HomeViewManager
-    @State private var searchText: String = ""
-//    @StateObject private var searchLocationViewModelTest = SearchLocationViewModelTest()
+    @State private var show: Bool = true
 
     init(manager: HomeViewManager) {
         self.manager = manager
@@ -23,30 +21,36 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
-                section
+            ZStack {
+                ScrollView(.vertical) {
+//                    SearchWithSuggestionsView()
+                    section
+                }
+                .navigationTitle(manager.searchLocationViewModel.locationChoice ?? "Nil")
+//                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolBarCustom()
+                }
+                .background(.ultraThickMaterial)
+//                if show {
+                    SearchedView(searchLocationViewModel: manager.searchLocationViewModel)
+//                }
             }
-            .navigationTitle( "Home" )
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolBarCustom()
-            }
-            .background(.ultraThickMaterial)
         }
-        .searchable(text: $manager.searchLocationViewModel.searchText, prompt: "Region, Department, Location") {
-            if !manager.searchLocationViewModel.searchText.isEmpty {
-                listLocationSuggestions
-            }
-        }
-
+        .searchable(text: $manager.searchLocationViewModel.searchText, prompt: "Region, Department, City")
         .onChange(of: manager.searchLocationViewModel.searchText) {
+//            show = true
             manager.searchLocationViewModel.search()
         }
-
         .onAppear {
             manager.didLoad()
         }
+
+//        .onSubmit(of: .search) {
+////            show = false
+//        }
     }
+
 
     private var section: some View {
         VStack(alignment: .leading) {
@@ -56,19 +60,11 @@ struct HomeView: View {
         }
     }
 
-
     private var listLocationSuggestions: some View {
         ForEach(manager.searchLocationViewModel.suggestions, id: \.self) { suggestion in
-            Button(action: {
-                // Action lorsqu'une suggestion est sélectionnée.
-                manager.searchLocationViewModel.searchText = suggestion.title
-                manager.searchLocationViewModel.suggestions.removeAll() // Masquer les suggestions après la sélection
-                print(suggestion.title) // Afficher la suggestion sélectionnée
-            }) {
-                Text(suggestion.title)
-                    .foregroundStyle(.black)
-                    .searchCompletion(suggestion.title)
-            }
+            Text(suggestion.title)
+                .foregroundStyle(.black)
+                .searchCompletion(suggestion.title)
         }
     }
 }

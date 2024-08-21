@@ -40,6 +40,8 @@
 		1C7B507F2C6B8FBE004683C3 /* ConfigureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B507E2C6B8FBE004683C3 /* ConfigureViewModel.swift */; };
 		1CC3EA1C2C73BE65007EEC4A /* ToolBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA1B2C73BE65007EEC4A /* ToolBarCustom.swift */; };
 		1CC3EA1F2C749366007EEC4A /* HomeViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA1E2C749366007EEC4A /* HomeViewManager.swift */; };
+		1CC3EA212C750283007EEC4A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA202C750283007EEC4A /* SearchView.swift */; };
+		1CC3EA232C761140007EEC4A /* SampleSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA222C761140007EEC4A /* SampleSearch.swift */; };
 		1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */; };
 		1CE588DA2C4D42D7009DDDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588D92C4D42D7009DDDEA /* Assets.xcassets */; };
 		1CE588DE2C4D42D7009DDDEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE588DD2C4D42D7009DDDEA /* Preview Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		1C7B507E2C6B8FBE004683C3 /* ConfigureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewModel.swift; sourceTree = "<group>"; };
 		1CC3EA1B2C73BE65007EEC4A /* ToolBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarCustom.swift; sourceTree = "<group>"; };
 		1CC3EA1E2C749366007EEC4A /* HomeViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewManager.swift; sourceTree = "<group>"; };
+		1CC3EA202C750283007EEC4A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		1CC3EA222C761140007EEC4A /* SampleSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSearch.swift; sourceTree = "<group>"; };
 		1CE588D22C4D42D6009DDDEA /* ImoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE588D52C4D42D6009DDDEA /* ImoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImoAppApp.swift; sourceTree = "<group>"; };
 		1CE588D92C4D42D7009DDDEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				1C7B506E2C67A5D7004683C3 /* Card */,
 				1C6A9C802C6654D9008E01FE /* Header */,
 				1C15FEB82C5A7A350006F4E9 /* HomeView.swift */,
+				1CC3EA202C750283007EEC4A /* SearchView.swift */,
 				1C6A9C8B2C6658CE008E01FE /* HomeSection.swift */,
 			);
 			path = View;
@@ -345,6 +350,7 @@
 		1CE588C92C4D42D6009DDDEA = {
 			isa = PBXGroup;
 			children = (
+				1CC3EA222C761140007EEC4A /* SampleSearch.swift */,
 				1CE588D42C4D42D6009DDDEA /* ImoApp */,
 				1CE588D32C4D42D6009DDDEA /* Products */,
 			);
@@ -517,10 +523,12 @@
 				1C146C9A2C6F8DC500AAE5F7 /* RestModelCommunes.swift in Sources */,
 				1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */,
 				1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */,
+				1CC3EA212C750283007EEC4A /* SearchView.swift in Sources */,
 				1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */,
 				1C53155A2C63833100EFCC94 /* DescriptionDetailPageView.swift in Sources */,
 				1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */,
 				1C5315582C6266A900EFCC94 /* AsyncImageLoaderView.swift in Sources */,
+				1CC3EA232C761140007EEC4A /* SampleSearch.swift in Sources */,
 				1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */,
 				1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */,
 				1C7B50732C67C885004683C3 /* SectionCarousel.swift in Sources */,
