@@ -7,33 +7,25 @@
 
 import SwiftUI
 final class FilterViewManager: ObservableObject {
+    private let interacor: FilterBusinessLogic?
     @Published private(set) var viewModel: FilterHomeViewModel
+    @Published var selectedPickerCell: UUID?
 
-    init(viewModel: FilterHomeViewModel) {
+    init(interacor: FilterBusinessLogic?,
+         viewModel: FilterHomeViewModel) {
+        self.interacor = interacor
         self.viewModel = viewModel
     }
 
-//    private let interacor: HomeBusinessLogic?
-//    @Published var searchLocationViewModel: SearchLocationViewModel
-//    @Published private(set) var viewModel: HomeViewModel
-//
-//    init(interacor: HomeBusinessLogic,
-//         searchLocationViewModel: SearchLocationViewModel,
-//         viewModel: HomeViewModel) {
-//        self.interacor = interacor
-//        self.searchLocationViewModel = searchLocationViewModel
-//        self.viewModel = viewModel
-//    }
-//
-//    func didLoad() {
-//        interacor?.didLoad()
-//    }
-//}
-//
-//extension HomeViewManager: HomeDisplayLogic {
-//    func displayInterface(with homeViewModel: HomeViewModel) {
-//        DispatchQueue.main.async {
-//            self.viewModel = homeViewModel
-//        }
-//    }
+    func didLoad() {
+        interacor?.didLoad()
+    }
+}
+
+extension FilterViewManager: FilterDisplayLogic {
+    func displayInterface(with homeViewModel: FilterHomeViewModel) {
+        DispatchQueue.main.async {
+            self.viewModel = homeViewModel
+        }
+    }
 }

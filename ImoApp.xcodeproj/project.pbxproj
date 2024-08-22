@@ -38,6 +38,8 @@
 		1C828F232C7774DB0039B376 /* FavoritesButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C828F222C7774DB0039B376 /* FavoritesButtonView.swift */; };
 		1C828F282C7791CF0039B376 /* FilterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C828F272C7791CF0039B376 /* FilterHomeView.swift */; };
 		1C828F2B2C779FEA0039B376 /* FilterViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C828F2A2C779FEA0039B376 /* FilterViewManager.swift */; };
+		1C828F2E2C77BDFB0039B376 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C828F2D2C77BDFB0039B376 /* FilterPresenter.swift */; };
+		1C828F312C77BE1E0039B376 /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C828F302C77BE1E0039B376 /* FilterInteractor.swift */; };
 		1CC3EA1C2C73BE65007EEC4A /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA1B2C73BE65007EEC4A /* ToolBarView.swift */; };
 		1CC3EA1F2C749366007EEC4A /* HomeViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA1E2C749366007EEC4A /* HomeViewManager.swift */; };
 		1CC3EA212C750283007EEC4A /* SearchSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC3EA202C750283007EEC4A /* SearchSuggestionView.swift */; };
@@ -81,6 +83,8 @@
 		1C828F222C7774DB0039B376 /* FavoritesButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesButtonView.swift; sourceTree = "<group>"; };
 		1C828F272C7791CF0039B376 /* FilterHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHomeView.swift; sourceTree = "<group>"; };
 		1C828F2A2C779FEA0039B376 /* FilterViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewManager.swift; sourceTree = "<group>"; };
+		1C828F2D2C77BDFB0039B376 /* FilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
+		1C828F302C77BE1E0039B376 /* FilterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInteractor.swift; sourceTree = "<group>"; };
 		1CC3EA1B2C73BE65007EEC4A /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
 		1CC3EA1E2C749366007EEC4A /* HomeViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewManager.swift; sourceTree = "<group>"; };
 		1CC3EA202C750283007EEC4A /* SearchSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionView.swift; sourceTree = "<group>"; };
@@ -132,7 +136,8 @@
 		1C15FEBC2C5A7B400006F4E9 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */,
+				1C828F322C77BE250039B376 /* Home */,
+				1C828F2F2C77BE100039B376 /* Filter */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 		1C15FEBD2C5A7B4A0006F4E9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				1C828F2C2C77BDF30039B376 /* Filter */,
 				1C15FEC02C5A7D930006F4E9 /* Home */,
 			);
 			path = Presenter;
@@ -383,6 +389,30 @@
 			path = ManagerFilter;
 			sourceTree = "<group>";
 		};
+		1C828F2C2C77BDF30039B376 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				1C828F2D2C77BDFB0039B376 /* FilterPresenter.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		1C828F2F2C77BE100039B376 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				1C828F302C77BE1E0039B376 /* FilterInteractor.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		1C828F322C77BE250039B376 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		1CC3EA1D2C749355007EEC4A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +598,7 @@
 				1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */,
 				1C828F2B2C779FEA0039B376 /* FilterViewManager.swift in Sources */,
 				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
+				1C828F312C77BE1E0039B376 /* FilterInteractor.swift in Sources */,
 				1C7464332C6CCDDD005634AE /* Extension.swift in Sources */,
 				1C5315492C5D0FF800EFCC94 /* SectionHeaderView.swift in Sources */,
 				1CC3EA1C2C73BE65007EEC4A /* ToolBarView.swift in Sources */,
@@ -579,6 +610,7 @@
 				1C5315452C5BF22B00EFCC94 /* CardViewModel.swift in Sources */,
 				1C6A9C8A2C66563E008E01FE /* DisplayLogic.swift in Sources */,
 				1C7B50772C67C8EC004683C3 /* SectionDefault.swift in Sources */,
+				1C828F2E2C77BDFB0039B376 /* FilterPresenter.swift in Sources */,
 				1CC3EA1F2C749366007EEC4A /* HomeViewManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,3 +11,9 @@ import Foundation
 public protocol HomeDisplayLogic {
     func displayInterface(with homeViewModel: HomeViewModel)
 }
+
+@MainActor
+public protocol FilterDisplayLogic {
+    func displayInterface(with filterHomeViewModel: FilterHomeViewModel)
+}
+

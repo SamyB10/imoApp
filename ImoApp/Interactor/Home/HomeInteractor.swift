@@ -13,7 +13,7 @@ protocol HomeBusinessLogic {
 
 final class HomeInteractor {
     private var presenter: HomePresentationLogic?
-    private var service: HomeService
+    private let service: HomeService
 
     init(service: HomeService) {
         self.service = service

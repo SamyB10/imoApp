@@ -29,11 +29,31 @@ struct ToolBarView: View {
                 }
             }
             .sheet(isPresented: $showSheet) {
-                FilterHomeView(viewModel: .filterHomeViewModelSample)
+                Navigation.navigationToFilter()
             }
     }
 }
 
 #Preview {
     ToolBarView()
+}
+
+
+
+
+
+
+struct Navigation {
+    static func navigationToFilter() -> some View {
+        let filterInteractor = FilterInteractor()
+        let filterPresenter = FilterPresenter()
+        let manager = FilterViewManager(interacor: filterInteractor,
+                                        viewModel: .filterHomeViewModelSample)
+        let filterView = FilterHomeView(manager: manager)
+
+        filterInteractor.inject(presenter: filterPresenter)
+        filterPresenter.inject(display: manager)
+
+        return filterView
+    }
 }

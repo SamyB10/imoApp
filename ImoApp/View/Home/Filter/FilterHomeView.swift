@@ -6,80 +6,89 @@
 //
 import SwiftUI
 struct FilterHomeView: View {
-    @StateObject var viewModel: FilterHomeViewModel
-//    @StateObject var viewModel: FilterViewManager
+    //    @StateObject var viewModel: FilterHomeViewModel
+    @StateObject var manager: FilterViewManager
 
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                ForEach(viewModel.sections, id: \.self) { section in
+                ForEach(manager.viewModel.sections, id: \.self) { section in
                     switch section {
-                    case .typeOfProperty:
-//                        Form {
-                            Picker("", selection: $viewModel.selectedCell) {
-                                ForEach(section.cells, id: \.self) {
-                                    switch $0.apperance {
-                                    case .pickerStyle(let apperance):
-                                        Text(apperance.title)
-                                            .tag($0 as FilterHomeViewModel.Section.Cell?)
-                                    default:
-                                        Text("")
-                                    }
+                    case .typeOfProperty(let cells):
+                        Picker("Select an option", selection: $manager.selectedPickerCell) {
+                            ForEach(cells, id: \.id) { cell in
+                                switch cell.apperance {
+                                case .pickerStyle(let apperance):
+                                    Text(apperance.title)
+                                        .tag(cell.id as UUID?)
+                                default:
+                                    Text("")
                                 }
                             }
-                            .pickerStyle(.segmented)
-                            .padding()
+                        }
+
+                        .pickerStyle(.segmented)
+                        .padding()
+                        .onChange(of: manager.selectedPickerCell, { oldValue, newValue in
+                            print("Selected cell: \(String(describing: newValue))")
+                        })
                         Spacer()
-//                        }
                     }
                 }
             }
             .navigationTitle("Filter")
+            .onAppear {
+                manager.didLoad()
+            }
         }
     }
 }
 
-#Preview {
-    FilterHomeView(viewModel: .filterHomeViewModelSample)
-}
+    //                                    switch $0.apperance {
+    //                                    case .pickerStyle(let apperance):
+    //                                        Text(apperance.title)
+    //                                            .tag($0.id)
+    //                                    default:
+    //                                        Text("")
+    //                                    }
 
-
-class FilterHomeViewModel: ObservableObject {
-    @Published var selectedCell: FilterHomeViewModel.Section.Cell?
+public struct FilterHomeViewModel: Equatable, Hashable {
     let sections: [Section]
 
-    init(sections: [Section]) {
-        self.sections = sections
+    init() {
+        // Initialisation des sections avec des cellules dont les UUID sont créés une seule fois
+        self.sections = [
+            Section.typeOfProperty([
+                Section.Cell(id: UUID(), apperance: .pickerStyle(.apartment), currentState: true),
+                Section.Cell(id: UUID(), apperance: .pickerStyle(.house), currentState: false)
+            ])
+        ]
     }
 }
-
-
-//struct FilterHomeViewModel: Equatable {
-//    let sections: [Section]
-//}
 
 extension FilterHomeViewModel {
-    enum Section {
-        case typeOfProperty
+    enum Section: Hashable, Equatable {
+        case typeOfProperty([Cell])
     }
 }
 
-extension FilterHomeViewModel.Section {
-    var cells: [FilterHomeViewModel.Section.Cell] {
-        switch self {
-        case .typeOfProperty:
-            return [
-                FilterHomeViewModel.Section.Cell(apperance: .pickerStyle(.apartment),
-                                                 currentState: true),
-                FilterHomeViewModel.Section.Cell(apperance: .pickerStyle(.house),
-                                                 currentState: false)
-            ]
-        }
-    }
-}
+//extension FilterHomeViewModel.Section {
+//    var cells: [FilterHomeViewModel.Section.Cell] {
+//        switch self {
+//        case .typeOfProperty:
+//            return [
+//                FilterHomeViewModel.Section.Cell(apperance: .pickerStyle(.apartment),
+//                                                 currentState: true),
+//                FilterHomeViewModel.Section.Cell(apperance: .pickerStyle(.house),
+//                                                 currentState: false)
+//            ]
+//        }
+//    }
+//}
 
 extension FilterHomeViewModel.Section {
     struct Cell: Hashable {
+        let id: UUID
         let apperance: Appearance
         let currentState: Bool
     }
@@ -94,7 +103,7 @@ extension FilterHomeViewModel.Section {
     }
 }
 
-enum FilterHomePickerStyle {
+enum FilterHomePickerStyle: Hashable {
     case apartment
     case house
 
@@ -142,6 +151,6 @@ enum FilterHomeButton {
 
 extension FilterHomeViewModel {
     static var filterHomeViewModelSample: FilterHomeViewModel {
-        FilterHomeViewModel(sections: [.typeOfProperty])
+        FilterHomeViewModel()
     }
 }
