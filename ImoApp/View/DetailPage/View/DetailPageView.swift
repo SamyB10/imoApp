@@ -10,7 +10,11 @@ import SwiftUI
 struct DetailPageView: View {
     @Environment(\.dismiss) private var dismiss: DismissAction
     @State private var detailOverlayMidY: CGFloat = 0
-    var viewModel: DetailPageViewModel
+    private var viewModel: DetailPageViewModel
+
+    init(viewModel: DetailPageViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack(spacing: 50) {
@@ -42,23 +46,23 @@ struct DetailPageView: View {
 
         Spacer()
 
-        .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                backButton
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    backButton
+                }
             }
-        }
     }
 
     private var backButton: some View {
         Button {
             dismiss.callAsFunction()
         } label: {
-            Image(systemName: "arrow.left.circle.fill")
-                .resizable()
-                .frame(width: 30, height: 30)
-                .foregroundColor(.black)
-                .opacity(0.8)
+            ImageLoaderView(dvImage: .systemName("arrow.left.circle.fill"),
+                            contentMode: .fill)
+            .frame(width: 30, height: 30)
+            .foregroundColor(.black)
+            .opacity(0.8)
         }
     }
 
@@ -85,19 +89,18 @@ struct DetailPageView: View {
     }
 
     private var overlayImageHouse: some View {
-
-            imageHouseDetail
-                .overlay(alignment: .bottom) {
-                    detailOverlay
-                        .offset(y: detailOverlayMidY)
-                        .background(
-                            GeometryReader { geometry in
-                                Color.clear
-                                    .onAppear {
-                                        detailOverlayMidY = geometry.frame(in: .local).midY
-                                    }
-                            })
-        }
+        imageHouseDetail
+            .overlay(alignment: .bottom) {
+                detailOverlay
+                    .offset(y: detailOverlayMidY)
+                    .background(
+                        GeometryReader { geometry in
+                            Color.clear
+                                .onAppear {
+                                    detailOverlayMidY = geometry.frame(in: .local).midY
+                                }
+                        })
+            }
     }
 
     private var imageHouseDetail: some View {

@@ -19,6 +19,7 @@ struct ToolBarCustom: View {
                             showSheet = true
                         } label: {
                             Image(systemName: "slider.horizontal.3")
+                                .foregroundStyle(.black)
                                 .frame(width: 30, height: 30)
                         }
 
@@ -29,8 +30,7 @@ struct ToolBarCustom: View {
                 }
             }
             .sheet(isPresented: $showSheet) {
-                // Contenu de la feuille modale
-                Color.random
+                Color.clear
             }
     }
 }

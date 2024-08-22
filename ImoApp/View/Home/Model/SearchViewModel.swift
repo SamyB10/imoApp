@@ -9,21 +9,14 @@ import Foundation
 import MapKit
 class SearchLocationViewModel: NSObject, ObservableObject {
     @Published private(set) var suggestions: [MKLocalSearchCompletion] = []
-    @Published var searchText = "" {
-        didSet {
-            guard searchText.isEmpty else { return }
-            suggestions = []
-        }
-    }
-
-    var locationChoice: String? {
-        didSet {
-            guard locationChoice != oldValue else { return }
-        }
-    }
-
     private(set) var searchCompleter: MKLocalSearchCompleter
-    private(set) var findLocation: Bool = false
+    var searchText = ""
+
+    private(set) var selectedLocation: String? {
+        didSet {
+            guard selectedLocation != oldValue else { return }
+        }
+    }
 
     override init() {
         searchCompleter = MKLocalSearchCompleter()
@@ -36,12 +29,8 @@ class SearchLocationViewModel: NSObject, ObservableObject {
         searchCompleter.queryFragment = searchText
     }
 
-    func finishSearch() {
-        guard !suggestions.contains(where: { suggestion in
-            searchText == suggestion.title
-        }) else {
-            return findLocation = true
-        }
+    func updateSelectedLocation(with location: String) {
+        selectedLocation = location
     }
 }
 

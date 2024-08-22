@@ -11,6 +11,7 @@ import UIKit
 public enum DVImage: Hashable, Sendable {
     case urlString(String)
     case asset(String)
+    case systemName(String)
 }
 
 public struct ImageLoaderView: View {
@@ -50,6 +51,20 @@ public struct ImageLoaderView: View {
                     .aspectRatio(ratio, contentMode: contentMode)
             } else {
                 Image(imageAsset)
+                    .resizable()
+                    .cornerRadius(cornerRadius)
+                    .aspectRatio(contentMode: contentMode)
+            }
+        case .systemName(let systemName):
+            if let ratio {
+                Image(systemName: systemName)
+                    .renderingMode(.template)
+                    .resizable()
+                    .cornerRadius(cornerRadius)
+                    .aspectRatio(ratio, contentMode: contentMode)
+            } else {
+                Image(systemName: systemName)
+                    .renderingMode(.template)
                     .resizable()
                     .cornerRadius(cornerRadius)
                     .aspectRatio(contentMode: contentMode)

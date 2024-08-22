@@ -7,10 +7,14 @@
 
 import SwiftUI
 struct CarouselView: View {
-    @State var viewModel: CardHomeViewModel
+    private let viewModel: CardHomeViewModel
     @State private var isPressed = false
     @State private var navigateToNextPage = false
     @Environment(\.horizontalSizeClass) private var sizeClass
+    
+    init(viewModel: CardHomeViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -45,7 +49,7 @@ struct CarouselView: View {
                         contentMode: .fit)
         .containerRelativeFrame([.horizontal],
                                 count: columns,
-                                spacing: viewModel.hSpacing)
+                                spacing: viewModel.horizontalSpacing)
     }
 
     @ViewBuilder

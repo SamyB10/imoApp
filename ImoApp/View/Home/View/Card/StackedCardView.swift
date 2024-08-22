@@ -9,7 +9,11 @@ import SwiftUI
 
 struct StackedCardView: View {
     @State private var navigateToNextPage = false
-    @State var viewModel: CardHomeViewModel
+    private let viewModel: CardHomeViewModel
+
+    init(viewModel: CardHomeViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         cardView(with: viewModel)

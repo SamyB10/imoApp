@@ -23,32 +23,23 @@ struct HomeView: View {
         NavigationStack {
             ZStack {
                 ScrollView(.vertical) {
-//                    SearchWithSuggestionsView()
                     section
                 }
-                .navigationTitle(manager.searchLocationViewModel.locationChoice ?? "Nil")
-//                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(manager.searchLocationViewModel.selectedLocation ?? "Nil")
                 .toolbar {
                     ToolBarCustom()
                 }
                 .background(.ultraThickMaterial)
-//                if show {
-                    SearchedView(searchLocationViewModel: manager.searchLocationViewModel)
-//                }
+                SearchedView(searchLocationViewModel: manager.searchLocationViewModel)
             }
         }
         .searchable(text: $manager.searchLocationViewModel.searchText, prompt: "Region, Department, City")
         .onChange(of: manager.searchLocationViewModel.searchText) {
-//            show = true
             manager.searchLocationViewModel.search()
         }
         .onAppear {
             manager.didLoad()
         }
-
-//        .onSubmit(of: .search) {
-////            show = false
-//        }
     }
 
 

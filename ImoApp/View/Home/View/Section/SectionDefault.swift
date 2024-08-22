@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct SectionDefault: View {
-    var titleSection: String
-    var items: [CardHomeViewModel]
-
+    private let titleSection: String
+    private let items: [CardHomeViewModel]
     @State private var selectedItem: CardHomeViewModel?
     @State private var navigateToNextPage = false
 
+    init(titleSection: String, items: [CardHomeViewModel]) {
+        self.titleSection = titleSection
+        self.items = items
+    }
 
     var body: some View {
         Section {
@@ -30,7 +33,7 @@ struct SectionDefault: View {
             }
         } header: {
             VStack(alignment: .leading) {
-                CarouselHeaderView(title: titleSection)
+                SectionHeaderView(title: titleSection)
             }
             .padding(.horizontal)
         }
@@ -46,6 +49,6 @@ struct SectionDefault: View {
 }
 
 #Preview {
-    SectionDefault(titleSection: HomeViewModel.TitleSection.lyon.rawValue,
+    SectionDefault(titleSection: HomeViewModel.TitleSection.paris.rawValue,
                    items: CardHomeViewModel.viewModelSample)
 }

@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-struct CarouselHeaderView: View {
-
-    let title: String
+struct SectionHeaderView: View {
+    private let title: String
+    
+    init(title: String) {
+        self.title = title
+    }
 
     var body: some View {
         HStack(alignment: .bottom) {
@@ -18,21 +21,10 @@ struct CarouselHeaderView: View {
                 .bold()
 
             Spacer()
-
-//            if cleanFilter,
-//               let action {
-//                Button {
-//                    action()
-//                } label: {
-//                    Image(systemName: "trash.circle")
-//                        .resizable()
-//                        .frame(width: 25, height: 25)
-//                }
-//            }
         }
     }
 }
 
 #Preview {
-    CarouselHeaderView(title: "Header")
+    SectionHeaderView(title: "Header")
 }

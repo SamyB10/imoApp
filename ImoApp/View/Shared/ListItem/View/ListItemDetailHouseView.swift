@@ -24,7 +24,6 @@ struct ListItemDetailHouseView: View {
             }
         }
 #if !os(visionOS)
-//        .padding(.trailing, UIScreen.main.bounds.width / 4)
         .padding(.trailing)
 #endif
     }

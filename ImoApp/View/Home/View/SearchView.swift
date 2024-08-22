@@ -6,29 +6,10 @@
 //
 
 import SwiftUI
-
-//struct SearchingExample: View {
-//    @State private var searchText = ""
-//
-//    var body: some View {
-//        NavigationStack {
-//            ZStack {
-//                Color.blue
-//                SearchedView(searchText: searchText)
-//                    .searchable(text: $searchText)
-//            }
-//        }
-//    }
-//}
-//
-//#Preview {
-//    SearchingExample()
-//}
-
-
 struct SearchedView: View {
 
     @Environment(\.dismissSearch) private var dismissSearch
+    @Environment(\.isSearching) private var isSearching
     var searchLocationViewModel: SearchLocationViewModel
 
 
@@ -41,11 +22,15 @@ struct SearchedView: View {
                         .foregroundStyle(.black)
                         .searchCompletion(suggestion.title)
                         .onTapGesture {
-                            searchLocationViewModel.locationChoice = suggestion.title
+                            searchLocationViewModel.updateSelectedLocation(with: suggestion.title)
                             dismissSearch()
                         }
                 }
             }
+        } else {
+            Color.black
+                .opacity(isSearching ? 0.3 : 0)
+                .allowsHitTesting(false)
         }
     }
 }

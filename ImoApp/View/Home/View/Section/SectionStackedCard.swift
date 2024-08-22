@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct SectionStackedCard: View {
-    var titleSection: String
-    var items: [CardHomeViewModel]
+    private let titleSection: String
+    private let items: [CardHomeViewModel]
+
+    init(titleSection: String,
+         items: [CardHomeViewModel]) {
+        self.titleSection = titleSection
+        self.items = items
+    }
 
     var body: some View {
         Section {
@@ -34,7 +40,7 @@ struct SectionStackedCard: View {
             .scrollIndicators(.hidden)
         } header: {
             VStack(alignment: .leading) {
-                CarouselHeaderView(title: titleSection)
+                SectionHeaderView(title: titleSection)
             }
             .padding(.horizontal)
         }
@@ -66,7 +72,7 @@ struct SectionStackedCard: View {
 
         return 1 - (progress * scale)
     }
-    
+
     private func excessMinX(_ proxy: GeometryProxy, offset: CGFloat = 10) -> CGFloat {
         let progress = progress(proxy)
 

@@ -59,7 +59,7 @@ extension CardHomeViewModel {
         2
     }
 
-    var hSpacing: CGFloat {
+    var horizontalSpacing: CGFloat {
         10.0
     }
 
