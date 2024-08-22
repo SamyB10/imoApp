@@ -6,7 +6,6 @@
 ////
 //
 import SwiftUI
-
 struct CardViewTest: View {
     private let viewModel: CardHomeViewModel
     @State private var addFavorite: Bool = false
@@ -17,23 +16,13 @@ struct CardViewTest: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            ZStack {
-                ImageLoaderView(dvImage: .asset(viewModel.imageHouse),
-                                ratio: 16/9,
-                                cornerRadius: 10,
-                                contentMode: .fill)
+            ImageLoaderView(dvImage: .asset(viewModel.imageHouse),
+                            ratio: 16/9,
+                            cornerRadius: 10,
+                            contentMode: .fill)
 
-                .overlay(alignment: .topTrailing) {
-                    Button {
-                        addFavorite.toggle()
-                    } label: {
-                        ImageLoaderView(dvImage: .systemName("heart.circle.fill"),
-                                        contentMode: .fit)
-                    }
-                    .frame(width: 25, height: 25)
-                    .foregroundStyle(addFavorite ? .red : .white, .black.opacity(0.4))
-                    .padding(5)
-                }
+            .overlay(alignment: .topTrailing) {
+                FavoritesButtonView()
             }
             detailHouse
         }

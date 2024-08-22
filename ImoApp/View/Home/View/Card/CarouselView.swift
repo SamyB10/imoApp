@@ -17,6 +17,7 @@ struct CarouselView: View {
     }
 
     var body: some View {
+
         VStack(alignment: .leading) {
             imageHouse
             // MARK: Review gesture for not conflict between scrool View and item Gesture
@@ -26,12 +27,13 @@ struct CarouselView: View {
                 }
                 .gesture(handleGesture)
                 .animation(.spring(), value: isPressed)
-            
+
             Spacer()
-            
+
             detailHouse
                 .padding()
         }
+
         .background(.white)
         .cornerRadius(viewModel.cornerRadius)
         .navigationDestination(isPresented: $navigateToNextPage) {
@@ -47,6 +49,9 @@ struct CarouselView: View {
                         ratio: viewModel.ratio,
                         cornerRadius: viewModel.cornerRadius,
                         contentMode: .fit)
+        .overlay(alignment: .topTrailing) {
+            FavoritesButtonView()
+        }
         .containerRelativeFrame([.horizontal],
                                 count: columns,
                                 spacing: viewModel.horizontalSpacing)

@@ -27,10 +27,10 @@ struct HomeView: View {
                 }
                 .navigationTitle(manager.searchLocationViewModel.selectedLocation ?? "Nil")
                 .toolbar {
-                    ToolBarCustom()
+                    ToolBarView()
                 }
                 .background(.ultraThickMaterial)
-                SearchedView(searchLocationViewModel: manager.searchLocationViewModel)
+                SearchSuggestionView(searchLocationViewModel: manager.searchLocationViewModel)
             }
         }
         .searchable(text: $manager.searchLocationViewModel.searchText, prompt: "Region, Department, City")

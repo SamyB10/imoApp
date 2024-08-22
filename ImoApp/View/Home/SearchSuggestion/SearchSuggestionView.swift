@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-struct SearchedView: View {
+struct SearchSuggestionView: View {
 
     @Environment(\.dismissSearch) private var dismissSearch
     @Environment(\.isSearching) private var isSearching

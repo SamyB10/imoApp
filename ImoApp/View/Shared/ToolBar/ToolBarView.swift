@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-struct ToolBarCustom: View {
+struct ToolBarView: View {
     @State private var showSheet = false
 
     var body: some View {
@@ -30,11 +29,11 @@ struct ToolBarCustom: View {
                 }
             }
             .sheet(isPresented: $showSheet) {
-                Color.clear
+                FilterHomeView(viewModel: .filterHomeViewModelSample)
             }
     }
 }
 
 #Preview {
-    ToolBarCustom()
+    ToolBarView()
 }
