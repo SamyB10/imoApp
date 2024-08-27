@@ -46,10 +46,10 @@ struct ToolBarView: View {
 struct Navigation {
     static func navigationToFilter() -> some View {
         let filterInteractor = FilterInteractor()
+//        let context = FilterHomeContext()
         let filterPresenter = FilterPresenter()
-        let manager = FilterViewManager(interacor: filterInteractor,
-                                        viewModel: .filterHomeViewModelSample)
-        let filterView = FilterHomeView(manager: manager)
+        let manager = FilterViewManager(interacor: filterInteractor)
+        let filterView = FilterView(manager: manager)
 
         filterInteractor.inject(presenter: filterPresenter)
         filterPresenter.inject(display: manager)

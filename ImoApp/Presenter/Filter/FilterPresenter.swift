@@ -7,28 +7,39 @@
 
 import Foundation
 public protocol FilterPresentationLogic: AnyObject {
-    func presentInterface(with response: FilterHomeViewModel)
+    func presentInterface(with content: FilterContent)
+    func updateItem(with selectedFilterItem: SelectedFilterItem)
 }
 
 final class FilterPresenter {
-    private var display: FilterDisplayLogic?
-    private var viewModel: FilterHomeViewModel? {
-        didSet {
-            guard let viewModel, viewModel != oldValue else { return }
+    private weak var display: FilterDisplayLogic?
 
-            DispatchQueue.main.async { [self] in
-                display?.displayInterface(with: viewModel)
+    private var context: FilterHomeContext {
+        didSet {
+            guard context != oldValue else { return }
+            Task { @MainActor in
+                display?.displayInterface(with: context.viewModel)
             }
         }
+    }
+
+    init() {
+        self.context = FilterHomeContext()
     }
 
     func inject(display: FilterDisplayLogic?) {
         self.display = display
     }
+
+//    func presentInterface() {}
 }
 
 extension FilterPresenter: FilterPresentationLogic {
-    func presentInterface(with response: FilterHomeViewModel) {
-        viewModel = response
+    func presentInterface(with content: FilterContent) {
+        context.didReceive(content: content)
+    }
+
+    func updateItem(with selectedFilterItem: SelectedFilterItem) {
+        context.didReceive(item: selectedFilterItem)
     }
 }

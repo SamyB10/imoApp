@@ -12,7 +12,7 @@ public protocol HomePresentationLogic: AnyObject {
 }
 
 final class HomePresenter {
-    private var display: HomeDisplayLogic?
+    private weak var display: HomeDisplayLogic?
     private var viewModel: HomeViewModel? {
         didSet {
             guard let viewModel, viewModel != oldValue else { return }

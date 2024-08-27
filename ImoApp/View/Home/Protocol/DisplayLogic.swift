@@ -8,12 +8,13 @@
 import Foundation
 
 @MainActor
-public protocol HomeDisplayLogic {
+public protocol HomeDisplayLogic: AnyObject {
     func displayInterface(with homeViewModel: HomeViewModel)
 }
 
 @MainActor
-public protocol FilterDisplayLogic {
-    func displayInterface(with filterHomeViewModel: FilterHomeViewModel)
+public protocol FilterDisplayLogic: AnyObject {
+    func displayInterface(with viewModel: FilterViewModel)
+    func updatePicker(with value: Bool)
 }
 
