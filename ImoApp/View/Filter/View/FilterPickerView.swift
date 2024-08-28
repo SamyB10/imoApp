@@ -18,10 +18,8 @@ struct FilterPickerView: View {
                     Text(cell.title)
                 }
             }
+            .pickerStyle(.segmented)
         }
-        .pickerStyle(.segmented)
-        .padding()
-
         .onAppear {
             updateCellSelected()
         }
@@ -34,5 +32,15 @@ struct FilterPickerView: View {
     private func updateCellSelected() {
         guard let cellSelected = cells.first(where: { $0.currentState == true }) else { return }
         selectedProperty = cellSelected
+    }
+}
+
+#Preview {
+    let cells = [FilterViewModel.Picker.appartment(true),
+                FilterViewModel.Picker.house(false),
+                FilterViewModel.Picker.both(false)]
+
+    return FilterPickerView(cells: cells) { selected in
+        print(selected)
     }
 }

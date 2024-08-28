@@ -19,9 +19,14 @@ struct FilterView: View {
                 }
             }
             .navigationTitle("Filter")
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 manager.didLoad()
             }
         }
     }
+}
+
+#Preview {
+    FilterView(manager: FilterViewManager(interacor: FilterInteractor()))
 }

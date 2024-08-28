@@ -14,13 +14,16 @@ struct FilterHomeContext: Equatable {
     }
 
     mutating func didReceive(item: SelectedFilterItem) {
+        guard let currentFilter else { return }
         switch item {
         case .appartment:
-            self.currentFilter = FilterContent(property: FilterContent.Property(type: .appartment))
+            self.currentFilter?.property = FilterContent.Property(type: .appartment)
         case .house:
-            self.currentFilter = FilterContent(property: FilterContent.Property(type: .house))
+            self.currentFilter?.property = FilterContent.Property(type: .house)
         case .both:
-            self.currentFilter = FilterContent(property: FilterContent.Property(type: .both))
+            self.currentFilter?.property = FilterContent.Property(type: .both)
+        default:
+            break
         }
     }
 

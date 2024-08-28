@@ -19,8 +19,6 @@ struct SectionHeaderView: View {
             Text(title)
                 .font(.title)
                 .bold()
-
-            Spacer()
         }
     }
 }

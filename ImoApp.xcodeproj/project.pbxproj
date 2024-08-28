@@ -12,6 +12,8 @@
 		1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEB82C5A7A350006F4E9 /* HomeView.swift */; };
 		1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */; };
 		1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */; };
+		1C505FBB2C7F4093006E6E1E /* ToggleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FBA2C7F4093006E6E1E /* ToggleViewModel.swift */; };
+		1C505FBD2C7F473C006E6E1E /* FilterToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FBC2C7F473C006E6E1E /* FilterToggleView.swift */; };
 		1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5315382C5BC3F300EFCC94 /* MainTabView.swift */; };
 		1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */; };
 		1C5315412C5BE42000EFCC94 /* AnticDidone-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C53153D2C5BE42000EFCC94 /* AnticDidone-Regular.ttf */; };
@@ -64,6 +66,8 @@
 		1C15FEB82C5A7A350006F4E9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		1C505FBA2C7F4093006E6E1E /* ToggleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewModel.swift; sourceTree = "<group>"; };
+		1C505FBC2C7F473C006E6E1E /* FilterToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterToggleView.swift; sourceTree = "<group>"; };
 		1C5315382C5BC3F300EFCC94 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		1C53153D2C5BE42000EFCC94 /* AnticDidone-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnticDidone-Regular.ttf"; sourceTree = "<group>"; };
@@ -173,9 +177,18 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		1C505FB92C7F407F006E6E1E /* Toggle */ = {
+			isa = PBXGroup;
+			children = (
+				1C505FBA2C7F4093006E6E1E /* ToggleViewModel.swift */,
+			);
+			path = Toggle;
+			sourceTree = "<group>";
+		};
 		1C53153C2C5BE40600EFCC94 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1C505FB92C7F407F006E6E1E /* Toggle */,
 				1C7464312C6CCDCE005634AE /* Extension */,
 				1C5315402C5BE42000EFCC94 /* Font */,
 			);
@@ -442,6 +455,7 @@
 				1C828F382C7882DA0039B376 /* FilterSectionView.swift */,
 				1C828F272C7791CF0039B376 /* FilterView.swift */,
 				1CB52CC32C7E0C9E00796F27 /* FilterPickerView.swift */,
+				1C505FBC2C7F473C006E6E1E /* FilterToggleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -631,6 +645,7 @@
 				1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */,
 				1C53155A2C63833100EFCC94 /* DescriptionDetailPageView.swift in Sources */,
 				1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */,
+				1C505FBD2C7F473C006E6E1E /* FilterToggleView.swift in Sources */,
 				1C5315582C6266A900EFCC94 /* AsyncImageLoaderView.swift in Sources */,
 				1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */,
 				1CE588D62C4D42D6009DDDEA /* ImoAppApp.swift in Sources */,
@@ -653,6 +668,7 @@
 				1CC3EA1C2C73BE65007EEC4A /* ToolBarView.swift in Sources */,
 				1C7B50702C67BA41004683C3 /* CardView.swift in Sources */,
 				1C53155D2C639E9900EFCC94 /* ListItemDetailHouseView.swift in Sources */,
+				1C505FBB2C7F4093006E6E1E /* ToggleViewModel.swift in Sources */,
 				1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */,
 				1CB52CC42C7E0C9E00796F27 /* FilterPickerView.swift in Sources */,
 				1CB52CC62C7E0CDA00796F27 /* FilterContent.swift in Sources */,

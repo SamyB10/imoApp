@@ -10,4 +10,10 @@ public enum SelectedFilterItem {
     case appartment(Bool)
     case house(Bool)
     case both(Bool)
+    case studio(Bool)
+    case one(Bool)
+    case two(Bool)
+    case three(Bool)
+    case four(Bool)
+    case fiveOrMore(Bool)
 }
