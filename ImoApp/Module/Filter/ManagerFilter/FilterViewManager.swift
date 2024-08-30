@@ -10,7 +10,7 @@ final class FilterViewManager: ObservableObject {
     private let interacor: FilterBusinessLogic?
     @Published private(set) var viewModel: FilterViewModel? {
         didSet {
-            guard let viewModel, viewModel != oldValue else { return }
+            guard self.viewModel != oldValue else { return }
         }
     }
 
@@ -23,7 +23,7 @@ final class FilterViewManager: ObservableObject {
     }
 
     func didSelectItem(with item: SelectedFilterItem) {
-        interacor?.didSelectItemPicker(with: item)
+        interacor?.didSelectItem(with: item)
     }
 }
 

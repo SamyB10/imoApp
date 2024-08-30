@@ -24,23 +24,14 @@ struct FilterPickerView: View {
             updateCellSelected()
         }
 
-        .onChange(of: selectedProperty) {
-            action(selectedProperty.selectedItem)
+        .onChange(of: selectedProperty) { oldValue, newValue in
+            action(newValue.selectedItem())
         }
     }
 
     private func updateCellSelected() {
-        guard let cellSelected = cells.first(where: { $0.currentState == true }) else { return }
+        guard let cellSelected = cells.first(where: { $0.currentState() == true }) else { return }
         selectedProperty = cellSelected
     }
 }
 
-#Preview {
-    let cells = [FilterViewModel.Picker.appartment(true),
-                FilterViewModel.Picker.house(false),
-                FilterViewModel.Picker.both(false)]
-
-    return FilterPickerView(cells: cells) { selected in
-        print(selected)
-    }
-}

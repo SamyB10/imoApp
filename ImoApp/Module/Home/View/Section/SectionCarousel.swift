@@ -7,12 +7,12 @@
 
 import SwiftUI
 struct SectionCarousel: View {
-    private let titleSection: String
+    private let header: HeaderViewModel
     private let items: [CardHomeViewModel]
 
-    init(titleSection: String,
+    init(header: HeaderViewModel,
          items: [CardHomeViewModel]) {
-        self.titleSection = titleSection
+        self.header = header
         self.items = items
     }
 
@@ -28,7 +28,7 @@ struct SectionCarousel: View {
             .scrollTargetBehavior(.paging)
         } header: {
             VStack(alignment: .leading) {
-                SectionHeaderView(title: titleSection)
+                SectionHeaderView(viewModel: header)
             }
             .padding(.horizontal)
             .padding(.bottom)

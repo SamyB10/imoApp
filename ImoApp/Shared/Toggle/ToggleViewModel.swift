@@ -8,6 +8,37 @@
 import Foundation
 import SwiftUI
 
+final class SliderViewModel: ObservableObject {
+    let title: String
+    @Published var priceMin: Double {
+        didSet {
+            if priceMin == priceMax {
+                priceMax = priceMin
+            }
+        }
+    }
+    @Published var priceMax: Double {
+        didSet {
+            if priceMax < priceMin {
+                priceMin = priceMax
+            }
+        }
+    }
+
+
+
+
+
+
+    init(title: String,
+         priceMin: Double,
+         priceMax: Double) {
+        self.title = title
+        self.priceMin = priceMin
+        self.priceMax = priceMax
+    }
+}
+
 final class ToggleViewModel: ObservableObject {
     let title: String?
     @Published var isOn: Bool
@@ -46,10 +77,11 @@ struct ToggleView: View {
         HStack {
             Toggle(isOn: $viewModel.isOn) {
                 if let title = viewModel.title {
-                    Text(title)
+                    Text("\(title)")
                 }
             }
             .tint(.blue)
+            
             .onChange(of: viewModel.isOn) { oldValue, newValue in
                 if let action = action {
                     action()
@@ -58,3 +90,5 @@ struct ToggleView: View {
         }
     }
 }
+
+

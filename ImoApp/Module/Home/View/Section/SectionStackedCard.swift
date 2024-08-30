@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SectionStackedCard: View {
-    private let titleSection: String
+    private let header: HeaderViewModel
     private let items: [CardHomeViewModel]
 
-    init(titleSection: String,
+    init(header: HeaderViewModel,
          items: [CardHomeViewModel]) {
-        self.titleSection = titleSection
+        self.header = header
         self.items = items
     }
 
@@ -40,7 +40,7 @@ struct SectionStackedCard: View {
             .scrollIndicators(.hidden)
         } header: {
             VStack(alignment: .leading) {
-                SectionHeaderView(title: titleSection)
+                SectionHeaderView(viewModel: header)
             }
             .padding(.horizontal)
         }

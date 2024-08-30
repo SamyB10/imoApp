@@ -6,9 +6,10 @@
 //
 
 import Foundation
+
 protocol FilterBusinessLogic {
     func didLoad()
-    func didSelectItemPicker(with item: SelectedFilterItem)
+    func didSelectItem(with item: SelectedFilterItem)
 }
 
 final class FilterInteractor {
@@ -22,10 +23,11 @@ final class FilterInteractor {
 
 extension FilterInteractor: FilterBusinessLogic {
     func didLoad() {
-        presenter?.presentInterface(with: createContent())
+        let content = createContent()
+        presenter?.presentInterface(with: content)
     }
 
-    func didSelectItemPicker(with item: SelectedFilterItem) {
+    func didSelectItem(with item: SelectedFilterItem) {
         switch item {
         case .appartment:
             userFilter.saveValue(filter: .propertyType(.appartment))
@@ -46,21 +48,28 @@ extension FilterInteractor: FilterBusinessLogic {
         case let .fiveOrMore(value):
             userFilter.saveValue(filter: .roomCount(.fiveOrMoreRoom, value))
         }
-        presenter?.updateItem(with: item)
+//        presenter?.updateItem(with: item)
     }
 }
 
 extension FilterInteractor {
     private func createContent() -> FilterContent {
         let typeProperty = FilterContent.Property(type: userFilter.getProperty())
-        let getUserFilterNumberOfRoom = userFilter.getNumberOfRoom()
-        let numberOfRoom = FilterContent.NumberOfRoom(studio: getUserFilterNumberOfRoom.studio,
-                                                      one: getUserFilterNumberOfRoom.one,
-                                                      two: getUserFilterNumberOfRoom.two,
-                                                      three: getUserFilterNumberOfRoom.three,
-                                                      four: getUserFilterNumberOfRoom.four,
-                                                      fiveOrMore: getUserFilterNumberOfRoom.fiveOrMore)
+        let studio = userFilter.studio
+        let oneRoom = userFilter.oneRoom
+        let twoRoom = userFilter.twoRoom
+        let threeRoom = userFilter.threeRoom
+        let fourRoom = userFilter.fourRoom
+        let fiveOrMoreRoom = userFilter.fiveOrMoreRoom
+
         return FilterContent(property: typeProperty,
-                             numberOfRoom: numberOfRoom)
+                             studio: studio,
+                             oneRoom: oneRoom,
+                             twoRoom: twoRoom,
+                             threeRoom: threeRoom,
+                             fourRoom: fourRoom,
+                             fiveOrMoreRoom: fiveOrMoreRoom,
+                             priceMin: 100000,
+                             priceMax: 200000)
     }
 }

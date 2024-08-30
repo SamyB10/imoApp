@@ -16,10 +16,7 @@ final class FilterPresenter {
 
     private var context: FilterHomeContext {
         didSet {
-            guard context != oldValue else { return }
-            Task { @MainActor in
-                display?.displayInterface(with: context.viewModel)
-            }
+            presentInterface()
         }
     }
 
@@ -31,7 +28,12 @@ final class FilterPresenter {
         self.display = display
     }
 
-//    func presentInterface() {}
+    func presentInterface() {
+        let viewModel = context.viewModel
+        Task { @MainActor in
+            self.display?.displayInterface(with: viewModel)
+        }
+    }
 }
 
 extension FilterPresenter: FilterPresentationLogic {

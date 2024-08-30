@@ -11,6 +11,7 @@ public struct HomeViewModel: Equatable, Hashable {
     let section: [SectionViewModel]
 
     struct SectionViewModel: Equatable, Hashable {
+        let header: HeaderViewModel
         let itemHouse: TypeCardHome
     }
 
@@ -62,16 +63,26 @@ extension HomeViewModel {
 
         for item in title {
             let section: SectionViewModel
+            let header: HeaderViewModel
             switch item {
             case .paris:
-                section = SectionViewModel(itemHouse: .carousel(titleSection: item.rawValue,
+                header = HeaderViewModel(apperance: .home,
+                                         title: item.rawValue)
+                section = SectionViewModel(header: header,
+                                           itemHouse: .carousel(titleSection: item.rawValue,
                                                                 itemHouseCarousel))
             case .marseille:
-                section = SectionViewModel(itemHouse: .stacked(titleSection: item.rawValue,
+                header = HeaderViewModel(apperance: .home,
+                                         title: item.rawValue)
+                section = SectionViewModel(header: header,
+                                           itemHouse: .stacked(titleSection: item.rawValue,
                                                                itemHouseStacked))
 
             case .lyon:
-                section = SectionViewModel(itemHouse: .default(titleSection: item.rawValue,
+                header = HeaderViewModel(apperance: .home,
+                                         title: item.rawValue)
+                section = SectionViewModel(header: header,
+                                           itemHouse: .default(titleSection: item.rawValue,
                                                                itemHouseDefault))
             }
             homeSection.append(section)
