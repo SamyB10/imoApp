@@ -16,4 +16,9 @@ public enum SelectedFilterItem {
     case three(Bool)
     case four(Bool)
     case fiveOrMore(Bool)
+    case oneBedroom(Bool)
+    case twoBedroom(Bool)
+    case threeBedroom(Bool)
+    case fourBedroom(Bool)
+    case fiveOrMoreBedroom(Bool)
 }

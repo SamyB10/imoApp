@@ -40,13 +40,21 @@ final class SliderViewModel: ObservableObject {
 }
 
 final class ToggleViewModel: ObservableObject {
+    let apperance: Apperance
     let title: String?
     @Published var isOn: Bool
 
-    init(title: String? = nil,
+    init(apperance: Apperance,
+         title: String? = nil,
          isOn: Bool) {
+        self.apperance = apperance
         self.title = title
         self.isOn = isOn
+    }
+
+    enum Apperance {
+        case `switch`
+        case button
     }
 }
 
@@ -54,11 +62,13 @@ extension ToggleViewModel: Hashable {
     public static func == (lhs: ToggleViewModel, rhs: ToggleViewModel) -> Bool {
         return lhs.title == rhs.title
         && lhs.isOn == rhs.isOn
+        && lhs.apperance == rhs.apperance
     }
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(title)
         hasher.combine(isOn)
+        hasher.combine(apperance)
     }
 }
 
@@ -75,17 +85,33 @@ struct ToggleView: View {
 
     var body: some View {
         HStack {
-            Toggle(isOn: $viewModel.isOn) {
-                if let title = viewModel.title {
-                    Text("\(title)")
+            switch viewModel.apperance {
+            case .switch:
+                Toggle(isOn: $viewModel.isOn) {
+                    if let title = viewModel.title {
+                        Text("\(title)")
+                    }
                 }
+                .tint(.blue)
+            case .button:
+                Toggle(viewModel.title ?? "",
+                       isOn: $viewModel.isOn)
+                .toggleStyle(.button)
+                .labelStyle(.titleOnly)
+                .foregroundStyle(.black)
+                .font(.caption)
+                .tint(.gray)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(viewModel.isOn ? Color.black : Color.gray,
+                                lineWidth: viewModel.isOn ? 1 : 0.5)
+                )
             }
-            .tint(.blue)
-            
-            .onChange(of: viewModel.isOn) { oldValue, newValue in
-                if let action = action {
-                    action()
-                }
+        }
+        .onChange(of: viewModel.isOn) { oldValue, newValue in
+            if let action = action {
+                action()
             }
         }
     }

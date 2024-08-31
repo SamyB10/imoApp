@@ -32,6 +32,10 @@ class UserFilter {
         case roomCount(Keys, Bool)
     }
 
+    func saveLocation(with: String) {
+        userDefaults.set("Rosny", forKey: Keys.localisation.rawValue)
+    }
+
     func saveValue(filter: Filter) {
         switch filter {
         case .propertyType(let type):
@@ -56,25 +60,9 @@ class UserFilter {
         }
     }
 
-//    func getStudio() -> Bool {
-//        let studio = userDefaults.object(forKey: Keys.studio.rawValue) as? Bool ?? false
-//        return studio
-//    }
-
-//    func getNumberOfRoom() -> FilterContent.NumberOfRoom {
-//        let studio = userDefaults.object(forKey: Keys.studio.rawValue) as? Bool ?? false
-//        let oneRoom = userDefaults.object(forKey: Keys.oneRoom.rawValue) as? Bool ?? false
-//        let twoRoom = userDefaults.object(forKey: Keys.twoRoom.rawValue) as? Bool ?? false
-//        let threeRoom = userDefaults.object(forKey: Keys.threeRoom.rawValue) as? Bool ?? false
-//        let fourRoom = userDefaults.object(forKey: Keys.fourRoom.rawValue) as? Bool ?? false
-//        let fiveOrMoreRoom = userDefaults.object(forKey: Keys.fiveOrMoreRoom.rawValue) as? Bool ?? false
-//
-//        return FilterContent.NumberOfRoom(one: oneRoom,
-//                                          two: twoRoom,
-//                                          three: threeRoom,
-//                                          four: fourRoom,
-//                                          fiveOrMore: fiveOrMoreRoom)
-//    }
+    var location: String {
+        userDefaults.object(forKey: Keys.localisation.rawValue) as? String ?? "NIL"
+    }
 
     var studio: Bool {
         userDefaults.object(forKey: Keys.studio.rawValue) as? Bool ?? false

@@ -22,11 +22,13 @@ final class FilterInteractor {
 }
 
 extension FilterInteractor: FilterBusinessLogic {
+    @MainActor
     func didLoad() {
         let content = createContent()
         presenter?.presentInterface(with: content)
     }
 
+    @MainActor
     func didSelectItem(with item: SelectedFilterItem) {
         switch item {
         case .appartment:
@@ -37,18 +39,25 @@ extension FilterInteractor: FilterBusinessLogic {
             userFilter.saveValue(filter: .propertyType(.both))
         case let .studio(value):
             userFilter.saveValue(filter: .roomCount(.studio, value))
+            presenter?.updateItem(with: item)
         case let .one(value):
             userFilter.saveValue(filter: .roomCount(.oneRoom, value))
+            presenter?.updateItem(with: item)
         case let .two(value):
             userFilter.saveValue(filter: .roomCount(.twoRoom, value))
+            presenter?.updateItem(with: item)
         case let .three(value):
             userFilter.saveValue(filter: .roomCount(.threeRoom, value))
+            presenter?.updateItem(with: item)
         case let .four(value):
             userFilter.saveValue(filter: .roomCount(.fourRoom, value))
+            presenter?.updateItem(with: item)
         case let .fiveOrMore(value):
             userFilter.saveValue(filter: .roomCount(.fiveOrMoreRoom, value))
+            presenter?.updateItem(with: item)
+        default:
+            print("faire le didSelect")
         }
-//        presenter?.updateItem(with: item)
     }
 }
 
@@ -70,6 +79,11 @@ extension FilterInteractor {
                              fourRoom: fourRoom,
                              fiveOrMoreRoom: fiveOrMoreRoom,
                              priceMin: 100000,
-                             priceMax: 200000)
+                             priceMax: 200000,
+                             oneBedRoom: false,
+                             twoBedRoom: false,
+                             threeBedRoom: false,
+                             fourBedRoom: false,
+                             fiveOrMoreBedRoom: false)
     }
 }

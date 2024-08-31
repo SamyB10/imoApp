@@ -10,7 +10,7 @@ struct FilterHomeContext: Equatable {
     private(set) var currentFilter: FilterContent?
 
     mutating func didReceive(content: FilterContent) {
-        self.currentFilter = content
+        currentFilter = content
     }
 
     mutating func didReceive(item: SelectedFilterItem) {
@@ -34,6 +34,16 @@ struct FilterHomeContext: Equatable {
             self.currentFilter?.fourRoom = value
         case let .fiveOrMore(value):
             self.currentFilter?.fiveOrMoreRoom = value
+        case let .oneBedroom(value):
+            self.currentFilter?.oneBedRoom = value
+        case let .twoBedroom(value):
+            self.currentFilter?.twoBedRoom = value
+        case let .threeBedroom(value):
+            self.currentFilter?.threeBedRoom = value
+        case let .fourBedroom(value):
+            self.currentFilter?.fourBedRoom = value
+        case let .fiveOrMoreBedroom(value):
+            self.currentFilter?.fiveOrMoreBedRoom = value
         }
     }
 
@@ -53,10 +63,19 @@ struct FilterHomeContext: Equatable {
             .four(currentFilter.fourRoom),
             .fiveOrMore(currentFilter.fiveOrMoreRoom)
         ])
-        
+
+        let numberOfBedRoom = FilterViewModel.Section.numberOfBedroom([
+            .oneBedroom(currentFilter.oneBedRoom, isDisabled: currentFilter.studio ? true : false),
+            .twoBedroom(currentFilter.twoBedRoom),
+            .threeBedroom(currentFilter.threeBedRoom),
+            .fourBedroom(currentFilter.fourBedRoom),
+            .fiveOrMoreBedroom(currentFilter.fiveOrMoreBedRoom)
+        ])
+
         return [
             typeProperty,
-            numberOfRoom
+            numberOfRoom,
+            numberOfBedRoom
         ]
     }
 

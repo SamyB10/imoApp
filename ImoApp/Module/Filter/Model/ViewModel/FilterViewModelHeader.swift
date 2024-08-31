@@ -26,6 +26,10 @@ extension FilterViewModel.Section {
         case .localisation:
             HeaderViewModel(apperance: .filter,
                             title: "Localisation")
+        case .numberOfBedroom:
+            HeaderViewModel(apperance: .filter,
+                            title: "Nombre de chambre",
+                            image: .systemName("bed.double"))
         }
     }
 }

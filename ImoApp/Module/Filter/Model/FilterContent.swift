@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public struct FilterContent: Hashable {
+public struct FilterContent: Equatable {
     var property: Property
     var studio: Bool
     var oneRoom: Bool
@@ -16,16 +16,21 @@ public struct FilterContent: Hashable {
     var fiveOrMoreRoom: Bool
     var priceMin: Double
     var priceMax: Double
+    var oneBedRoom: Bool
+    var twoBedRoom: Bool
+    var threeBedRoom: Bool
+    var fourBedRoom: Bool
+    var fiveOrMoreBedRoom: Bool
 }
 
 extension FilterContent {
-    public struct Property: Hashable {
+    public struct Property: Equatable {
         let type: TypeProperty
     }
 }
 
 extension FilterContent {
-    public enum TypeProperty: Hashable {
+    public enum TypeProperty: Equatable {
         case appartment
         case house
         case both

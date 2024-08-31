@@ -53,38 +53,59 @@ extension FilterViewModel {
         case three(Bool)
         case four(Bool)
         case fiveOrMore(Bool)
+        case oneBedroom(Bool, isDisabled: Bool)
+        case twoBedroom(Bool)
+        case threeBedroom(Bool)
+        case fourBedroom(Bool)
+        case fiveOrMoreBedroom(Bool)
+
 
         var title: String {
             switch self {
             case .studio:
                 "Studio"
-            case .one:
+            case .one,
+                    .oneBedroom:
                 "1"
-            case .two:
+            case .two,
+                    .twoBedroom:
                 "2"
-            case .three:
+            case .three,
+                    .threeBedroom:
                 "3"
-            case .four:
+            case .four,
+                    .fourBedroom:
                 "4"
-            case .fiveOrMore:
+            case .fiveOrMore,
+                    .fiveOrMoreBedroom:
                 "5 +"
             }
         }
 
         func selectedItem(with state: Bool) -> SelectedFilterItem {
             switch self {
-            case let .studio(value):
-                    .studio(state)
-            case let .one(value):
-                    .one(state)
-            case let .two(value):
-                    .two(state)
-            case let .three(value):
-                    .three(state)
-            case let .four(value):
-                    .four(state)
-            case let .fiveOrMore(value):
-                    .fiveOrMore(state)
+            case .studio:
+                    .studio(!state)
+            case .one:
+                    .one(!state)
+            case .two:
+                    .two(!state)
+            case .three:
+                    .three(!state)
+            case .four:
+                    .four(!state)
+            case .fiveOrMore:
+                    .fiveOrMore(!state)
+            case let .oneBedroom(value, _):
+                    .oneBedroom(value)
+            case let .twoBedroom(value):
+                    .twoBedroom(value)
+            case let .threeBedroom(value):
+                    .threeBedroom(value)
+            case let .fourBedroom(value):
+                    .fourBedroom(value)
+            case let .fiveOrMoreBedroom(value):
+                    .fiveOrMoreBedroom(value)
             }
         }
 
@@ -95,8 +116,15 @@ extension FilterViewModel {
                     .two(let value),
                     .three(let value),
                     .four(let value),
-                    .fiveOrMore(let value):
-                ToggleViewModel(isOn: value)
+                    .fiveOrMore(let value),
+                    .oneBedroom(let value, _),
+                    .twoBedroom(let value),
+                    .threeBedroom(let value),
+                    .fourBedroom(let value),
+                    .fiveOrMoreBedroom(let value):
+                ToggleViewModel(apperance: .button,
+                                title: title,
+                                isOn: value)
             }
         }
 
@@ -107,8 +135,22 @@ extension FilterViewModel {
                     .two(let value),
                     .three(let value),
                     .four(let value),
-                    .fiveOrMore(let value):
+                    .fiveOrMore(let value),
+                    .oneBedroom(let value, _),
+                    .twoBedroom(let value),
+                    .threeBedroom(let value),
+                    .fourBedroom(let value),
+                    .fiveOrMoreBedroom(let value):
                 value
+            }
+        }
+
+        var disabled: Bool {
+            switch self {
+            case .oneBedroom(_, let isDisabled):
+                isDisabled
+            default:
+                false
             }
         }
     }

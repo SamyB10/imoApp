@@ -30,8 +30,10 @@ final class FilterPresenter {
 
     func presentInterface() {
         let viewModel = context.viewModel
-        Task { @MainActor in
-            self.display?.displayInterface(with: viewModel)
+        DispatchQueue.main.async { [self] in
+//            Task { @MainActor in
+                self.display?.displayInterface(with: viewModel)
+//            }
         }
     }
 }

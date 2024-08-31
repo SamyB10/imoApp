@@ -215,6 +215,16 @@
 			path = Toggle;
 			sourceTree = "<group>";
 		};
+		1C505FCB2C8343A6006E6E1E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1C505FC72C81E3CA006E6E1E /* FilterViewModelHeader.swift */,
+				1C505FC52C81CA86006E6E1E /* FilterViewModel.swift */,
+				1C505FC92C81E42E006E6E1E /* FilterViewModelCell.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		1C53153C2C5BE40600EFCC94 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,12 +499,10 @@
 		1CB52CC22C7DEFC000796F27 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C505FCB2C8343A6006E6E1E /* ViewModel */,
 				1CA767B12C7A08FC00AC9662 /* FilterHomeContext.swift */,
-				1C505FC52C81CA86006E6E1E /* FilterViewModel.swift */,
-				1C505FC92C81E42E006E6E1E /* FilterViewModelCell.swift */,
 				1CB52CC52C7E0CDA00796F27 /* FilterContent.swift */,
 				1CB52CC72C7E0E0100796F27 /* SelectedFilterItem.swift */,
-				1C505FC72C81E3CA006E6E1E /* FilterViewModelHeader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -13,7 +13,9 @@ struct FilterView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     if let viewModel = manager.viewModel {
-                        ForEach(viewModel.sections, id: \.self) { section in
+                        ForEach(viewModel.sections.indices, id: \.self) { sectionIndex in
+                            let section = viewModel.sections[sectionIndex]
+
                             FilterSectionView(section: section) {
                                 manager.didSelectItem(with: $0)
                             }
@@ -28,6 +30,7 @@ struct FilterView: View {
                     manager.didLoad()
                 }
             }
+            .background(.white)
         }
     }
 }

@@ -13,8 +13,22 @@ public struct FilterViewModel: Hashable, Equatable {
     enum Section: Hashable, Equatable {
         case typeProperty([Picker])
         case numberOfRoom([Toggle])
+        case numberOfBedroom([Toggle])
         case price([TextField])
         case areaSquareMeter([TextField])
         case localisation([Slider])
+
+        var displaySepartionBar: Bool {
+            switch self {
+            case .typeProperty,
+                    .numberOfBedroom,
+                    .price,
+                    .areaSquareMeter,
+                    .localisation:
+                true
+            case .numberOfRoom:
+                false
+            }
+        }
     }
 }
