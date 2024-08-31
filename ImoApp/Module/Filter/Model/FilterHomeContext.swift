@@ -14,7 +14,6 @@ struct FilterHomeContext: Equatable {
     }
 
     mutating func didReceive(item: SelectedFilterItem) {
-//        guard let currentFilter else { return }
         switch item {
         case .appartment:
             self.currentFilter?.property = FilterContent.Property(type: .appartment)
@@ -57,7 +56,6 @@ struct FilterHomeContext: Equatable {
 
         let numberOfRoom = FilterViewModel.Section.numberOfRoom([
             .studio(currentFilter.studio),
-            .one(currentFilter.oneRoom),
             .two(currentFilter.twoRoom),
             .three(currentFilter.threeRoom),
             .four(currentFilter.fourRoom),
@@ -65,11 +63,11 @@ struct FilterHomeContext: Equatable {
         ])
 
         let numberOfBedRoom = FilterViewModel.Section.numberOfBedroom([
-            .oneBedroom(currentFilter.oneBedRoom, isDisabled: currentFilter.studio ? true : false),
-            .twoBedroom(currentFilter.twoBedRoom),
-            .threeBedroom(currentFilter.threeBedRoom),
-            .fourBedroom(currentFilter.fourBedRoom),
-            .fiveOrMoreBedroom(currentFilter.fiveOrMoreBedRoom)
+            .oneBedroom(currentFilter.oneBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.oneBedRoom))),
+            .twoBedroom(currentFilter.twoBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.twoRoom))),
+            .threeBedroom(currentFilter.threeBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.threeRoom))),
+            .fourBedroom(currentFilter.fourBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.fourRoom))),
+            .fiveOrMoreBedroom(currentFilter.fiveOrMoreBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.fiveOrMoreRoom)))
         ])
 
         return [
@@ -84,3 +82,48 @@ struct FilterHomeContext: Equatable {
     }
 }
 
+extension FilterHomeContext {
+    private func isDisabled(with item: SelectedFilterItem) -> Bool {
+        switch item {
+        case .oneBedroom:
+            if currentFilter?.studio == true {
+                if currentFilter?.twoRoom == true ||
+                    currentFilter?.threeRoom == true ||
+                    currentFilter?.fourRoom == true ||
+                    currentFilter?.fiveOrMoreRoom == true {
+                    false
+                } else {
+                    true
+                }
+            } else {
+                false
+            }
+        case .twoBedroom:
+            if currentFilter?.studio == true {
+                true
+            } else {
+                false
+            }
+        case .threeBedroom:
+            if currentFilter?.studio == true {
+                true
+            } else {
+                false
+            }
+        case .fourBedroom:
+            if currentFilter?.studio == true {
+                true
+            } else {
+                false
+            }
+        case .fiveOrMoreBedroom:
+            if currentFilter?.studio == true {
+                true
+            } else {
+                false
+            }
+        default:
+            false
+        }
+    }
+}
