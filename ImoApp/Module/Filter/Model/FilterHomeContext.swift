@@ -64,16 +64,22 @@ struct FilterHomeContext: Equatable {
 
         let numberOfBedRoom = FilterViewModel.Section.numberOfBedroom([
             .oneBedroom(currentFilter.oneBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.oneBedRoom))),
-            .twoBedroom(currentFilter.twoBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.twoRoom))),
-            .threeBedroom(currentFilter.threeBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.threeRoom))),
-            .fourBedroom(currentFilter.fourBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.fourRoom))),
-            .fiveOrMoreBedroom(currentFilter.fiveOrMoreBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.fiveOrMoreRoom)))
+            .twoBedroom(currentFilter.twoBedRoom, isDisabled: isDisabled(with: .twoBedroom(currentFilter.twoRoom))),
+            .threeBedroom(currentFilter.threeBedRoom, isDisabled: isDisabled(with: .threeBedroom(currentFilter.threeRoom))),
+            .fourBedroom(currentFilter.fourBedRoom, isDisabled: isDisabled(with: .fourBedroom(currentFilter.fourRoom))),
+            .fiveOrMoreBedroom(currentFilter.fiveOrMoreBedRoom, isDisabled: isDisabled(with: .fiveOrMoreBedroom(currentFilter.fiveOrMoreRoom)))
+        ])
+
+        let price = FilterViewModel.Section.price([
+            .minPrice("Hey"),
+            .maxPrice("Hey")
         ])
 
         return [
             typeProperty,
             numberOfRoom,
-            numberOfBedRoom
+            numberOfBedRoom,
+            price
         ]
     }
 
@@ -82,6 +88,8 @@ struct FilterHomeContext: Equatable {
     }
 }
 
+
+// TODO: Refacto
 extension FilterHomeContext {
     private func isDisabled(with item: SelectedFilterItem) -> Bool {
         switch item {
@@ -99,25 +107,51 @@ extension FilterHomeContext {
                 false
             }
         case .twoBedroom:
-            if currentFilter?.studio == true {
-                true
+            if currentFilter?.studio == true
+                || currentFilter?.twoRoom == true {
+                if currentFilter?.threeRoom == true ||
+                    currentFilter?.fourRoom == true ||
+                    currentFilter?.fiveOrMoreRoom == true {
+                    false
+                } else {
+                    true
+                }
             } else {
                 false
             }
         case .threeBedroom:
-            if currentFilter?.studio == true {
-                true
+            if currentFilter?.studio == true
+                || currentFilter?.twoRoom == true
+                || currentFilter?.threeRoom == true {
+                if currentFilter?.fourRoom == true
+                    || currentFilter?.fiveOrMoreRoom == true {
+                    false
+                } else {
+                    true
+                }
             } else {
                 false
             }
         case .fourBedroom:
-            if currentFilter?.studio == true {
-                true
+            if currentFilter?.studio == true
+                || currentFilter?.twoRoom == true
+                || currentFilter?.threeRoom == true
+                || currentFilter?.fourRoom == true {
+                if currentFilter?.fiveOrMoreRoom == true {
+                    false
+                } else {
+                    true
+                }
             } else {
                 false
             }
         case .fiveOrMoreBedroom:
-            if currentFilter?.studio == true {
+            if currentFilter?.fiveOrMoreRoom == true {
+                false
+            } else if currentFilter?.studio == true ||
+                        currentFilter?.twoRoom == true ||
+                        currentFilter?.threeRoom == true ||
+                        currentFilter?.fourRoom == true {
                 true
             } else {
                 false

@@ -28,6 +28,7 @@ struct FilterSectionView: View {
         }
     }
     
+    
     private func createContentSections(with section: FilterViewModel.Section) -> some View {
         Group {
             switch section {
@@ -37,6 +38,10 @@ struct FilterSectionView: View {
                     .numberOfBedroom(let items):
                 HStack {
                     itemsToggle(with: items)
+                }
+                case .price(let items):
+                VStack(alignment: .leading) {
+                    itemsTextField(with: items)
                 }
             default:
                 Text("A faire")
@@ -52,7 +57,14 @@ struct FilterSectionView: View {
             }
         }
     }
-    
+
+    private func itemsTextField(with items: [FilterViewModel.TextField]) -> some View {
+        ForEach(items.indices, id: \.self) { cellIndex in
+            let cell = items[cellIndex]
+            FilterTextFiledView(cell: cell)
+        }
+    }
+
     private func itemsPicker(with items: [FilterViewModel.Picker]) -> some View {
         FilterPickerView(cells: items) {
             action($0)
