@@ -20,6 +20,7 @@
 		1C505FCA2C81E42E006E6E1E /* FilterViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FC92C81E42E006E6E1E /* FilterViewModelCell.swift */; };
 		1C505FCD2C834450006E6E1E /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FCC2C834450006E6E1E /* ToggleView.swift */; };
 		1C505FD02C847519006E6E1E /* FilterTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FCF2C847519006E6E1E /* FilterTextFieldView.swift */; };
+		1C505FD22C84C743006E6E1E /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FD12C84C743006E6E1E /* TextFieldViewModel.swift */; };
 		1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5315382C5BC3F300EFCC94 /* MainTabView.swift */; };
 		1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */; };
 		1C5315412C5BE42000EFCC94 /* AnticDidone-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C53153D2C5BE42000EFCC94 /* AnticDidone-Regular.ttf */; };
@@ -79,6 +80,7 @@
 		1C505FC92C81E42E006E6E1E /* FilterViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModelCell.swift; sourceTree = "<group>"; };
 		1C505FCC2C834450006E6E1E /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		1C505FCF2C847519006E6E1E /* FilterTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTextFieldView.swift; sourceTree = "<group>"; };
+		1C505FD12C84C743006E6E1E /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		1C5315382C5BC3F300EFCC94 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		1C53153A2C5BDC3100EFCC94 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		1C53153D2C5BE42000EFCC94 /* AnticDidone-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnticDidone-Regular.ttf"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		1C505FCE2C847505006E6E1E /* TextField */ = {
 			isa = PBXGroup;
 			children = (
+				1C505FD12C84C743006E6E1E /* TextFieldViewModel.swift */,
 				1C505FCF2C847519006E6E1E /* FilterTextFieldView.swift */,
 			);
 			path = TextField;
@@ -721,6 +724,7 @@
 				1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */,
 				1CB52CC42C7E0C9E00796F27 /* FilterPickerView.swift in Sources */,
 				1CB52CC62C7E0CDA00796F27 /* FilterContent.swift in Sources */,
+				1C505FD22C84C743006E6E1E /* TextFieldViewModel.swift in Sources */,
 				1C53155F2C63B34100EFCC94 /* ListItemDetailHouseViewModel.swift in Sources */,
 				1C828F282C7791CF0039B376 /* FilterView.swift in Sources */,
 				1C505FCD2C834450006E6E1E /* ToggleView.swift in Sources */,

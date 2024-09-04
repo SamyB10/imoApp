@@ -16,6 +16,7 @@ public struct FilterContent: Equatable {
     var fiveOrMoreRoom: Bool
     var priceMin: Double
     var priceMax: Double
+    let maxPriceSlideRange: Double
     var oneBedRoom: Bool
     var twoBedRoom: Bool
     var threeBedRoom: Bool

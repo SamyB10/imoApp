@@ -7,6 +7,19 @@
 
 import Foundation
 extension FilterViewModel {
+    struct Cell: Hashable, Equatable {
+        let apperance: Apperance
+    }
+
+    enum Apperance: Hashable, Equatable {
+        case picker([Picker])
+        case toggle(Toggle)
+        case textField(TextField)
+        case slider(Slider)
+    }
+
+    
+
     enum Picker: Hashable, Equatable {
         case appartment(Bool)
         case house(Bool)
@@ -166,11 +179,11 @@ extension FilterViewModel {
 
 extension FilterViewModel {
     enum TextField: Hashable, Equatable {
-        case minPrice(String)
-        case maxPrice(String)
+        case minPrice(Double, Double)
+        case maxPrice(Double, Double)
         case minAreaSquareMeter(String)
         case maxAreaSquareMeter(String)
-        
+
         var title: String {
             switch self {
             case .minPrice:
@@ -183,17 +196,85 @@ extension FilterViewModel {
                 "Surface maximum"
             }
         }
+
+        var viewModel: TextFieldViewModel {
+            switch self {
+            case .minPrice(let min, _):
+                TextFieldViewModel(cell: self,
+                                   title: title,
+                                   text: numberFormatter(with: String(min)))
+            case .maxPrice(_, let max):
+                TextFieldViewModel(cell: self,
+                                   title: title,
+                                   text: numberFormatter(with: String(max)))
+            case .minAreaSquareMeter(let areaSquareMeter),
+                    .maxAreaSquareMeter(let areaSquareMeter):
+                TextFieldViewModel(cell: self,
+                                   title: title,
+                                   text: areaSquareMeter)
+            }
+        }
+
+        func selectedItem(with value: Double) -> SelectedFilterItem {
+            switch self {
+            case .minPrice(let min, let max):
+                    .minPrice(value, max)
+            case .maxPrice(let min, let max):
+                    .maxPrice(min, value)
+            case .minAreaSquareMeter:
+                    .minAreaSquareMeter(String(value))
+            case .maxAreaSquareMeter:
+                    .maxAreaSquareMeter(String(value))
+            }
+        }
+
+        private func numberFormatter(with value: String) -> String {
+            if let number = Double(value) {
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal
+                formatter.groupingSeparator = " "
+                formatter.groupingSize = 3
+                return formatter.string(from: NSNumber(value: number)) ?? value
+            }
+            return value
+        }
     }
 }
 
 extension FilterViewModel {
     enum Slider: Hashable, Equatable {
-        case MaxSearchRadius(Double)
+        case minPrice(min: Double, max: Double)
+        case maxPrice(min: Double, max: Double, maxRange: Double)
 
         var title: String {
             switch self {
-            case .MaxSearchRadius:
-                "Rayon de recherche Maximum"
+            case let .minPrice(min, max):
+                String(min)
+            case let .maxPrice(min, max, _):
+                String(max)
+            }
+        }
+
+        var sliderViewModel: SliderViewModel {
+            switch self {
+            case let .minPrice(min, max):
+                SliderViewModel(title: "",
+                                priceMin: min,
+                                priceMax: max)
+            case let .maxPrice(min, max, maxRange):
+                SliderViewModel(title: "",
+                                priceMin: min,
+                                priceMax: max,
+                                maxRange: maxRange)
+            }
+        }
+
+        func selectedItem(with value: Double) -> SelectedFilterItem {
+            switch self {
+            case let .minPrice(_, max):
+                    .minPrice(value, max)
+            case let .maxPrice(min, _, _):
+                    .maxPrice(min, value)
             }
         }
     }

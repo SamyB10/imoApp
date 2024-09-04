@@ -14,6 +14,7 @@ protocol FilterBusinessLogic {
 
 final class FilterInteractor {
     private var presenter: FilterPresentationLogic?
+    private var content: FilterContent?
     private let userFilter = UserFilter()
 
     func inject(presenter: FilterPresentationLogic?) {
@@ -30,6 +31,7 @@ extension FilterInteractor: FilterBusinessLogic {
 
     @MainActor
     func didSelectItem(with item: SelectedFilterItem) {
+        guard let content else { return }
         switch item {
         case .appartment:
             userFilter.saveValue(filter: .propertyType(.appartment))
@@ -55,6 +57,20 @@ extension FilterInteractor: FilterBusinessLogic {
         case let .fiveOrMore(value):
             userFilter.saveValue(filter: .roomCount(.fiveOrMoreRoom, value))
             presenter?.updateItem(with: item)
+        case let .minPrice(min, max):
+            if min >= max {
+                presenter?.updateItem(with: .minPrice(max - 50000, max))
+            } else {
+                presenter?.updateItem(with: item)
+            }
+        case let .maxPrice(min, max):
+            if max >= content.maxPriceSlideRange {
+                presenter?.updateItem(with: .maxPrice(min, content.maxPriceSlideRange - 50000))
+            } else if max <= min {
+                presenter?.updateItem(with: .maxPrice(min, min + 50000))
+            } else {
+                presenter?.updateItem(with: item)
+            }
         default:
             print("faire le didSelect")
         }
@@ -71,19 +87,22 @@ extension FilterInteractor {
         let fourRoom = userFilter.fourRoom
         let fiveOrMoreRoom = userFilter.fiveOrMoreRoom
 
-        return FilterContent(property: typeProperty,
-                             studio: studio,
-                             oneRoom: oneRoom,
-                             twoRoom: twoRoom,
-                             threeRoom: threeRoom,
-                             fourRoom: fourRoom,
-                             fiveOrMoreRoom: fiveOrMoreRoom,
-                             priceMin: 100000,
-                             priceMax: 200000,
-                             oneBedRoom: false,
-                             twoBedRoom: false,
-                             threeBedRoom: false,
-                             fourBedRoom: false,
-                             fiveOrMoreBedRoom: false)
+        let content = FilterContent(property: typeProperty,
+                                    studio: studio,
+                                    oneRoom: oneRoom,
+                                    twoRoom: twoRoom,
+                                    threeRoom: threeRoom,
+                                    fourRoom: fourRoom,
+                                    fiveOrMoreRoom: fiveOrMoreRoom,
+                                    priceMin: 100,
+                                    priceMax: 200000,
+                                    maxPriceSlideRange: 10000000,
+                                    oneBedRoom: false,
+                                    twoBedRoom: false,
+                                    threeBedRoom: false,
+                                    fourBedRoom: false,
+                                    fiveOrMoreBedRoom: false)
+        self.content = content
+        return content
     }
 }

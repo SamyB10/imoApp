@@ -8,8 +8,17 @@
 import Foundation
 
 extension FilterViewModel.Section {
+    enum HeaderApperance: Hashable, Equatable  {
+        case typeProperty
+        case numberOfRoom
+        case numberOfBedroom
+        case price
+        case areaSquareMeter
+        case localisation
+    }
+
     var header: HeaderViewModel {
-        switch self {
+        switch self.headerApperance {
         case .typeProperty:
             HeaderViewModel(apperance: .filter,
                             title: "Type de Bien")

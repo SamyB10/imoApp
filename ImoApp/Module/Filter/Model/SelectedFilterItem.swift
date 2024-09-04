@@ -21,4 +21,8 @@ public enum SelectedFilterItem {
     case threeBedroom(Bool)
     case fourBedroom(Bool)
     case fiveOrMoreBedroom(Bool)
+    case minPrice(Double, Double)
+    case maxPrice(Double, Double)
+    case minAreaSquareMeter(String)
+    case maxAreaSquareMeter(String)
 }

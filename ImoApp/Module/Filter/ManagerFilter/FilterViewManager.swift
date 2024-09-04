@@ -13,15 +13,15 @@ final class FilterViewManager: ObservableObject {
             guard self.viewModel != oldValue else { return }
         }
     }
-
+    
     init(interacor: FilterBusinessLogic?) {
         self.interacor = interacor
     }
-
+    
     func didLoad() {
         interacor?.didLoad()
     }
-
+    
     func didSelectItem(with item: SelectedFilterItem) {
         interacor?.didSelectItem(with: item)
     }

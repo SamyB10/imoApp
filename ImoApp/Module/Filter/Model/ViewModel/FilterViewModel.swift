@@ -10,16 +10,12 @@ import Foundation
 public struct FilterViewModel: Hashable, Equatable {
     let sections: [Section]
 
-    enum Section: Hashable, Equatable {
-        case typeProperty([Picker])
-        case numberOfRoom([Toggle])
-        case numberOfBedroom([Toggle])
-        case price([TextField])
-        case areaSquareMeter([TextField])
-        case localisation([Slider])
+    struct Section: Hashable, Equatable  {
+        let headerApperance: HeaderApperance
+        let cells: [Cell]
 
         var displaySepartionBar: Bool {
-            switch self {
+            switch headerApperance {
             case .typeProperty,
                     .numberOfBedroom,
                     .price,

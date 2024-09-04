@@ -43,43 +43,69 @@ struct FilterHomeContext: Equatable {
             self.currentFilter?.fourBedRoom = value
         case let .fiveOrMoreBedroom(value):
             self.currentFilter?.fiveOrMoreBedRoom = value
+        case let .minPrice(min, _):
+            self.currentFilter?.priceMin = min
+        case let .maxPrice(_, max):
+            self.currentFilter?.priceMax = max
+        case let .minAreaSquareMeter(value):
+            break
+        case let .maxAreaSquareMeter(value):
+            break
         }
     }
 
     private var sections: [FilterViewModel.Section] {
         guard let currentFilter else { return [] }
-        let typeProperty = FilterViewModel.Section.typeProperty([
+        let apperanceTypeProperty: FilterViewModel.Apperance = .picker([
             .appartment(currentFilter.property.type == .appartment),
             .house(currentFilter.property.type == .house),
             .both(currentFilter.property.type == .both)
         ])
+        let cellsTypeProperty = [
+            FilterViewModel.Cell(apperance: apperanceTypeProperty)
+        ]
+        let sectionTypeProperty = FilterViewModel.Section(headerApperance: .typeProperty,
+                                                          cells: cellsTypeProperty)
 
-        let numberOfRoom = FilterViewModel.Section.numberOfRoom([
-            .studio(currentFilter.studio),
-            .two(currentFilter.twoRoom),
-            .three(currentFilter.threeRoom),
-            .four(currentFilter.fourRoom),
-            .fiveOrMore(currentFilter.fiveOrMoreRoom)
-        ])
+        let cellsNumberOfRoom = [
+            FilterViewModel.Cell(apperance: .toggle(.studio(currentFilter.studio))),
+            FilterViewModel.Cell(apperance: .toggle(.two(currentFilter.twoRoom))),
+            FilterViewModel.Cell(apperance: .toggle(.three(currentFilter.threeRoom))),
+            FilterViewModel.Cell(apperance: .toggle(.four(currentFilter.fourRoom))),
+            FilterViewModel.Cell(apperance: .toggle(.fiveOrMore(currentFilter.fiveOrMoreRoom)))
+        ]
+        let sectionNumberOfRoom = FilterViewModel.Section(headerApperance: .numberOfRoom,
+                                                               cells: cellsNumberOfRoom)
 
-        let numberOfBedRoom = FilterViewModel.Section.numberOfBedroom([
-            .oneBedroom(currentFilter.oneBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.oneBedRoom))),
-            .twoBedroom(currentFilter.twoBedRoom, isDisabled: isDisabled(with: .twoBedroom(currentFilter.twoRoom))),
-            .threeBedroom(currentFilter.threeBedRoom, isDisabled: isDisabled(with: .threeBedroom(currentFilter.threeRoom))),
-            .fourBedroom(currentFilter.fourBedRoom, isDisabled: isDisabled(with: .fourBedroom(currentFilter.fourRoom))),
-            .fiveOrMoreBedroom(currentFilter.fiveOrMoreBedRoom, isDisabled: isDisabled(with: .fiveOrMoreBedroom(currentFilter.fiveOrMoreRoom)))
-        ])
+        let cellsNumberOfBedRoom = [
+            FilterViewModel.Cell(apperance: .toggle(.oneBedroom(currentFilter.oneBedRoom, isDisabled: isDisabled(with: .oneBedroom(currentFilter.oneBedRoom))))),
+            FilterViewModel.Cell(apperance: .toggle(.twoBedroom(currentFilter.twoBedRoom, isDisabled: isDisabled(with: .twoBedroom(currentFilter.twoRoom))))),
+            FilterViewModel.Cell(apperance: .toggle(.threeBedroom(currentFilter.threeBedRoom, isDisabled: isDisabled(with: .threeBedroom(currentFilter.threeRoom))))),
+            FilterViewModel.Cell(apperance: .toggle(.fourBedroom(currentFilter.fourBedRoom, isDisabled: isDisabled(with: .fourBedroom(currentFilter.fourRoom))))),
+            FilterViewModel.Cell(apperance: .toggle(.fiveOrMoreBedroom(currentFilter.fiveOrMoreBedRoom, isDisabled: isDisabled(with: .fiveOrMoreBedroom(currentFilter.fiveOrMoreRoom)))))
+        ]
+        let sectionNumberOfBedRoom = FilterViewModel.Section(headerApperance: .numberOfBedroom,
+                                                             cells: cellsNumberOfBedRoom)
 
-        let price = FilterViewModel.Section.price([
-            .minPrice("Hey"),
-            .maxPrice("Hey")
-        ])
+        let cellsPrice = [
 
+            FilterViewModel.Cell(apperance: .textField(.minPrice(currentFilter.priceMin,
+                                                                 currentFilter.priceMax))),
+            FilterViewModel.Cell(apperance: .slider(.minPrice(min: currentFilter.priceMin,
+                                                              max: currentFilter.priceMax))),
+            FilterViewModel.Cell(apperance: .textField(.maxPrice(currentFilter.priceMin,
+                                                                 currentFilter.priceMax))),
+            FilterViewModel.Cell(apperance: .slider(.maxPrice(min: currentFilter.priceMin,
+                                                              max: currentFilter.priceMax,
+                                                              maxRange: currentFilter.maxPriceSlideRange))),
+        ]
+        let sectionPrice = FilterViewModel.Section(headerApperance: .price,
+                                                   cells: cellsPrice)
         return [
-            typeProperty,
-            numberOfRoom,
-            numberOfBedRoom,
-            price
+            sectionTypeProperty,
+            sectionNumberOfRoom,
+            sectionNumberOfBedRoom,
+            sectionPrice
         ]
     }
 

@@ -41,30 +41,41 @@ extension ToggleViewModel: Hashable {
 }
 
 
-//
-//
 final class SliderViewModel: ObservableObject {
     let title: String
-    @Published var priceMin: Double {
-        didSet {
-            if priceMin == priceMax {
-                priceMax = priceMin
-            }
-        }
-    }
-    @Published var priceMax: Double {
-        didSet {
-            if priceMax < priceMin {
-                priceMin = priceMax
-            }
-        }
-    }
-
+    @Published var priceMin: Double
+    @Published var priceMax: Double
+    let maxRange: Double?
     init(title: String,
          priceMin: Double,
-         priceMax: Double) {
+         priceMax: Double,
+         maxRange: Double? = nil) {
         self.title = title
         self.priceMin = priceMin
         self.priceMax = priceMax
+        self.maxRange = maxRange
     }
+}
+
+extension SliderViewModel {
+    var step: Double {
+        5000
+    }
+    
+    var fontSize: Font {
+        .system(size: 11)
+    }
+
+    var paddingText: CGFloat {
+        5
+    }
+
+    var cornerRadiusText: CGFloat {
+        10
+    }
+
+    var lineWidth: CGFloat {
+        0.5
+    }
+
 }
