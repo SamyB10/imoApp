@@ -28,13 +28,15 @@ extension FilterViewModel.Section {
                             image: .systemName("door.left.hand.open"))
         case .price:
             HeaderViewModel(apperance: .filter,
-                            title: "Prix du bien")
+                            title: "Prix du bien",
+                            image: .systemName("house"))
         case .areaSquareMeter:
             HeaderViewModel(apperance: .filter,
                             title: "Surface du bien")
         case .localisation:
             HeaderViewModel(apperance: .filter,
-                            title: "Localisation")
+                            title: "Localisation",
+                            image: .systemName("mappin.and.ellipse"))
         case .numberOfBedroom:
             HeaderViewModel(apperance: .filter,
                             title: "Nombre de chambre",

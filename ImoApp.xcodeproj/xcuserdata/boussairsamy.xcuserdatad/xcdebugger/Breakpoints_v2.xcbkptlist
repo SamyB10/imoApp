@@ -23,16 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0E707BE7-2F60-46DA-B8FE-3E05295F464D"
+            uuid = "14E92C72-BF0C-4BF1-A9AA-214744D23C99"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ImoApp/Module/Filter/View/TextField/TextFieldViewModel.swift"
+            filePath = "ImoApp/Interactor/Filter/FilterInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "updateIsTapped(with:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "didSelectItem(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

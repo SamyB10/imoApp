@@ -8,38 +8,43 @@
 import Foundation
 import SwiftUI
 final class TextFieldViewModel: ObservableObject {
-    let cell: FilterViewModel.TextField
-    let title: String
+    let prompt: String
     @Published var text: String
     @Published private(set) var isTapped: Bool = false
 
-    init(cell: FilterViewModel.TextField,
-         title: String,
+    init(prompt: String,
          text: String) {
-        self.cell = cell
-        self.title = title
+        self.prompt = prompt
         self.text = text
     }
+}
 
-    func updateIsTapped(with value: Bool) {
-        if text.isEmpty {
-            withAnimation(.easeOut) {
-                isTapped = value
-            }
-        }
+extension TextFieldViewModel {
+    enum Apperance {
+        case minPrice
+        case maxPrice
+        case localisation
+    }
+}
+
+extension TextFieldViewModel {
+    var cornerRadiusText: CGFloat {
+        10
+    }
+
+    var lineWidth: CGFloat {
+        0.5
     }
 }
 
 extension TextFieldViewModel: Hashable {
     public static func == (lhs: TextFieldViewModel, rhs: TextFieldViewModel) -> Bool {
-        return lhs.title == rhs.title
+        return lhs.prompt == rhs.prompt
         && lhs.text == rhs.text
-        && lhs.cell == rhs.cell
     }
 
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
+        hasher.combine(prompt)
         hasher.combine(text)
-        hasher.combine(cell)
     }
 }

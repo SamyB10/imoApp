@@ -25,4 +25,5 @@ public enum SelectedFilterItem {
     case maxPrice(Double, Double)
     case minAreaSquareMeter(String)
     case maxAreaSquareMeter(String)
+    case localisation(Double)
 }

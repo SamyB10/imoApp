@@ -22,6 +22,7 @@ public struct FilterContent: Equatable {
     var threeBedRoom: Bool
     var fourBedRoom: Bool
     var fiveOrMoreBedRoom: Bool
+    var localisation: Double
 }
 
 extension FilterContent {

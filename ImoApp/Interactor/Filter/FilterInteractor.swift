@@ -59,15 +59,17 @@ extension FilterInteractor: FilterBusinessLogic {
             presenter?.updateItem(with: item)
         case let .minPrice(min, max):
             if min >= max {
-                presenter?.updateItem(with: .minPrice(max - 50000, max))
+                presenter?.updateItem(with: .minPrice(max - 5000, max))
             } else {
                 presenter?.updateItem(with: item)
             }
         case let .maxPrice(min, max):
             if max >= content.maxPriceSlideRange {
-                presenter?.updateItem(with: .maxPrice(min, content.maxPriceSlideRange - 50000))
+                presenter?.updateItem(with: .maxPrice(min, content.maxPriceSlideRange - 5000))
             } else if max <= min {
-                presenter?.updateItem(with: .maxPrice(min, min + 50000))
+                presenter?.updateItem(with: .maxPrice(min, min + 5000))
+            } else if max - min < 5000 {
+                presenter?.updateItem(with: .maxPrice(min, min + 5000))
             } else {
                 presenter?.updateItem(with: item)
             }
@@ -101,7 +103,8 @@ extension FilterInteractor {
                                     twoBedRoom: false,
                                     threeBedRoom: false,
                                     fourBedRoom: false,
-                                    fiveOrMoreBedRoom: false)
+                                    fiveOrMoreBedRoom: false,
+                                    localisation: 10)
         self.content = content
         return content
     }

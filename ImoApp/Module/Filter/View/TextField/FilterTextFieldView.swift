@@ -7,60 +7,51 @@
 
 import SwiftUI
 
-struct FilterTextFiledView: View {
-    var cell: FilterViewModel.TextField
-    let action: (SelectedFilterItem) -> Void
-
-    var body: some View {
-        HStack {
-            VStack {
-                TextFieldView(viewModel: cell.viewModel) {
-                    action($0)
-                }
-            }
-        }
-    }
-}
-
-
 struct TextFieldView: View {
     @ObservedObject private(set) var viewModel: TextFieldViewModel
-    let action: (SelectedFilterItem) -> Void
+    let action: (Double) -> Void
     @State private var showAlert = false
 
     var body: some View {
         VStack(alignment: .leading) {
-            TextField("", text: $viewModel.text, prompt: Text(viewModel.title))
+            TextField("", text: $viewModel.text, prompt: Text(viewModel.prompt))
+                .font(.system(size: 13))
+                .padding(5)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
                 .keyboardType(.numbersAndPunctuation)
-                .padding(.top)
+                .fixedSize()
+                .overlay(
+                    RoundedRectangle(cornerRadius: viewModel.cornerRadiusText)
+                        .stroke(Color.black,
+                                lineWidth: viewModel.lineWidth)
+                )
         }
-        .overlay(alignment: .bottom) {
-            borderBottom
-        }
+
         .onSubmit {
             submit()
         }
 
         .alert(isPresented: $showAlert) {
-            Alert(title: Text("Error"),
-                  message: Text("Insérer un chiffre correct"),
-                  dismissButton: .cancel())
+            Alert(title: Text("Erreur de saisie")
+                .font(.headline)
+                .foregroundColor(.red),
+                  message: Text("Veuillez entrer un nombre valide. Seuls les chiffres sont acceptés.")
+                .font(.subheadline)
+                .foregroundColor(.gray),
+                  dismissButton: .default(Text("OK")))
         }
-    }
-
-    private var borderBottom: some View {
-        Rectangle()
-            .frame(height: 1)
-            .foregroundColor(Color.black)
-
     }
 
     private func submit() {
-        let cleanedText = viewModel.text.replacingOccurrences(of: " ", with: "")
-        guard let price = Double(cleanedText) else {
+        let cleanedText = viewModel.text
+               .replacingOccurrences(of: " ", with: "")
+               .replacingOccurrences(of: "€", with: "")
+
+        guard let price = Int(cleanedText) else {
             showAlert = true
             return
         }
-        action(viewModel.cell.selectedItem(with: price))
+        action(Double(price))
     }
 }

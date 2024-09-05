@@ -47,8 +47,6 @@ struct FilterSectionView: View {
                     itemPicker(with: items)
                 case .toggle(let item):
                     itemToggle(with: item)
-                case .textField(let item):
-                    itemTextField(with: item)
                 case .slider(let item):
                     itemSlider(with: item)
                 }
@@ -58,12 +56,6 @@ struct FilterSectionView: View {
 
     private func itemToggle(with items: FilterViewModel.Toggle) -> some View {
         FilterToggleView(cell: items) {
-            action($0)
-        }
-    }
-
-    private func itemTextField(with items: FilterViewModel.TextField) -> some View {
-        FilterTextFiledView(cell: items) {
             action($0)
         }
     }

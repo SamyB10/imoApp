@@ -51,6 +51,8 @@ struct FilterHomeContext: Equatable {
             break
         case let .maxAreaSquareMeter(value):
             break
+        case let .localisation(localisation):
+            self.currentFilter?.localisation = localisation
         }
     }
 
@@ -89,23 +91,31 @@ struct FilterHomeContext: Equatable {
 
         let cellsPrice = [
 
-            FilterViewModel.Cell(apperance: .textField(.minPrice(currentFilter.priceMin,
-                                                                 currentFilter.priceMax))),
+//            FilterViewModel.Cell(apperance: .textField(.minPrice(currentFilter.priceMin,
+//                                                                 currentFilter.priceMax))),
             FilterViewModel.Cell(apperance: .slider(.minPrice(min: currentFilter.priceMin,
                                                               max: currentFilter.priceMax))),
-            FilterViewModel.Cell(apperance: .textField(.maxPrice(currentFilter.priceMin,
-                                                                 currentFilter.priceMax))),
+//            FilterViewModel.Cell(apperance: .textField(.maxPrice(currentFilter.priceMin,
+//                                                                 currentFilter.priceMax))),
             FilterViewModel.Cell(apperance: .slider(.maxPrice(min: currentFilter.priceMin,
                                                               max: currentFilter.priceMax,
                                                               maxRange: currentFilter.maxPriceSlideRange))),
         ]
         let sectionPrice = FilterViewModel.Section(headerApperance: .price,
                                                    cells: cellsPrice)
+
+
+        let cellsLocalisation = [
+            FilterViewModel.Cell(apperance: .slider(.localisation(range: currentFilter.localisation)))
+        ]
+        let sectionLocalisation = FilterViewModel.Section(headerApperance: .localisation,
+                                                          cells: cellsLocalisation)
         return [
             sectionTypeProperty,
             sectionNumberOfRoom,
             sectionNumberOfBedRoom,
-            sectionPrice
+            sectionPrice,
+            sectionLocalisation
         ]
     }
 

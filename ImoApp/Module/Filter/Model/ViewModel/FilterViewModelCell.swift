@@ -14,7 +14,7 @@ extension FilterViewModel {
     enum Apperance: Hashable, Equatable {
         case picker([Picker])
         case toggle(Toggle)
-        case textField(TextField)
+//        case textField(TextField)
         case slider(Slider)
     }
 
@@ -197,23 +197,23 @@ extension FilterViewModel {
             }
         }
 
-        var viewModel: TextFieldViewModel {
-            switch self {
-            case .minPrice(let min, _):
-                TextFieldViewModel(cell: self,
-                                   title: title,
-                                   text: numberFormatter(with: String(min)))
-            case .maxPrice(_, let max):
-                TextFieldViewModel(cell: self,
-                                   title: title,
-                                   text: numberFormatter(with: String(max)))
-            case .minAreaSquareMeter(let areaSquareMeter),
-                    .maxAreaSquareMeter(let areaSquareMeter):
-                TextFieldViewModel(cell: self,
-                                   title: title,
-                                   text: areaSquareMeter)
-            }
-        }
+//        var viewModel: TextFieldViewModel {
+//            switch self {
+//            case .minPrice(let min, _):
+//                TextFieldViewModel(cell: self,
+//                                   title: title,
+//                                   text: numberFormatter(with: String(min)))
+//            case .maxPrice(_, let max):
+//                TextFieldViewModel(cell: self,
+//                                   title: title,
+//                                   text: numberFormatter(with: String(max)))
+//            case .minAreaSquareMeter(let areaSquareMeter),
+//                    .maxAreaSquareMeter(let areaSquareMeter):
+//                TextFieldViewModel(cell: self,
+//                                   title: title,
+//                                   text: areaSquareMeter)
+//            }
+//        }
 
         func selectedItem(with value: Double) -> SelectedFilterItem {
             switch self {
@@ -245,27 +245,56 @@ extension FilterViewModel {
     enum Slider: Hashable, Equatable {
         case minPrice(min: Double, max: Double)
         case maxPrice(min: Double, max: Double, maxRange: Double)
+        case localisation(range: Double)
 
         var title: String {
             switch self {
-            case let .minPrice(min, max):
-                String(min)
-            case let .maxPrice(min, max, _):
-                String(max)
+            case .minPrice:
+                "Prix Minimum"
+            case .maxPrice:
+                "Prix Maximum"
+            case .localisation:
+                "Localisation"
             }
         }
 
         var sliderViewModel: SliderViewModel {
             switch self {
             case let .minPrice(min, max):
-                SliderViewModel(title: "",
-                                priceMin: min,
-                                priceMax: max)
-            case let .maxPrice(min, max, maxRange):
-                SliderViewModel(title: "",
+                SliderViewModel(appearance: .minPrice,
+                                title: title,
                                 priceMin: min,
                                 priceMax: max,
+                                localisation: 0.0)
+            case let .maxPrice(min, max, maxRange):
+                SliderViewModel(appearance: .maxPrice(maxRange: maxRange),
+                                title: title,
+                                priceMin: min,
+                                priceMax: max,
+                                localisation: 0.0,
                                 maxRange: maxRange)
+            case let .localisation(range):
+                SliderViewModel(appearance: .localisation,
+                                title: title,
+                                priceMin: 0.0,
+                                priceMax: 0.0,
+                                localisation: range)
+
+            }
+        }
+
+        var textFieldViewModel: TextFieldViewModel {
+            switch self {
+            case let .minPrice(min, _):
+                TextFieldViewModel(prompt: "0",
+                                   text: "\(Int(min).formatted(.number)) €")
+            case let .maxPrice(_, max, _):
+                TextFieldViewModel(prompt: "0",
+                                   text: "\(Int(max).formatted(.number)) €")
+            case let .localisation(range):
+                TextFieldViewModel(prompt: "0",
+                                   text: range.formatted())
+
             }
         }
 
@@ -275,6 +304,8 @@ extension FilterViewModel {
                     .minPrice(value, max)
             case let .maxPrice(min, _, _):
                     .maxPrice(min, value)
+            case let .localisation(range):
+                    .localisation(range)
             }
         }
     }
