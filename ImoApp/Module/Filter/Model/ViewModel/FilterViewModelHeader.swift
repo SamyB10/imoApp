@@ -21,7 +21,8 @@ extension FilterViewModel.Section {
         switch self.headerApperance {
         case .typeProperty:
             HeaderViewModel(apperance: .filter,
-                            title: "Type de Bien")
+                            title: "Type de Bien",
+                            image: .systemName("house"))
         case .numberOfRoom:
             HeaderViewModel(apperance: .filter,
                             title: "Nombre de Pièces",
@@ -29,7 +30,7 @@ extension FilterViewModel.Section {
         case .price:
             HeaderViewModel(apperance: .filter,
                             title: "Prix du bien",
-                            image: .systemName("house"))
+                            image: .systemName("eurosign.square"))
         case .areaSquareMeter:
             HeaderViewModel(apperance: .filter,
                             title: "Surface du bien")

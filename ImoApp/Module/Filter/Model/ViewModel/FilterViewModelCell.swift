@@ -263,37 +263,45 @@ extension FilterViewModel {
             case let .minPrice(min, max):
                 SliderViewModel(appearance: .minPrice,
                                 title: title,
-                                priceMin: min,
+                                priceMin: numberFormatter(with: min),
                                 priceMax: max,
                                 localisation: 0.0)
             case let .maxPrice(min, max, maxRange):
                 SliderViewModel(appearance: .maxPrice(maxRange: maxRange),
                                 title: title,
-                                priceMin: min,
+                                priceMin: numberFormatter(with: min),
                                 priceMax: max,
                                 localisation: 0.0,
                                 maxRange: maxRange)
             case let .localisation(range):
                 SliderViewModel(appearance: .localisation,
                                 title: title,
-                                priceMin: 0.0,
+                                priceMin: 0,
                                 priceMax: 0.0,
                                 localisation: range)
 
             }
         }
 
+        private func numberFormatter(with value: Double) -> Double {
+            let a = floor(value)
+            print(a)
+            return a
+
+
+        }
+
         var textFieldViewModel: TextFieldViewModel {
             switch self {
             case let .minPrice(min, _):
                 TextFieldViewModel(prompt: "0",
-                                   text: "\(Int(min).formatted(.number)) €")
+                                   text: Int(min))
             case let .maxPrice(_, max, _):
                 TextFieldViewModel(prompt: "0",
-                                   text: "\(Int(max).formatted(.number)) €")
+                                   text: Int(max))
             case let .localisation(range):
                 TextFieldViewModel(prompt: "0",
-                                   text: range.formatted())
+                                   text: Int(range))
 
             }
         }

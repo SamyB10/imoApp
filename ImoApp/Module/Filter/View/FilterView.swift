@@ -23,6 +23,7 @@ struct FilterView: View {
                         Spacer()
                     }
                 }
+                
                 .padding()
                 .navigationTitle("Filter")
                 .navigationBarTitleDisplayMode(.inline)
