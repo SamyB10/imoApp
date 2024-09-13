@@ -43,16 +43,30 @@ struct FilterHomeContext: Equatable {
             self.currentFilter?.fourBedRoom = value
         case let .fiveOrMoreBedroom(value):
             self.currentFilter?.fiveOrMoreBedRoom = value
-        case let .minPrice(min, _):
+        case let .minPrice(min, max):
             self.currentFilter?.priceMin = min
+            self.currentFilter?.priceMax = max
         case let .maxPrice(_, max):
             self.currentFilter?.priceMax = max
         case let .minAreaSquareMeter(value):
-            break
+            self.currentFilter?.minAreaSquareMeter = value
         case let .maxAreaSquareMeter(value):
-            break
+            self.currentFilter?.maxAreaSquareMeter = value
         case let .localisation(localisation):
             self.currentFilter?.localisation = localisation
+        case let .buildBefore1950(state):
+            self.currentFilter?.buildBefore1950 = state
+        case let .buildBetwen1950And2000(state):
+            self.currentFilter?.buildBetwen1950And2000 = state
+        case let .buildAfter2000(state):
+            self.currentFilter?.buildAfter2000 = state
+        case let .minAreaSquareMeterField(value):
+            self.currentFilter?.minAreaSquareMeterField = value
+        case let .maxAreaSquareMeterField(value):
+            self.currentFilter?.maxAreaSquareMeterField = value
+        case let .priceSlider(min, max):
+            self.currentFilter?.priceMin = min
+            self.currentFilter?.priceMax = max
         }
     }
 
@@ -90,20 +104,39 @@ struct FilterHomeContext: Equatable {
                                                              cells: cellsNumberOfBedRoom)
 
         let cellsPrice = [
-
 //            FilterViewModel.Cell(apperance: .textField(.minPrice(currentFilter.priceMin,
 //                                                                 currentFilter.priceMax))),
-            FilterViewModel.Cell(apperance: .slider(.minPrice(min: currentFilter.priceMin,
-                                                              max: currentFilter.priceMax))),
 //            FilterViewModel.Cell(apperance: .textField(.maxPrice(currentFilter.priceMin,
-//                                                                 currentFilter.priceMax))),
-            FilterViewModel.Cell(apperance: .slider(.maxPrice(min: currentFilter.priceMin,
-                                                              max: currentFilter.priceMax,
-                                                              maxRange: currentFilter.maxPriceSlideRange))),
+//                                                                 currentFilter.priceMax)))
+
+            FilterViewModel.Cell(apperance: .slider(.price(min: Double(currentFilter.priceMin),
+                                                           max: Double(currentFilter.priceMax))))
         ]
+
         let sectionPrice = FilterViewModel.Section(headerApperance: .price,
                                                    cells: cellsPrice)
 
+        let cellsAreaSquareMeter = [
+            FilterViewModel.Cell(apperance: .textField(.minAreaSquareMeter(currentFilter.minAreaSquareMeter))),
+            FilterViewModel.Cell(apperance: .textField(.maxAreaSquareMeter(currentFilter.maxAreaSquareMeter))),
+        ]
+        let sectionAreaSquareMeter = FilterViewModel.Section(headerApperance: .areaSquareMeter,
+                                                             cells: cellsAreaSquareMeter)
+
+        let cellsAreaSquareMeterField = [
+            FilterViewModel.Cell(apperance: .textField(.minAreaSquareMeterField(currentFilter.minAreaSquareMeterField))),
+            FilterViewModel.Cell(apperance: .textField(.maxAreaSquareMeterField(currentFilter.maxAreaSquareMeterField))),
+        ]
+        let sectionAreaSquareMeterField = FilterViewModel.Section(headerApperance: .areaSquareMeterField,
+                                                                  cells: cellsAreaSquareMeterField)
+
+        let cellsBuildYear = [
+            FilterViewModel.Cell(apperance: .toggle(.buildBefore1950(currentFilter.buildBefore1950))),
+            FilterViewModel.Cell(apperance: .toggle(.buildBetwen1950And2000(currentFilter.buildBetwen1950And2000))),
+            FilterViewModel.Cell(apperance: .toggle(.buildAfter2000(currentFilter.buildAfter2000)))
+        ]
+        let sectionBuildYear = FilterViewModel.Section(headerApperance: .builYear,
+                                                       cells: cellsBuildYear)
 
         let cellsLocalisation = [
             FilterViewModel.Cell(apperance: .slider(.localisation(range: currentFilter.localisation)))
@@ -112,9 +145,12 @@ struct FilterHomeContext: Equatable {
                                                           cells: cellsLocalisation)
         return [
             sectionTypeProperty,
+            sectionPrice,
             sectionNumberOfRoom,
             sectionNumberOfBedRoom,
-            sectionPrice,
+            sectionBuildYear,
+            sectionAreaSquareMeter,
+            sectionAreaSquareMeterField,
             sectionLocalisation
         ]
     }

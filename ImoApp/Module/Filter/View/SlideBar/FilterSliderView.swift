@@ -13,14 +13,14 @@ struct FilterSliderView: View {
 
     var body: some View {
         switch cell {
-        case .minPrice,
-                .maxPrice:
-            SliderViewPrice(cell: cell, viewModel: cell.sliderViewModel) {
-                action($0)
-            }
         case .localisation:
             SliderLocalisation(cell: cell,
                                viewModel: cell.sliderViewModel)
+        case .price:
+            SliderCustomView(cell: cell,
+                             viewModel: cell.sliderViewModel) { 
+                action($0)
+            }
         }
     }
 }

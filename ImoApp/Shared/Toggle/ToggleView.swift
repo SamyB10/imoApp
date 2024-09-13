@@ -29,12 +29,13 @@ struct ToggleView: View {
                 }
                 .tint(.blue)
             case .button:
-                Toggle(viewModel.title ?? "",
+                Toggle(viewModel.title ?? "90",
                        isOn: $viewModel.isOn)
                 .toggleStyle(.button)
                 .labelStyle(.titleOnly)
                 .foregroundStyle(.black)
-                .font(.caption)
+//                .font(.caption)
+                .font(.system(size: 15))
                 .tint(.gray)
                 .cornerRadius(10)
                 .overlay(
@@ -42,6 +43,7 @@ struct ToggleView: View {
                         .stroke(viewModel.isOn ? Color.black : Color.gray,
                                 lineWidth: viewModel.isOn ? 1 : 0.5)
                 )
+
             }
         }
         .onChange(of: viewModel.isOn) { oldValue, newValue in
@@ -50,6 +52,10 @@ struct ToggleView: View {
             }
         }
     }
+}
+
+#Preview {
+    ToggleView(viewModel: .init(apperance: .button, isOn: true), action: nil)
 }
 
 

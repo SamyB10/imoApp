@@ -14,8 +14,8 @@ public struct FilterContent: Equatable {
     var threeRoom: Bool
     var fourRoom: Bool
     var fiveOrMoreRoom: Bool
-    var priceMin: Double
-    var priceMax: Double
+    var priceMin: Int
+    var priceMax: Int
     let maxPriceSlideRange: Double
     var oneBedRoom: Bool
     var twoBedRoom: Bool
@@ -23,6 +23,13 @@ public struct FilterContent: Equatable {
     var fourBedRoom: Bool
     var fiveOrMoreBedRoom: Bool
     var localisation: Double
+    var buildBefore1950: Bool
+    var buildBetwen1950And2000: Bool
+    var buildAfter2000: Bool
+    var minAreaSquareMeter: Int
+    var maxAreaSquareMeter: Int
+    var minAreaSquareMeterField: Int
+    var maxAreaSquareMeterField: Int
 }
 
 extension FilterContent {

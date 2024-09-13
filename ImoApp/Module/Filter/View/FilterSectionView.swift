@@ -11,23 +11,29 @@ struct FilterSectionView: View {
     // MARK: - Properties
     let section: FilterViewModel.Section
     let action: (SelectedFilterItem) -> Void
-
+    @State private var topExpanded = false
     // MARK: - Subviews
     var body: some View {
         Section {
-            SectionHeaderView(viewModel: section.header)
-
             switch section.headerApperance {
             case .numberOfRoom,
-                    .numberOfBedroom:
+                    .numberOfBedroom,
+                    .areaSquareMeter,
+                    .areaSquareMeterField,
+                    .localisation,
+                    .builYear:
+                SectionHeaderView(viewModel: section.header)
+                    .padding(.bottom)
                 HStack {
                     createContentSections(with: section)
                 }
             default:
+                SectionHeaderView(viewModel: section.header)
+                    .padding(.bottom)
                 createContentSections(with: section)
             }
         }
-
+        .padding(.horizontal)
         if section.displaySepartionBar {
             Rectangle()
                 .fill(Color.black.opacity(0.2))
@@ -35,7 +41,6 @@ struct FilterSectionView: View {
                 .padding(.vertical)
         }
     }
-
 
 
     private func createContentSections(with section: FilterViewModel.Section) -> some View {
@@ -49,9 +54,12 @@ struct FilterSectionView: View {
                     itemToggle(with: item)
                 case .slider(let item):
                     itemSlider(with: item)
+                case let .textField(item):
+                    itemTextField(with: item)
                 }
             }
         }
+        .padding(.bottom)
     }
 
     private func itemToggle(with items: FilterViewModel.Toggle) -> some View {
@@ -69,6 +77,12 @@ struct FilterSectionView: View {
     private func itemSlider(with item: FilterViewModel.Slider) -> some View {
         FilterSliderView(cell: item) {
             action($0)
+        }
+    }
+
+    private func itemTextField(with item: FilterViewModel.TextField) -> some View {
+        TextFieldView(viewModel: item.viewModel()) { _ in
+            print("e")
         }
     }
 }

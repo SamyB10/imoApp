@@ -58,20 +58,14 @@ extension FilterInteractor: FilterBusinessLogic {
             userFilter.saveValue(filter: .roomCount(.fiveOrMoreRoom, value))
             presenter?.updateItem(with: item)
         case let .minPrice(min, max):
-            if min >= max {
-                presenter?.updateItem(with: .minPrice(max - 5000, max))
-            } else {
-                presenter?.updateItem(with: item)
-            }
+            presenter?.updateItem(with: item)
         case let .maxPrice(min, max):
-            if max >= content.maxPriceSlideRange {
-                presenter?.updateItem(with: .maxPrice(min, content.maxPriceSlideRange - 5000))
-            } else if max <= min {
-                presenter?.updateItem(with: .maxPrice(min, min + 5000))
-            } else if max - min < 5000 {
-                presenter?.updateItem(with: .maxPrice(min, min + 5000))
+            presenter?.updateItem(with: item)
+        case let .priceSlider(min, max):
+            if min >= max {
+                presenter?.updateItem(with: .priceSlider(min, min + 20000))
             } else {
-                presenter?.updateItem(with: item)
+                presenter?.updateItem(with: .priceSlider(min, max))
             }
         default:
             print("faire le didSelect")
@@ -98,13 +92,20 @@ extension FilterInteractor {
                                     fiveOrMoreRoom: fiveOrMoreRoom,
                                     priceMin: 100,
                                     priceMax: 200000,
-                                    maxPriceSlideRange: 10000000,
+                                    maxPriceSlideRange: 1000000,
                                     oneBedRoom: false,
                                     twoBedRoom: false,
                                     threeBedRoom: false,
                                     fourBedRoom: false,
                                     fiveOrMoreBedRoom: false,
-                                    localisation: 10)
+                                    localisation: 10,
+                                    buildBefore1950: false,
+                                    buildBetwen1950And2000: false,
+                                    buildAfter2000: false,
+                                    minAreaSquareMeter: 0,
+                                    maxAreaSquareMeter: 0,
+                                    minAreaSquareMeterField: 0,
+                                    maxAreaSquareMeterField: 0)
         self.content = content
         return content
     }

@@ -21,9 +21,17 @@ public enum SelectedFilterItem {
     case threeBedroom(Bool)
     case fourBedroom(Bool)
     case fiveOrMoreBedroom(Bool)
-    case minPrice(Double, Double)
-    case maxPrice(Double, Double)
-    case minAreaSquareMeter(String)
-    case maxAreaSquareMeter(String)
+    case priceSlider(Int, Int)
+    case minPrice(Int, Int)
+    case maxPrice(Int, Int)
+    case minAreaSquareMeter(Int)
+    case maxAreaSquareMeter(Int)
+    case minAreaSquareMeterField(Int)
+    case maxAreaSquareMeterField(Int)
     case localisation(Double)
+    case buildBefore1950(Bool)
+    case buildBetwen1950And2000(Bool)
+    case buildAfter2000(Bool)
+    
+
 }

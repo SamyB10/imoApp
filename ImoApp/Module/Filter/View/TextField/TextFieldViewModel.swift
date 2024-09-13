@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 final class TextFieldViewModel: ObservableObject {
     let prompt: String
-    @Published var text: Int
+    @Published var text: Int?
 
     init(prompt: String,
-         text: Int) {
+         text: Int?) {
         self.prompt = prompt
         self.text = text
     }

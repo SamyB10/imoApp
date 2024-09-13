@@ -14,15 +14,26 @@ public struct FilterViewModel: Hashable, Equatable {
         let headerApperance: HeaderApperance
         let cells: [Cell]
 
+        var displaySepartionBarTop: CGFloat {
+            switch headerApperance {
+            case .typeProperty:
+                10
+            default:
+                0
+            }
+        }
+
         var displaySepartionBar: Bool {
             switch headerApperance {
             case .typeProperty,
+                    .builYear,
                     .numberOfBedroom,
-                    .price,
-                    .areaSquareMeter,
-                    .localisation:
+                    .price:
                 true
-            case .numberOfRoom:
+            case .numberOfRoom,
+                    .areaSquareMeter,
+                    .areaSquareMeterField,
+                    .localisation:
                 false
             }
         }

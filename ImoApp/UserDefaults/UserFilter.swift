@@ -42,7 +42,6 @@ class UserFilter {
             userDefaults.set(type.rawValue, forKey: Keys.selectedPropertyType.rawValue)
         case .roomCount(let key, let value):
             userDefaults.set(value, forKey: key.rawValue)
-            print(value)
         }
     }
 
