@@ -8,20 +8,24 @@
 import Foundation
 import SwiftUI
 final class TextFieldViewModel: ObservableObject {
+    let apperance: ApperanceTextField
     let prompt: String
     @Published var text: Int?
 
-    init(prompt: String,
-         text: Int?) {
+
+    init(apperance: ApperanceTextField,
+         prompt: String,
+         text: Int? = nil) {
+        self.apperance = apperance
         self.prompt = prompt
         self.text = text
     }
 }
 
 extension TextFieldViewModel {
-    enum Apperance {
-        case minPrice
-        case maxPrice
+    enum ApperanceTextField {
+        case price
+        case areaSquareMeter
         case localisation
     }
 }
@@ -33,6 +37,17 @@ extension TextFieldViewModel {
 
     var lineWidth: CGFloat {
         0.5
+    }
+
+    var unity: String {
+        switch apperance {
+        case .price:
+            "€"
+        case .areaSquareMeter:
+            "m2"
+        case .localisation:
+            "m"
+        }
     }
 }
 

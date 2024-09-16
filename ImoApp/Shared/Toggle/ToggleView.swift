@@ -34,8 +34,7 @@ struct ToggleView: View {
                 .toggleStyle(.button)
                 .labelStyle(.titleOnly)
                 .foregroundStyle(.black)
-//                .font(.caption)
-                .font(.system(size: 15))
+                .font(.system(size: 13))
                 .tint(.gray)
                 .cornerRadius(10)
                 .overlay(

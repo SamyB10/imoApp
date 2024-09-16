@@ -67,6 +67,12 @@ extension FilterInteractor: FilterBusinessLogic {
             } else {
                 presenter?.updateItem(with: .priceSlider(min, max))
             }
+        case let .areaSquareSlider(min, max):
+            if min >= max {
+                presenter?.updateItem(with: .areaSquareSlider(min, min + 5))
+            } else {
+                presenter?.updateItem(with: .areaSquareSlider(min, max))
+            }
         default:
             print("faire le didSelect")
         }
@@ -103,7 +109,7 @@ extension FilterInteractor {
                                     buildBetwen1950And2000: false,
                                     buildAfter2000: false,
                                     minAreaSquareMeter: 0,
-                                    maxAreaSquareMeter: 0,
+                                    maxAreaSquareMeter: 50,
                                     minAreaSquareMeterField: 0,
                                     maxAreaSquareMeterField: 0)
         self.content = content

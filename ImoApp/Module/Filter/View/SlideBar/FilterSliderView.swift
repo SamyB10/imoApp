@@ -21,6 +21,11 @@ struct FilterSliderView: View {
                              viewModel: cell.sliderViewModel) { 
                 action($0)
             }
+        case .areaSquareMeter:
+            SliderCustomView(cell: cell,
+                             viewModel: cell.sliderViewModel) {
+                action($0)
+            }
         }
     }
 }

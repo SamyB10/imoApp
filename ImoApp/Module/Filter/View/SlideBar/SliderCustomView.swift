@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct SliderCustomView: View {
-    private let rangeMinPrice: Int = 0
-    private let rangeMaxPrice: Int = 1000000
-    private let spaceBetween: CGFloat = 0.05
-    private let heightSlider: CGFloat = 5
-    private let stepValue: Int = 20000
     private let cell: FilterViewModel.Slider
     @ObservedObject private var viewModel: SliderViewModel
     @State private var widthCircle: CGFloat = 24
     @State private var totalSizeRectangle: CGSize = .zero
-    private var paddingHorizontalRectangle: CGFloat = 40
     let action: (SelectedFilterItem) -> Void
 
     public init(cell: FilterViewModel.Slider,
@@ -51,9 +45,9 @@ extension SliderCustomView {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            let newValue = max(0, min(value.location.x / totalSizeRectangle.width, getPosition(from: viewModel.priceMax) - spaceBetween))
+                            let newValue = max(0, min(value.location.x / totalSizeRectangle.width, getPosition(from: viewModel.valueMax) - viewModel.spaceBetween))
                             let roundedPrice = roundToStep(getPrice(from: newValue))
-                            action(.priceSlider(roundedPrice, Int(viewModel.priceMax)))
+                            action(cell.selectedItem(with: .min(value: roundedPrice)))
                         }
                 )
 
@@ -62,9 +56,9 @@ extension SliderCustomView {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            let newValue = min(1, max(value.location.x / totalSizeRectangle.width, getPosition(from: viewModel.priceMin) + spaceBetween))
+                            let newValue = min(1, max(value.location.x / totalSizeRectangle.width, getPosition(from: viewModel.valueMin) + viewModel.spaceBetween))
                             let roundedPrice = roundToStep(getPrice(from: newValue))
-                            action(.priceSlider(Int(viewModel.priceMin), roundedPrice))
+                            action(cell.selectedItem(with: .max(value: roundedPrice)))
                         }
                 )
         }
@@ -74,7 +68,7 @@ extension SliderCustomView {
         Group {
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.black.opacity(0.20))
-                .frame(height: heightSlider)
+                .frame(height: viewModel.heightSlider)
 
                 .background(
                     GeometryReader { proxy in
@@ -88,8 +82,8 @@ extension SliderCustomView {
             Rectangle()
                 .foregroundStyle(.black)
                 .frame(width: getWidthRectangle(),
-                       height: heightSlider)
-                .offset(x: getPositionRectangleBlack(from: viewModel.priceMin) * totalSizeRectangle.width)
+                       height: viewModel.heightSlider)
+                .offset(x: getPositionRectangleBlack() * totalSizeRectangle.width)
         }
     }
 
@@ -99,8 +93,8 @@ extension SliderCustomView {
                 Text("Minimum")
                     .font(.footnote)
                     .foregroundStyle(.gray)
-                TextFieldViewPrice(viewModel: cell.textFieldViewModel(for: true)) {
-                    action(.priceSlider(Int($0), Int(viewModel.priceMax)))
+                TextFieldViewPrice(viewModel: cell.textFieldViewModel(with: .min)) {
+                    action(cell.selectedItem(with: .min(value: $0)))
                 }
             }
 
@@ -110,8 +104,8 @@ extension SliderCustomView {
                 Text("Maximum")
                     .font(.footnote)
                     .foregroundStyle(.gray)
-                TextFieldViewPrice(viewModel: cell.textFieldViewModel(for: false)) {
-                    action(.priceSlider(Int(viewModel.priceMin), Int($0)))
+                TextFieldViewPrice(viewModel: cell.textFieldViewModel(with: .max)) {
+                    action(cell.selectedItem(with: .max(value: $0)))
                 }
             }
         }
@@ -121,74 +115,73 @@ extension SliderCustomView {
 // MARK: CalculLogic
 extension SliderCustomView {
     private func getWidthRectangle() -> CGFloat {
-        var minPrice: Double
-        var maxPrice: Double
+        var minPrice: Int
+        var maxPrice: Int
 
-        if Int(viewModel.priceMin) < rangeMinPrice {
-            minPrice =  Double(rangeMinPrice)
-        } else if Int(viewModel.priceMin) >= rangeMaxPrice {
-            minPrice = Double(rangeMinPrice)
+        if viewModel.valueMin < viewModel.rangeMinPrice {
+            minPrice =  viewModel.rangeMinPrice
+        } else if viewModel.valueMin >= viewModel.rangeMaxPrice {
+            minPrice = viewModel.rangeMinPrice
         } else {
-            minPrice = viewModel.priceMin
+            minPrice = viewModel.valueMin
         }
 
 
-        if Int(viewModel.priceMax) >= rangeMaxPrice {
-            maxPrice = Double(rangeMaxPrice)
+        if viewModel.valueMax >= viewModel.rangeMaxPrice {
+            maxPrice = viewModel.rangeMaxPrice
         } else {
-            maxPrice = viewModel.priceMax
+            maxPrice = viewModel.valueMax
         }
 
         return (getPosition(from: maxPrice) - getPosition(from: minPrice)) * totalSizeRectangle.width
     }
 
     private func getOffsetCircleMax() -> CGFloat {
-        var maxPrice: Double
-        if Int(viewModel.priceMax) >= rangeMaxPrice {
-            maxPrice = Double(rangeMaxPrice)
+        var maxPrice: Int
+        if viewModel.valueMax >= viewModel.rangeMaxPrice {
+            maxPrice = viewModel.rangeMaxPrice
         } else {
-            maxPrice = viewModel.priceMax
+            maxPrice = viewModel.valueMax
         }
-        return getPosition(from: maxPrice) * totalSizeRectangle.width - paddingHorizontalRectangle
+        return getPosition(from: maxPrice) * totalSizeRectangle.width - viewModel.paddingHorizontalRectangle
     }
 
     private func getOffsetCircleMin() -> CGFloat {
-        var minPrice: Double
+        var minPrice: Int
 
-        if Int(viewModel.priceMin) < rangeMinPrice {
-            minPrice =  Double(rangeMinPrice)
-        } else if Int(viewModel.priceMin) >= rangeMaxPrice {
-            minPrice = Double(rangeMinPrice)
+        if viewModel.valueMin < viewModel.rangeMinPrice {
+            minPrice =  viewModel.rangeMinPrice
+        } else if viewModel.valueMin >= viewModel.rangeMaxPrice {
+            minPrice = viewModel.rangeMinPrice
         } else {
-            minPrice = viewModel.priceMin
+            minPrice = viewModel.valueMin
         }
-        return getPosition(from: minPrice) * totalSizeRectangle.width - paddingHorizontalRectangle + (widthCircle + widthCircle * 0.1)
+        return getPosition(from: minPrice) * totalSizeRectangle.width - viewModel.paddingHorizontalRectangle + (widthCircle + widthCircle * 0.1)
     }
 
 
     private func getPrice(from value: CGFloat) -> Int {
-        return Int(value * CGFloat(rangeMaxPrice - rangeMinPrice)) + rangeMinPrice
+        return Int(value * CGFloat(viewModel.rangeMaxPrice - viewModel.rangeMinPrice)) + viewModel.rangeMinPrice
     }
 
-    private func getPosition(from price: Double) -> CGFloat {
-        let value = Int(price)
-        return CGFloat(value - rangeMinPrice) / CGFloat(rangeMaxPrice - rangeMinPrice)
+    private func getPosition(from price: Int) -> CGFloat {
+        return CGFloat(price - viewModel.rangeMinPrice) / CGFloat(viewModel.rangeMaxPrice - viewModel.rangeMinPrice)
     }
 
-    private func getPositionRectangleBlack(from price: Double) -> CGFloat {
+    private func getPositionRectangleBlack() -> CGFloat {
         var minPrice: Int
-        if Int(viewModel.priceMin) < rangeMinPrice {
-            minPrice =  rangeMinPrice
-        } else if Int(viewModel.priceMin) >= rangeMaxPrice {
-            minPrice = rangeMinPrice
+        if viewModel.valueMin < viewModel.rangeMinPrice {
+            minPrice =  viewModel.rangeMinPrice
+        } else if viewModel.valueMin >= viewModel.rangeMaxPrice {
+            minPrice = viewModel.rangeMinPrice
         } else {
-            minPrice = Int(viewModel.priceMin)
+            minPrice = viewModel.valueMin
         }
-        return CGFloat(minPrice - rangeMinPrice) / CGFloat(rangeMaxPrice - rangeMinPrice)
+        return CGFloat(minPrice - viewModel.rangeMinPrice) / CGFloat(viewModel.rangeMaxPrice - viewModel.rangeMinPrice)
     }
 
     private func roundToStep(_ price: Int) -> Int {
-        let step = stepValue
+        let step = viewModel.stepValue
         return (price / step) * step
     }
 }

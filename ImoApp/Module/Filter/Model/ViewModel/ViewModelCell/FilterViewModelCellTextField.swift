@@ -51,22 +51,28 @@ extension FilterViewModel {
         func viewModel() -> TextFieldViewModel {
             switch self {
             case let .minAreaSquareMeter(value):
-                TextFieldViewModel(prompt: title,
+                TextFieldViewModel(apperance: .areaSquareMeter,
+                                   prompt: title,
                                    text: value == 0 ? nil : value)
             case let .maxAreaSquareMeter(value):
-                TextFieldViewModel(prompt: title,
+                TextFieldViewModel(apperance: .areaSquareMeter,
+                                   prompt: title,
                                    text: value == 0 ? nil : value)
             case let .minAreaSquareMeterField(value):
-                TextFieldViewModel(prompt: title,
+                TextFieldViewModel(apperance: .areaSquareMeter,
+                                   prompt: title,
                                    text: value == 0 ? nil : value)
             case let .maxAreaSquareMeterField(value):
-                TextFieldViewModel(prompt: title,
+                TextFieldViewModel(apperance: .areaSquareMeter,
+                                   prompt: title,
                                    text: value == 0 ? nil : value)
             case let .minPrice(min, _):
-                TextFieldViewModel(prompt: title,
+                TextFieldViewModel(apperance: .price,
+                                   prompt: title,
                                    text: min)
             case let .maxPrice(_, max):
-                TextFieldViewModel(prompt: title,
+                TextFieldViewModel(apperance: .price,
+                                   prompt: title,
                                    text: max)
             }
         }

@@ -8,55 +8,41 @@
 import SwiftUI
 final class SliderViewModel: ObservableObject {
     let title: String
-    let appearance: Appearance
-    @Published var priceMin: Double
-    @Published var priceMax: Double
-    @Published var localisation: Double
-    let maxRange: Double?
+    var appearance: Appearance
+
+    @Published var localisation: Double = 0.0
+    @Published var priceMin: Int = 0
+    @Published var priceMax: Int = 0
+    @Published var minAreaSquare: Int = 0
+    @Published var maxAreaSquare: Int = 0
 
     init(appearance: Appearance,
          title: String,
-         priceMin: Double,
-         priceMax: Double,
-         localisation: Double,
          maxRange: Double? = nil) {
         self.appearance = appearance
         self.title = title
-        self.priceMin = priceMin
-        self.priceMax = priceMax
-        self.localisation = localisation
-        self.maxRange = maxRange
+        
+        switch appearance {
+        case let .localisation(value):
+            localisation = value
+        case let .price(min, max):
+            priceMin = min
+            priceMax = max
+        case let .areaSquareMeter(min, max):
+            minAreaSquare = min
+            maxAreaSquare = max
+        }
     }
 }
 
 extension SliderViewModel {
     enum Appearance: Equatable {
-        case minPrice
-        case maxPrice(maxRange: Double)
-        case localisation
+        case price(Int, Int)
+        case areaSquareMeter(Int, Int)
+        case localisation(Double)
     }
 
-    var range: ClosedRange<Double> {
-        switch appearance {
-        case .minPrice:
-            0...priceMax
-        case .maxPrice(let maxRange):
-            priceMin...(maxRange)
-        case .localisation:
-            0...100
-        }
-    }
 
-    var priceOnChange: Double {
-        switch appearance {
-        case .minPrice:
-            priceMin
-        case .maxPrice:
-            priceMax
-        case .localisation:
-            0
-        }
-    }
 }
 
 extension SliderViewModel {
@@ -80,4 +66,63 @@ extension SliderViewModel {
         0.5
     }
 
+    var rangeMinPrice: Int {
+        0
+    }
+
+    var rangeMaxPrice: Int {
+        switch appearance {
+        case .price:
+            1000000
+        case .areaSquareMeter:
+            400
+        case .localisation:
+            100
+        }
+    }
+    
+    var spaceBetween: CGFloat {
+        0.05
+    }
+
+    var heightSlider: CGFloat {
+        5
+    }
+
+    var stepValue: Int {
+        switch appearance {
+        case .price:
+            20000
+        case .areaSquareMeter:
+            5
+        case .localisation:
+            10
+        }
+    }
+
+    var paddingHorizontalRectangle: CGFloat {
+        40
+    }
+
+    var valueMax: Int {
+        switch appearance {
+        case .price:
+            priceMax
+        case .localisation:
+            0
+        case .areaSquareMeter:
+            maxAreaSquare
+        }
+    }
+
+    var valueMin: Int {
+        switch appearance {
+        case .price:
+            priceMin
+        case .localisation:
+            0
+        case .areaSquareMeter:
+            minAreaSquare
+        }
+    }
 }

@@ -67,6 +67,9 @@ struct FilterHomeContext: Equatable {
         case let .priceSlider(min, max):
             self.currentFilter?.priceMin = min
             self.currentFilter?.priceMax = max
+        case let .areaSquareSlider(min, max):
+            self.currentFilter?.minAreaSquareMeter = min
+            self.currentFilter?.maxAreaSquareMeter = max
         }
     }
 
@@ -104,21 +107,16 @@ struct FilterHomeContext: Equatable {
                                                              cells: cellsNumberOfBedRoom)
 
         let cellsPrice = [
-//            FilterViewModel.Cell(apperance: .textField(.minPrice(currentFilter.priceMin,
-//                                                                 currentFilter.priceMax))),
-//            FilterViewModel.Cell(apperance: .textField(.maxPrice(currentFilter.priceMin,
-//                                                                 currentFilter.priceMax)))
-
-            FilterViewModel.Cell(apperance: .slider(.price(min: Double(currentFilter.priceMin),
-                                                           max: Double(currentFilter.priceMax))))
+            FilterViewModel.Cell(apperance: .slider(.price(min: currentFilter.priceMin,
+                                                           max: currentFilter.priceMax)))
         ]
 
         let sectionPrice = FilterViewModel.Section(headerApperance: .price,
                                                    cells: cellsPrice)
 
         let cellsAreaSquareMeter = [
-            FilterViewModel.Cell(apperance: .textField(.minAreaSquareMeter(currentFilter.minAreaSquareMeter))),
-            FilterViewModel.Cell(apperance: .textField(.maxAreaSquareMeter(currentFilter.maxAreaSquareMeter))),
+            FilterViewModel.Cell(apperance: .slider(.areaSquareMeter(min: currentFilter.minAreaSquareMeter,
+                                                                     max: currentFilter.maxAreaSquareMeter)))
         ]
         let sectionAreaSquareMeter = FilterViewModel.Section(headerApperance: .areaSquareMeter,
                                                              cells: cellsAreaSquareMeter)

@@ -22,6 +22,7 @@ public enum SelectedFilterItem {
     case fourBedroom(Bool)
     case fiveOrMoreBedroom(Bool)
     case priceSlider(Int, Int)
+    case areaSquareSlider(Int, Int)
     case minPrice(Int, Int)
     case maxPrice(Int, Int)
     case minAreaSquareMeter(Int)
