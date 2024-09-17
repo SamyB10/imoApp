@@ -7,6 +7,7 @@
 
 import Foundation
 public struct FilterContent: Equatable {
+    var order: Order
     var property: Property
     var studio: Bool
     var oneRoom: Bool
@@ -41,6 +42,10 @@ extension FilterContent {
     public struct Property: Equatable {
         let type: TypeProperty
     }
+
+    public struct Order: Equatable {
+        let type: TypeOrder
+    }
 }
 
 extension FilterContent {
@@ -48,5 +53,16 @@ extension FilterContent {
         case appartment
         case house
         case both
+    }
+
+    public enum TypeOrder: Equatable {
+        case orderPerDateAsc
+        case orderPerDateDesc
+        case orderPricePerMeterAsc
+        case orderPricePerMeterDesc
+        case orderPriceAsc
+        case orderPriceDesc
+        case orderSurfaceAsc
+        case orderSurfaceDesc
     }
 }

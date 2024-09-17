@@ -73,13 +73,6 @@ struct FilterSectionView: View {
                     itemSlider(with: item)
                 case let .textField(item):
                     itemTextField(with: item)
-                case .button(let item):
-                    itemButton(with: item)
-                    if section.headerApperance == .enery {
-                        Rectangle()
-                            .fill(Color.black.opacity(0.2))
-                            .frame(height: 0.5)
-                    }
                 }
             }
         }
@@ -106,12 +99,6 @@ struct FilterSectionView: View {
     private func itemTextField(with item: FilterViewModel.TextField) -> some View {
         TextFieldView(viewModel: item.viewModel()) { _ in
             print("e")
-        }
-    }
-
-    private func itemButton(with item: FilterViewModel.Button) -> some View {
-        FilterButtonView(cell: item) { _ in
-            print("button")
         }
     }
 }

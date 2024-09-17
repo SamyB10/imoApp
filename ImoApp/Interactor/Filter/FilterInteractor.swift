@@ -31,7 +31,6 @@ extension FilterInteractor: FilterBusinessLogic {
 
     @MainActor
     func didSelectItem(with item: SelectedFilterItem) {
-        guard let content else { return }
         switch item {
         case .appartment:
             userFilter.saveValue(filter: .propertyType(.appartment))
@@ -56,10 +55,6 @@ extension FilterInteractor: FilterBusinessLogic {
             presenter?.updateItem(with: item)
         case let .fiveOrMore(value):
             userFilter.saveValue(filter: .roomCount(.fiveOrMoreRoom, value))
-            presenter?.updateItem(with: item)
-        case let .minPrice(min, max):
-            presenter?.updateItem(with: item)
-        case let .maxPrice(min, max):
             presenter?.updateItem(with: item)
         case let .priceSlider(min, max):
             if min >= max {
@@ -91,7 +86,8 @@ extension FilterInteractor {
         let fourRoom = userFilter.fourRoom
         let fiveOrMoreRoom = userFilter.fiveOrMoreRoom
 
-        let content = FilterContent(property: typeProperty,
+        let content = FilterContent(order: FilterContent.Order(type: .orderPriceAsc),
+                                    property: typeProperty,
                                     studio: studio,
                                     oneRoom: oneRoom,
                                     twoRoom: twoRoom,

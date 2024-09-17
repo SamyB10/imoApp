@@ -29,13 +29,15 @@ struct ToggleView: View {
                 }
                 .tint(.blue)
             case .button:
-                Toggle(viewModel.title ?? "90",
+                Toggle(viewModel.title ?? "kkk",
                        isOn: $viewModel.isOn)
+                .background(viewModel.isOn ?
+                            viewModel.theme.opacity(1) : viewModel.theme.opacity(0.5) )
                 .toggleStyle(.button)
                 .labelStyle(.titleOnly)
                 .foregroundStyle(.black)
                 .font(.system(size: 13))
-                .tint(.gray)
+//                .tint(.green)
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -54,7 +56,7 @@ struct ToggleView: View {
 }
 
 #Preview {
-    ToggleView(viewModel: .init(apperance: .button, isOn: true), action: nil)
+    ToggleView(viewModel: .init(apperance: .button, isOn: false, theme: .blue), action: nil)
 }
 
 

@@ -80,6 +80,22 @@ struct FilterHomeContext: Equatable {
             self.currentFilter?.f = value
         case let .g(value):
             self.currentFilter?.g = value
+        case .orderPerDateAsc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderPerDateAsc)
+        case .orderPerDateDesc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderPerDateDesc)
+        case .orderPricePerMeterAsc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderPricePerMeterAsc)
+        case .orderPricePerMeterDesc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderPricePerMeterDesc)
+        case .orderPriceAsc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderPriceAsc)
+        case .orderPriceDesc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderPriceDesc)
+        case .orderSurfaceAsc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderSurfaceAsc)
+        case .orderSurfaceDesc:
+            self.currentFilter?.order = FilterContent.Order(type: .orderSurfaceDesc)
         }
     }
 
@@ -168,8 +184,29 @@ struct FilterHomeContext: Equatable {
         ]
     }
 
+    private var menuItemFilter: FilterViewModel.MenuItemFilter {
+        guard let currentFilter else { return FilterViewModel.MenuItemFilter(section: []) }
+        let cellsOrder = [
+            FilterViewModel.Order.orderPriceAsc(currentFilter.order.type == .orderPriceAsc),
+            FilterViewModel.Order.orderPriceDesc(currentFilter.order.type == .orderPriceDesc),
+            FilterViewModel.Order.orderPerDateAsc(currentFilter.order.type == .orderPerDateAsc),
+            FilterViewModel.Order.orderPerDateDesc(currentFilter.order.type == .orderPerDateDesc),
+            FilterViewModel.Order.orderSurfaceAsc(currentFilter.order.type == .orderSurfaceAsc),
+            FilterViewModel.Order.orderSurfaceDesc(currentFilter.order.type == .orderSurfaceDesc),
+            FilterViewModel.Order.orderPricePerMeterAsc(currentFilter.order.type == .orderPricePerMeterAsc),
+            FilterViewModel.Order.orderPricePerMeterDesc(currentFilter.order.type == .orderPricePerMeterDesc),
+        ]
+
+        let sectionMenuFilter = [
+            FilterViewModel.SectionMenuFilter(order: cellsOrder)
+        ]
+
+        return FilterViewModel.MenuItemFilter(section: sectionMenuFilter)
+    }
+
     var viewModel: FilterViewModel {
-        FilterViewModel(sections: sections)
+        FilterViewModel(sections: sections,
+                        menuItemFilter: menuItemFilter)
     }
 }
 

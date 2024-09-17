@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 extension FilterViewModel {
     enum Toggle: Hashable, Equatable {
         case studio(Bool)
@@ -144,7 +145,8 @@ extension FilterViewModel {
                     .g(let value):
                 ToggleViewModel(apperance: .button,
                                 title: title,
-                                isOn: value)
+                                isOn: value,
+                                theme: color)
             }
         }
 
@@ -189,6 +191,27 @@ extension FilterViewModel {
                 isDisabled
             default:
                 false
+            }
+        }
+
+        private var color: Color {
+            switch self {
+            case .a:
+                Color.A
+            case .b:
+                Color.B
+            case .c:
+                Color.C
+            case .d:
+                Color.D
+            case .e:
+                Color.E
+            case .f:
+                Color.F
+            case .g:
+                Color.G
+            default:
+                Color.clear
             }
         }
     }

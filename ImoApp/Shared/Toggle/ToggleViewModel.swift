@@ -11,13 +11,16 @@ final class ToggleViewModel: ObservableObject {
     let apperance: Apperance
     let title: String?
     @Published var isOn: Bool
+    let theme: Color
 
     init(apperance: Apperance,
          title: String? = nil,
-         isOn: Bool) {
+         isOn: Bool,
+         theme: Color) {
         self.apperance = apperance
         self.title = title
         self.isOn = isOn
+        self.theme = theme
     }
 
     enum Apperance {
@@ -38,4 +41,10 @@ extension ToggleViewModel: Hashable {
         hasher.combine(isOn)
         hasher.combine(apperance)
     }
+}
+
+extension ToggleViewModel {
+//    var color: Color {
+//
+//    }
 }

@@ -38,4 +38,12 @@ public enum SelectedFilterItem {
     case e(Bool)
     case f(Bool)
     case g(Bool)
+    case orderPerDateAsc(Bool)
+    case orderPerDateDesc(Bool)
+    case orderPricePerMeterAsc(Bool)
+    case orderPricePerMeterDesc(Bool)
+    case orderPriceAsc(Bool)
+    case orderPriceDesc(Bool)
+    case orderSurfaceAsc(Bool)
+    case orderSurfaceDesc(Bool)
 }
