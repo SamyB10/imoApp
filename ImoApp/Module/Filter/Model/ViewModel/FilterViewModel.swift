@@ -28,12 +28,12 @@ public struct FilterViewModel: Hashable, Equatable {
             case .typeProperty,
                     .builYear,
                     .numberOfBedroom,
+                    .areaSquareMeter,
+                    .localisation,
+                    .enery,
                     .price:
                 true
-            case .numberOfRoom,
-                    .areaSquareMeter,
-                    .areaSquareMeterField,
-                    .localisation:
+            case .numberOfRoom:
                 false
             }
         }

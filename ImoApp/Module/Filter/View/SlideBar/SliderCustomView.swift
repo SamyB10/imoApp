@@ -24,13 +24,13 @@ struct SliderCustomView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            createTextFieldView()
+                .padding(.vertical)
             ZStack(alignment: .leading) {
             createRectangleSlider()
                 createHandleSlider()
             }
             .padding(.bottom)
-
-            createTextFieldView()
         }
     }
 }
@@ -156,7 +156,7 @@ extension SliderCustomView {
         } else {
             minPrice = viewModel.valueMin
         }
-        return getPosition(from: minPrice) * totalSizeRectangle.width - viewModel.paddingHorizontalRectangle + (widthCircle + widthCircle * 0.1)
+        return getPosition(from: minPrice) * totalSizeRectangle.width - viewModel.paddingHorizontalRectangle + widthCircle + (widthCircle / 2)
     }
 
 

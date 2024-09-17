@@ -12,17 +12,12 @@ extension FilterViewModel {
         case maxPrice(Int, Int)
         case minAreaSquareMeter(Int?)
         case maxAreaSquareMeter(Int?)
-        case minAreaSquareMeterField(Int?)
-        case maxAreaSquareMeterField(Int?)
-
 
         var title: String {
             switch self {
-            case .minAreaSquareMeter,
-                    .minAreaSquareMeterField:
+            case .minAreaSquareMeter:
                 "Surface Minimum"
-            case .maxAreaSquareMeter,
-                    .maxAreaSquareMeterField:
+            case .maxAreaSquareMeter:
                 "Surface Maximum"
             case .minPrice:
                 "Minimum"
@@ -37,10 +32,6 @@ extension FilterViewModel {
                     .minAreaSquareMeter(value ?? 0)
             case let .maxAreaSquareMeter(value):
                     .maxAreaSquareMeter(value ?? 0)
-            case let .minAreaSquareMeterField(value):
-                    .minAreaSquareMeterField(value ?? 0)
-            case let .maxAreaSquareMeterField(value):
-                    .maxAreaSquareMeterField(value ?? 0)
             case let .minPrice(min, max):
                     .minPrice(min, max)
             case let .maxPrice(min, max):
@@ -55,14 +46,6 @@ extension FilterViewModel {
                                    prompt: title,
                                    text: value == 0 ? nil : value)
             case let .maxAreaSquareMeter(value):
-                TextFieldViewModel(apperance: .areaSquareMeter,
-                                   prompt: title,
-                                   text: value == 0 ? nil : value)
-            case let .minAreaSquareMeterField(value):
-                TextFieldViewModel(apperance: .areaSquareMeter,
-                                   prompt: title,
-                                   text: value == 0 ? nil : value)
-            case let .maxAreaSquareMeterField(value):
                 TextFieldViewModel(apperance: .areaSquareMeter,
                                    prompt: title,
                                    text: value == 0 ? nil : value)

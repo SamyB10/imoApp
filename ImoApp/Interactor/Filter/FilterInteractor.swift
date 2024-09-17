@@ -73,7 +73,9 @@ extension FilterInteractor: FilterBusinessLogic {
             } else {
                 presenter?.updateItem(with: .areaSquareSlider(min, max))
             }
+
         default:
+            presenter?.updateItem(with: item)
             print("faire le didSelect")
         }
     }
@@ -110,8 +112,13 @@ extension FilterInteractor {
                                     buildAfter2000: false,
                                     minAreaSquareMeter: 0,
                                     maxAreaSquareMeter: 50,
-                                    minAreaSquareMeterField: 0,
-                                    maxAreaSquareMeterField: 0)
+                                    a: false,
+                                    b: false,
+                                    c: false,
+                                    d: false,
+                                    e: false,
+                                    f: false,
+                                    g: false)
         self.content = content
         return content
     }

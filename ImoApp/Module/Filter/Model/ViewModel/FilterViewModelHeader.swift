@@ -14,9 +14,9 @@ extension FilterViewModel.Section {
         case numberOfBedroom
         case price
         case areaSquareMeter
-        case areaSquareMeterField
         case localisation
         case builYear
+        case enery
     }
 
     var header: HeaderViewModel {
@@ -32,7 +32,7 @@ extension FilterViewModel.Section {
         case .price:
             HeaderViewModel(apperance: .filter,
                             title: "Prix du bien",
-                            image: .systemName("eurosign.circle"))
+                            image: .systemName("eurosign.square"))
         case .areaSquareMeter:
             HeaderViewModel(apperance: .filter,
                             title: "Surface du bien",
@@ -47,11 +47,12 @@ extension FilterViewModel.Section {
                             image: .systemName("bed.double"))
         case .builYear:
             HeaderViewModel(apperance: .filter,
-                            title: "Année de Construction")
-        case .areaSquareMeterField:
+                            title: "Année de Construction",
+                            image: .systemName("calendar"))
+        case .enery:
             HeaderViewModel(apperance: .filter,
-                            title: "Surface du Terrain",
-                            image: .systemName("house"))
+                            title: "Performance Enérgetique",
+                            image: .systemName("globe.europe.africa"))
         }
     }
 
@@ -62,9 +63,9 @@ extension FilterViewModel.Section {
                 .numberOfBedroom,
                 .price,
                 .areaSquareMeter,
-                .areaSquareMeterField,
                 .localisation,
-                .builYear:
+                .builYear,
+                .enery:
             0
         }
     }

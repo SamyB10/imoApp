@@ -28,8 +28,13 @@ public struct FilterContent: Equatable {
     var buildAfter2000: Bool
     var minAreaSquareMeter: Int
     var maxAreaSquareMeter: Int
-    var minAreaSquareMeterField: Int
-    var maxAreaSquareMeterField: Int
+    var a: Bool
+    var b: Bool
+    var c: Bool
+    var d: Bool
+    var e: Bool
+    var f: Bool
+    var g: Bool
 }
 
 extension FilterContent {

@@ -49,6 +49,7 @@
 		1C785A832C94C58B00937942 /* SliderCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785A822C94C58B00937942 /* SliderCustomView.swift */; };
 		1C785A872C94C96300937942 /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785A862C94C96300937942 /* CircleSlider.swift */; };
 		1C785A892C94D5A300937942 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785A882C94D5A300937942 /* TextFieldView.swift */; };
+		1C785A8C2C987DF100937942 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785A8B2C987DF100937942 /* FilterButtonView.swift */; };
 		1C7B50702C67BA41004683C3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B506F2C67BA41004683C3 /* CardView.swift */; };
 		1C7B50732C67C885004683C3 /* SectionCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50722C67C885004683C3 /* SectionCarousel.swift */; };
 		1C7B50752C67C88E004683C3 /* SectionStackedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */; };
@@ -118,6 +119,7 @@
 		1C785A822C94C58B00937942 /* SliderCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCustomView.swift; sourceTree = "<group>"; };
 		1C785A862C94C96300937942 /* CircleSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
 		1C785A882C94D5A300937942 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		1C785A8B2C987DF100937942 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		1C7B506F2C67BA41004683C3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1C7B50722C67C885004683C3 /* SectionCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCarousel.swift; sourceTree = "<group>"; };
 		1C7B50742C67C88E004683C3 /* SectionStackedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionStackedCard.swift; sourceTree = "<group>"; };
@@ -437,6 +439,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		1C785A8A2C987DE500937942 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				1C785A8B2C987DF100937942 /* FilterButtonView.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		1C7B506E2C67A5D7004683C3 /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +553,7 @@
 		1CB52CC12C7DEFAC00796F27 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C785A8A2C987DE500937942 /* Button */,
 				1C505FCE2C847505006E6E1E /* TextField */,
 				1C505FC02C7FB66B006E6E1E /* Toggle */,
 				1C505FBF2C7FB654006E6E1E /* SlideBar */,
@@ -738,6 +749,7 @@
 				1CC3EA212C750283007EEC4A /* SearchSuggestionView.swift in Sources */,
 				1C505FC22C7FBC89006E6E1E /* FilterSliderView.swift in Sources */,
 				1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */,
+				1C785A8C2C987DF100937942 /* FilterButtonView.swift in Sources */,
 				1C53155A2C63833100EFCC94 /* DescriptionDetailPageView.swift in Sources */,
 				1C5315392C5BC3F300EFCC94 /* MainTabView.swift in Sources */,
 				1C505FBD2C7F473C006E6E1E /* FilterToggleView.swift in Sources */,

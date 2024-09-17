@@ -12,28 +12,20 @@ struct FilterSectionView: View {
     let section: FilterViewModel.Section
     let action: (SelectedFilterItem) -> Void
     @State private var topExpanded = false
+
     // MARK: - Subviews
     var body: some View {
-        Section {
-            switch section.headerApperance {
-            case .numberOfRoom,
-                    .numberOfBedroom,
-                    .areaSquareMeter,
-                    .areaSquareMeterField,
-                    .localisation,
-                    .builYear:
-                SectionHeaderView(viewModel: section.header)
-                    .padding(.bottom)
-                HStack {
-                    createContentSections(with: section)
-                }
-            default:
-                SectionHeaderView(viewModel: section.header)
-                    .padding(.bottom)
-                createContentSections(with: section)
+        switch section.headerApperance {
+        case .areaSquareMeter,
+                .localisation,
+                .enery,
+                .builYear:
+            HStack {
+                createDisclosureGroup()
             }
+        default:
+            createSection()
         }
-        .padding(.horizontal)
         if section.displaySepartionBar {
             Rectangle()
                 .fill(Color.black.opacity(0.2))
@@ -42,12 +34,37 @@ struct FilterSectionView: View {
         }
     }
 
+    private func createSection() -> some View {
+        Section {
+            HStack {
+                createContentSections(with: section)
+            }
+
+            .padding(.bottom)
+            .padding(.horizontal)
+        } header: {
+            SectionHeaderView(viewModel: section.header)
+        }
+    }
+
+    private func createDisclosureGroup() -> some View {
+        DisclosureGroup {
+            HStack {
+                createContentSections(with: section)
+            }
+            .padding(.vertical)
+            .padding(.horizontal)
+        } label: {
+            SectionHeaderView(viewModel: section.header)
+        }
+        .tint(.black)
+    }
 
     private func createContentSections(with section: FilterViewModel.Section) -> some View {
         Group {
             ForEach(section.cells.indices, id: \.self) { index in
                 let cell = section.cells[index]
-                switch cell.apperance {
+                switch cell.appearance {
                 case .picker(let items):
                     itemPicker(with: items)
                 case .toggle(let item):
@@ -56,10 +73,16 @@ struct FilterSectionView: View {
                     itemSlider(with: item)
                 case let .textField(item):
                     itemTextField(with: item)
+                case .button(let item):
+                    itemButton(with: item)
+                    if section.headerApperance == .enery {
+                        Rectangle()
+                            .fill(Color.black.opacity(0.2))
+                            .frame(height: 0.5)
+                    }
                 }
             }
         }
-        .padding(.bottom)
     }
 
     private func itemToggle(with items: FilterViewModel.Toggle) -> some View {
@@ -85,4 +108,18 @@ struct FilterSectionView: View {
             print("e")
         }
     }
+
+    private func itemButton(with item: FilterViewModel.Button) -> some View {
+        FilterButtonView(cell: item) { _ in
+            print("button")
+        }
+    }
+}
+
+#Preview {
+    FilterSectionView(section: .init(headerApperance: .areaSquareMeter,
+                                     cells: [FilterViewModel.Cell.init(appearance: .slider(.areaSquareMeter(min: 0, max: 2000)))])) {_ in
+        print("")
+    }
+                                     .padding(.horizontal)
 }

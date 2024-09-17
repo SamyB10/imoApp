@@ -22,6 +22,13 @@ extension FilterViewModel {
         case buildBefore1950(Bool)
         case buildBetwen1950And2000(Bool)
         case buildAfter2000(Bool)
+        case a(Bool)
+        case b(Bool)
+        case c(Bool)
+        case d(Bool)
+        case e(Bool)
+        case f(Bool)
+        case g(Bool)
 
         var title: String {
             switch self {
@@ -48,6 +55,20 @@ extension FilterViewModel {
                 "1950 - 2000"
             case .buildAfter2000:
                 "Après 2000"
+            case .a:
+                "A"
+            case .b:
+                "B"
+            case .c:
+                "C"
+            case .d:
+                "D"
+            case .e:
+                "E"
+            case .f:
+                "F"
+            case .g:
+                "G"
             }
         }
 
@@ -81,6 +102,20 @@ extension FilterViewModel {
                     .buildBetwen1950And2000(value)
             case let .buildAfter2000(value):
                     .buildAfter2000(value)
+            case .a:
+                    .a(!state)
+            case .b:
+                    .b(!state)
+            case .c:
+                    .c(!state)
+            case .d:
+                    .d(!state)
+            case .e:
+                    .e(!state)
+            case .f:
+                    .f(!state)
+            case .g:
+                    .g(!state)
             }
         }
 
@@ -99,7 +134,14 @@ extension FilterViewModel {
                     .fiveOrMoreBedroom(let value, _),
                     .buildBefore1950(let value),
                     .buildBetwen1950And2000(let value),
-                    .buildAfter2000(let value):
+                    .buildAfter2000(let value),
+                    .a(let value),
+                    .b(let value),
+                    .c(let value),
+                    .d(let value),
+                    .e(let value),
+                    .f(let value),
+                    .g(let value):
                 ToggleViewModel(apperance: .button,
                                 title: title,
                                 isOn: value)
@@ -121,7 +163,14 @@ extension FilterViewModel {
                     .fiveOrMoreBedroom(let value, _),
                     .buildBefore1950(let value),
                     .buildBetwen1950And2000(let value),
-                    .buildAfter2000(let value):
+                    .buildAfter2000(let value),
+                    .a(let value),
+                    .b(let value),
+                    .c(let value),
+                    .d(let value),
+                    .e(let value),
+                    .f(let value),
+                    .g(let value):
                 value
             }
         }
