@@ -12,10 +12,6 @@ struct SliderLocalisation: View {
 
     var body: some View {
         VStack(alignment: .trailing) {
-            Slider(value: $viewModel.localisation,
-                   in: 0...100,
-                   step: 10)
-            .accentColor(.black)
             HStack {
                 Text(" 0 - \(viewModel.localisation.formatted(.number)) km")
                     .font(.system(size: 13))
@@ -27,6 +23,10 @@ struct SliderLocalisation: View {
                                     lineWidth: viewModel.lineWidth)
                     }
             }
+            Slider(value: $viewModel.localisation,
+                   in: 0...100,
+                   step: 10)
+            .accentColor(.black)
         }
     }
 }

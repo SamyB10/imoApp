@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-
 struct CircleSlider: View {
     var width: CGFloat
 

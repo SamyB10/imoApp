@@ -93,7 +93,7 @@ extension SliderCustomView {
                 Text("Minimum")
                     .font(.footnote)
                     .foregroundStyle(.gray)
-                TextFieldViewPrice(viewModel: cell.textFieldViewModel(with: .min)) {
+                FilterTextFieldView(viewModel: cell.textFieldViewModel(with: .min)) {
                     action(cell.selectedItem(with: .min(value: $0)))
                 }
             }
@@ -104,7 +104,7 @@ extension SliderCustomView {
                 Text("Maximum")
                     .font(.footnote)
                     .foregroundStyle(.gray)
-                TextFieldViewPrice(viewModel: cell.textFieldViewModel(with: .max)) {
+                FilterTextFieldView(viewModel: cell.textFieldViewModel(with: .max)) {
                     action(cell.selectedItem(with: .max(value: $0)))
                 }
             }

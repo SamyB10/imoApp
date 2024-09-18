@@ -11,11 +11,11 @@ import SwiftUI
 final class HomeViewManager: ObservableObject {
     private let interacor: HomeBusinessLogic?
     @Published var searchLocationViewModel: SearchLocationViewModel
-    @Published private(set) var viewModel: HomeViewModel
+    @Published private(set) var viewModel: HomeViewModel.ViewModel
     
     init(interacor: HomeBusinessLogic,
          searchLocationViewModel: SearchLocationViewModel,
-         viewModel: HomeViewModel) {
+         viewModel: HomeViewModel.ViewModel) {
         self.interacor = interacor
         self.searchLocationViewModel = searchLocationViewModel
         self.viewModel = viewModel
@@ -27,7 +27,7 @@ final class HomeViewManager: ObservableObject {
 }
 
 extension HomeViewManager: HomeDisplayLogic {
-    func displayInterface(with homeViewModel: HomeViewModel) {
+    func displayInterface(with homeViewModel: HomeViewModel.ViewModel) {
         DispatchQueue.main.async {
             self.viewModel = homeViewModel
         }

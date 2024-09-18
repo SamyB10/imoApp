@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFieldViewPrice: View {
+struct FilterTextFieldView: View {
     @ObservedObject private(set) var viewModel: TextFieldViewModel
     @FocusState private var textFieldIsFocused: Bool
     let action: (Int) -> Void

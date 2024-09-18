@@ -12,6 +12,7 @@
 		1C15FEB92C5A7A350006F4E9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEB82C5A7A350006F4E9 /* HomeView.swift */; };
 		1C15FEBF2C5A7B9B0006F4E9 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */; };
 		1C15FEC22C5A7DA10006F4E9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */; };
+		1C1B77DC2C9ACB3800156F46 /* FilterDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B77DB2C9ACB3800156F46 /* FilterDisplayLogic.swift */; };
 		1C505FBB2C7F4093006E6E1E /* ToggleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FBA2C7F4093006E6E1E /* ToggleViewModel.swift */; };
 		1C505FBD2C7F473C006E6E1E /* FilterToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FBC2C7F473C006E6E1E /* FilterToggleView.swift */; };
 		1C505FC22C7FBC89006E6E1E /* FilterSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FC12C7FBC89006E6E1E /* FilterSliderView.swift */; };
@@ -82,6 +83,7 @@
 		1C15FEB82C5A7A350006F4E9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1C15FEBE2C5A7B9B0006F4E9 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		1C1B77DB2C9ACB3800156F46 /* FilterDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDisplayLogic.swift; sourceTree = "<group>"; };
 		1C505FBA2C7F4093006E6E1E /* ToggleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewModel.swift; sourceTree = "<group>"; };
 		1C505FBC2C7F473C006E6E1E /* FilterToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterToggleView.swift; sourceTree = "<group>"; };
 		1C505FC12C7FBC89006E6E1E /* FilterSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSliderView.swift; sourceTree = "<group>"; };
@@ -163,8 +165,8 @@
 		1C15FEBA2C5A7A6D0006F4E9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1CC3EA1D2C749355007EEC4A /* Manager */,
-				1C6A9C882C66562D008E01FE /* Protocol */,
+				1C1B77DF2C9ACDD400156F46 /* Public */,
+				1C1B77DE2C9ACDCE00156F46 /* Private */,
 				1C6A9C7F2C6654BA008E01FE /* Model */,
 				1C6A9C7E2C6654A4008E01FE /* View */,
 			);
@@ -205,6 +207,57 @@
 				1C15FEC12C5A7DA10006F4E9 /* HomePresenter.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		1C1B77D72C9AC83500156F46 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1C828F292C779FDB0039B376 /* Manager */,
+				1C1B77DA2C9ACB1600156F46 /* Protocol */,
+				1CB52CC22C7DEFC000796F27 /* Model */,
+				1CB52CC12C7DEFAC00796F27 /* View */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		1C1B77D92C9ACAB400156F46 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				1C505FD12C84C743006E6E1E /* TextFieldViewModel.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		1C1B77DA2C9ACB1600156F46 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1C1B77DB2C9ACB3800156F46 /* FilterDisplayLogic.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1C1B77DD2C9ACD9D00156F46 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				1CB52CC72C7E0E0100796F27 /* SelectedFilterItem.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		1C1B77DE2C9ACDCE00156F46 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1C6A9C882C66562D008E01FE /* Protocol */,
+				1CC3EA1D2C749355007EEC4A /* Manager */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		1C1B77DF2C9ACDD400156F46 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 		1C505FB92C7F407F006E6E1E /* Toggle */ = {
@@ -248,6 +301,7 @@
 			children = (
 				1C5F889A2C8B4035000CE367 /* ViewModelCell */,
 				1C5F88992C8A44B5000CE367 /* Slider */,
+				1C1B77D92C9ACAB400156F46 /* TextField */,
 				1C505FC72C81E3CA006E6E1E /* FilterViewModelHeader.swift */,
 				1C505FC52C81CA86006E6E1E /* FilterViewModel.swift */,
 			);
@@ -257,7 +311,6 @@
 		1C505FCE2C847505006E6E1E /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				1C505FD12C84C743006E6E1E /* TextFieldViewModel.swift */,
 				1C505FCF2C847519006E6E1E /* FilterTextFieldView.swift */,
 				1C785A882C94D5A300937942 /* TextFieldView.swift */,
 			);
@@ -492,12 +545,12 @@
 			path = SearchSuggestion;
 			sourceTree = "<group>";
 		};
-		1C828F292C779FDB0039B376 /* ManagerFilter */ = {
+		1C828F292C779FDB0039B376 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				1C828F2A2C779FEA0039B376 /* FilterViewManager.swift */,
 			);
-			path = ManagerFilter;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		1C828F2C2C77BDF30039B376 /* Filter */ = {
@@ -535,9 +588,8 @@
 		1CB52CC02C7DEF5B00796F27 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				1CB52CC22C7DEFC000796F27 /* Model */,
-				1CB52CC12C7DEFAC00796F27 /* View */,
-				1C828F292C779FDB0039B376 /* ManagerFilter */,
+				1C1B77DD2C9ACD9D00156F46 /* Public */,
+				1C1B77D72C9AC83500156F46 /* Private */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -561,7 +613,6 @@
 				1C505FCB2C8343A6006E6E1E /* ViewModel */,
 				1CA767B12C7A08FC00AC9662 /* FilterHomeContext.swift */,
 				1CB52CC52C7E0CDA00796F27 /* FilterContent.swift */,
-				1CB52CC72C7E0E0100796F27 /* SelectedFilterItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -738,6 +789,7 @@
 				1C505FC62C81CA86006E6E1E /* FilterViewModel.swift in Sources */,
 				1C6A9C7D2C66549B008E01FE /* HomeViewModel.swift in Sources */,
 				1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */,
+				1C1B77DC2C9ACB3800156F46 /* FilterDisplayLogic.swift in Sources */,
 				1CC3EA212C750283007EEC4A /* SearchSuggestionView.swift in Sources */,
 				1C505FC22C7FBC89006E6E1E /* FilterSliderView.swift in Sources */,
 				1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */,

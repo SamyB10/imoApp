@@ -87,22 +87,22 @@ extension FilterViewModel {
                     .four(!state)
             case .fiveOrMore:
                     .fiveOrMore(!state)
-            case let .oneBedroom(value, _):
-                    .oneBedroom(value)
-            case let .twoBedroom(value, _):
-                    .twoBedroom(value)
-            case let .threeBedroom(value, _):
-                    .threeBedroom(value)
-            case let .fourBedroom(value, _):
-                    .fourBedroom(value)
-            case let .fiveOrMoreBedroom(value, _):
-                    .fiveOrMoreBedroom(value)
-            case let .buildBefore1950(value):
-                    .buildBefore1950(value)
-            case let .buildBetwen1950And2000(value):
-                    .buildBetwen1950And2000(value)
-            case let .buildAfter2000(value):
-                    .buildAfter2000(value)
+            case .oneBedroom:
+                    .oneBedroom(!state)
+            case .twoBedroom:
+                    .twoBedroom(!state)
+            case .threeBedroom:
+                    .threeBedroom(!state)
+            case .fourBedroom:
+                    .fourBedroom(!state)
+            case .fiveOrMoreBedroom:
+                    .fiveOrMoreBedroom(!state)
+            case .buildBefore1950:
+                    .buildBefore1950(!state)
+            case .buildBetwen1950And2000:
+                    .buildBetwen1950And2000(!state)
+            case .buildAfter2000:
+                    .buildAfter2000(!state)
             case .a:
                     .a(!state)
             case .b:

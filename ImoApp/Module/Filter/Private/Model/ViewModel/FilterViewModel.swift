@@ -6,8 +6,7 @@
 //
 
 import Foundation
-
-public struct FilterViewModel: Hashable, Equatable {
+struct FilterViewModel: Hashable, Equatable {
     let sections: [Section]
     let menuItemFilter: MenuItemFilter
 

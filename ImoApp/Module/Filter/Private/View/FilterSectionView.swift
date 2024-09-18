@@ -102,11 +102,3 @@ struct FilterSectionView: View {
         }
     }
 }
-
-#Preview {
-    FilterSectionView(section: .init(headerApperance: .areaSquareMeter,
-                                     cells: [FilterViewModel.Cell.init(appearance: .slider(.areaSquareMeter(min: 0, max: 2000)))])) {_ in
-        print("")
-    }
-                                     .padding(.horizontal)
-}

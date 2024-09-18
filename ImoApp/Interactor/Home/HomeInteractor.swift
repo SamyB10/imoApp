@@ -27,6 +27,6 @@ final class HomeInteractor {
 extension HomeInteractor: HomeBusinessLogic {
 
     func didLoad() {
-        presenter?.presentInterface(with: .homeViewModelSample)
+        presenter?.presentInterface(with: HomeViewModel.Response.mockResponse())
     }
 }

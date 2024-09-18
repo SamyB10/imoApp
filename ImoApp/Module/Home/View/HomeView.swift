@@ -65,6 +65,6 @@ struct HomeView: View {
     let interactor = HomeInteractor(service: service)
     let manager = HomeViewManager(interacor: interactor,
                                   searchLocationViewModel: SearchLocationViewModel(),
-                                  viewModel: .homeViewModelSample)
-    return HomeView(manager: manager)
+                                  viewModel: HomeViewModel.ViewModel.homeViewModelSample)
+    HomeView(manager: manager)
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+
 final class TextFieldViewModel: ObservableObject {
     let apperance: ApperanceTextField
     let prompt: String

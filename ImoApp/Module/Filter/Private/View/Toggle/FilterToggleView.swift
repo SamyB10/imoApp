@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct FilterToggleView: View {
     var cell: FilterViewModel.Toggle
     let action: (SelectedFilterItem) -> Void

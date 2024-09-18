@@ -7,7 +7,7 @@
 
 import SwiftUI
 struct HomeSection: View {
-    var section: HomeViewModel.SectionViewModel
+    var section: HomeViewModel.ViewModel.SectionViewModel
     var body: some View {
         switch section.itemHouse {
         case .carousel(let title, let items):
