@@ -19,7 +19,9 @@ final class FilterViewManager: ObservableObject {
     }
     
     func didLoad() {
-        interacor?.didLoad()
+        Task {
+            await interacor?.didLoad()
+        }
     }
     
     func didSelectItem(with item: SelectedFilterItem) {

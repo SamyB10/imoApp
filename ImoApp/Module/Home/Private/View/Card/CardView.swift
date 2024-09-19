@@ -7,10 +7,10 @@
 //
 import SwiftUI
 struct CardViewTest: View {
-    private let viewModel: CardHomeViewModel
+    private let viewModel: HomeViewModel.ViewModel.CardHomeViewModel
     @State private var addFavorite: Bool = false
 
-    init(viewModel: CardHomeViewModel) {
+    init(viewModel: HomeViewModel.ViewModel.CardHomeViewModel) {
         self.viewModel = viewModel
     }
 

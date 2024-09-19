@@ -9,6 +9,7 @@ import SwiftUI
 struct SliderLocalisation: View {
     private(set) var cell: FilterViewModel.Slider
     @ObservedObject var viewModel: SliderViewModel
+    let action: (SelectedFilterItem?) -> Void
 
     var body: some View {
         VStack(alignment: .trailing) {
@@ -27,6 +28,10 @@ struct SliderLocalisation: View {
                    in: 0...100,
                    step: 10)
             .accentColor(.black)
+
+            .onChange(of: viewModel.localisation) {
+                action(cell.selectedItem(with: .localisation(value: viewModel.localisation)))
+            }
         }
     }
 }

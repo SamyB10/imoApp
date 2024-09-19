@@ -9,13 +9,15 @@ import SwiftUI
 
 struct FilterSliderView: View {
     var cell: FilterViewModel.Slider
-    let action: (SelectedFilterItem) -> Void
+    let action: (SelectedFilterItem?) -> Void
 
     var body: some View {
         switch cell {
         case .localisation:
             SliderLocalisation(cell: cell,
-                               viewModel: cell.sliderViewModel)
+                               viewModel: cell.sliderViewModel) {
+                action($0)
+            }
         case .price:
             SliderCustomView(cell: cell,
                              viewModel: cell.sliderViewModel) { 

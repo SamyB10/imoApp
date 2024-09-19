@@ -17,8 +17,9 @@ struct FilterView: View {
                         ForEach(viewModel.sections.indices, id: \.self) { sectionIndex in
                             let section = viewModel.sections[sectionIndex]
 
-                            FilterSectionView(section: section) {
-                                manager.didSelectItem(with: $0)
+                            FilterSectionView(section: section) { action in
+                                guard let action else { return }
+                                manager.didSelectItem(with: action)
                             }
                         }
                     }

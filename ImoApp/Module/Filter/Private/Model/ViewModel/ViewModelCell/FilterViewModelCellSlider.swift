@@ -80,24 +80,31 @@ extension FilterViewModel {
         enum TextFieldSelected {
             case min(value: Int)
             case max(value: Int)
+            case localisation(value: Double)
         }
-        func selectedItem(with value: TextFieldSelected) -> SelectedFilterItem {
+
+        func selectedItem(with value: TextFieldSelected) -> SelectedFilterItem? {
             switch self {
-            case let .localisation(range):
-                    .localisation(range)
+            case .localisation:
+                guard case let .localisation(distance) = value else { return nil }
+                return .localisationDistance(distance)
             case let .price(min, max):
                 switch value {
                 case let .min(price):
-                        .priceSlider(price, max)
+                    return .priceSlider(price, max)
                 case let .max(price):
-                        .priceSlider(min, price)
+                    return .priceSlider(min, price)
+                default:
+                    return nil
                 }
             case let .areaSquareMeter(min, max):
                 switch value {
                 case let .min(area):
-                        .areaSquareSlider(area, max)
+                    return .areaSquareSlider(area, max)
                 case let .max(area):
-                        .areaSquareSlider(min, area)
+                    return .areaSquareSlider(min, area)
+                default:
+                    return nil
                 }
             }
         }

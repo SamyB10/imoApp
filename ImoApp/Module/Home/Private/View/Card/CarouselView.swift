@@ -7,12 +7,12 @@
 
 import SwiftUI
 struct CarouselView: View {
-    private let viewModel: CardHomeViewModel
+    private let viewModel: HomeViewModel.ViewModel.CardHomeViewModel
     @State private var isPressed = false
     @State private var navigateToNextPage = false
     @Environment(\.horizontalSizeClass) private var sizeClass
     
-    init(viewModel: CardHomeViewModel) {
+    init(viewModel: HomeViewModel.ViewModel.CardHomeViewModel) {
         self.viewModel = viewModel
     }
 

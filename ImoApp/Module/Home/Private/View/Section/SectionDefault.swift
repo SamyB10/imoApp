@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SectionDefault: View {
     private let header: HeaderViewModel
-    private let items: [CardHomeViewModel]
-    @State private var selectedItem: CardHomeViewModel?
+    private let items: [HomeViewModel.ViewModel.CardHomeViewModel]
+    @State private var selectedItem: HomeViewModel.ViewModel.CardHomeViewModel?
     @State private var navigateToNextPage = false
 
     init(header: HeaderViewModel,
-         items: [CardHomeViewModel]) {
+         items: [HomeViewModel.ViewModel.CardHomeViewModel]) {
         self.header = header
         self.items = items
     }
@@ -51,5 +51,5 @@ struct SectionDefault: View {
 
 #Preview {
     SectionDefault(header: HeaderViewModel(apperance: .home, title: "Test"),
-                   items: CardHomeViewModel.viewModelSample)
+                   items: HomeViewModel.ViewModel.CardHomeViewModel.viewModelSample)
 }

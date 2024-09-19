@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SectionStackedCard: View {
     private let header: HeaderViewModel
-    private let items: [CardHomeViewModel]
+    private let items: [HomeViewModel.ViewModel.CardHomeViewModel]
 
     init(header: HeaderViewModel,
-         items: [CardHomeViewModel]) {
+         items: [HomeViewModel.ViewModel.CardHomeViewModel]) {
         self.header = header
         self.items = items
     }
@@ -46,7 +46,7 @@ struct SectionStackedCard: View {
         }
     }
 
-    private func createItemStackedCard(with item: CardHomeViewModel) -> some View {
+    private func createItemStackedCard(with item: HomeViewModel.ViewModel.CardHomeViewModel) -> some View {
         StackedCardView(viewModel: item)
             .frame(height: 200)
             .padding(.trailing)

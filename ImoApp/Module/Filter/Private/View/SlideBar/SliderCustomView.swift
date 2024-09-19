@@ -12,11 +12,11 @@ struct SliderCustomView: View {
     @ObservedObject private var viewModel: SliderViewModel
     @State private var widthCircle: CGFloat = 24
     @State private var totalSizeRectangle: CGSize = .zero
-    let action: (SelectedFilterItem) -> Void
+    let action: (SelectedFilterItem?) -> Void
 
     public init(cell: FilterViewModel.Slider,
                 viewModel: SliderViewModel,
-                action: @escaping (SelectedFilterItem) -> Void) {
+                action: @escaping (SelectedFilterItem?) -> Void) {
         self.cell = cell
         self.viewModel = viewModel
         self.action = action

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct StackedCardView: View {
     @State private var navigateToNextPage = false
-    private let viewModel: CardHomeViewModel
+    private let viewModel: HomeViewModel.ViewModel.CardHomeViewModel
 
-    init(viewModel: CardHomeViewModel) {
+    init(viewModel: HomeViewModel.ViewModel.CardHomeViewModel) {
         self.viewModel = viewModel
     }
 
@@ -29,7 +29,7 @@ struct StackedCardView: View {
             }
     }
 
-    private func cardView(with item: CardHomeViewModel) -> some View {
+    private func cardView(with item: HomeViewModel.ViewModel.CardHomeViewModel) -> some View {
         Image(item.imageHouse)
             .resizable()
             .cornerRadius(15)

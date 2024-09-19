@@ -8,10 +8,10 @@
 import SwiftUI
 struct SectionCarousel: View {
     private let header: HeaderViewModel
-    private let items: [CardHomeViewModel]
+    private let items: [HomeViewModel.ViewModel.CardHomeViewModel]
 
     init(header: HeaderViewModel,
-         items: [CardHomeViewModel]) {
+         items: [HomeViewModel.ViewModel.CardHomeViewModel]) {
         self.header = header
         self.items = items
     }

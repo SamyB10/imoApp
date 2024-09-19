@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FilterBusinessLogic {
-    func didLoad()
+    func didLoad() async
     func didSelectItem(with item: SelectedFilterItem)
 }
 
@@ -29,7 +29,6 @@ extension FilterInteractor: FilterBusinessLogic {
         presenter?.presentInterface(with: content)
     }
 
-    @MainActor
     func didSelectItem(with item: SelectedFilterItem) {
         switch item {
         case .appartment:
@@ -68,10 +67,56 @@ extension FilterInteractor: FilterBusinessLogic {
             } else {
                 presenter?.updateItem(with: .areaSquareSlider(min, max))
             }
-
+        case let .oneBedroom(value):
+            userFilter.saveValue(filter: .bedroomCount(.oneBedroom, value))
+            presenter?.updateItem(with: item)
+        case let .twoBedroom(value):
+            userFilter.saveValue(filter: .bedroomCount(.twoBedroom, value))
+            presenter?.updateItem(with: item)
+        case let .threeBedroom(value):
+            userFilter.saveValue(filter: .bedroomCount(.threeRoom, value))
+            presenter?.updateItem(with: item)
+        case let .fourBedroom(value):
+            userFilter.saveValue(filter: .bedroomCount(.fourBedroom, value))
+            presenter?.updateItem(with: item)
+        case let .fiveOrMoreBedroom(value):
+            userFilter.saveValue(filter: .bedroomCount(.fiveOrMoreBedroom, value))
+            presenter?.updateItem(with: item)
+        case let .localisationDistance(value):
+            userFilter.saveValue(filter: .localisationDistance(.localisationDistance, value))
+            presenter?.updateItem(with: item)
+        case let .buildBefore1950(value):
+            userFilter.saveValue(filter: .buildYear(.buildBefore1950, value))
+            presenter?.updateItem(with: item)
+        case let .buildBetwen1950And2000(value):
+            userFilter.saveValue(filter: .buildYear(.buildBetwen1950And2000, value))
+            presenter?.updateItem(with: item)
+        case let .buildAfter2000(value):
+            userFilter.saveValue(filter: .buildYear(.buildAfter2000, value))
+            presenter?.updateItem(with: item)
+        case let .a(value):
+            userFilter.saveValue(filter: .energyPerformance(.energyA, value))
+            presenter?.updateItem(with: item)
+        case let .b(value):
+            userFilter.saveValue(filter: .energyPerformance(.energyB, value))
+            presenter?.updateItem(with: item)
+        case let .c(value):
+            userFilter.saveValue(filter: .energyPerformance(.energyC, value))
+            presenter?.updateItem(with: item)
+        case let .d(value):
+            userFilter.saveValue(filter: .energyPerformance(.energyD, value))
+            presenter?.updateItem(with: item)
+        case let .e(value):
+            userFilter.saveValue(filter: .energyPerformance(.energyE, value))
+            presenter?.updateItem(with: item)
+        case let .f(value):
+            userFilter.saveValue(filter: .energyPerformance(.energyF, value))
+            presenter?.updateItem(with: item)
+        case let .g(value):
+            userFilter.saveValue(filter: .energyPerformance(.energyG, value))
+            presenter?.updateItem(with: item)
         default:
             presenter?.updateItem(with: item)
-            print("faire le didSelect")
         }
     }
 }
@@ -86,6 +131,26 @@ extension FilterInteractor {
         let fourRoom = userFilter.fourRoom
         let fiveOrMoreRoom = userFilter.fiveOrMoreRoom
 
+        let oneBedRoom = userFilter.oneBedRoom
+        let twoBedRoom = userFilter.twoBedRoom
+        let threeBedRoom = userFilter.threeBedRoom
+        let fourBedRoom = userFilter.fourBedRoom
+        let fiveOrMoreBedRoom = userFilter.fiveOrMoreBedRoom
+
+        let localisationDistance = userFilter.localisationDistance
+
+        let buildBefore1950 = userFilter.buildBefore1950
+        let buildBetwen1950And2000 = userFilter.buildBetwen1950And2000
+        let buildAfter2000 = userFilter.buildAfter2000
+
+        let energyA = userFilter.energyA
+        let energyB = userFilter.energyB
+        let energyC = userFilter.energyC
+        let energyD = userFilter.energyD
+        let energyE = userFilter.energyE
+        let energyF = userFilter.energyF
+        let energyG = userFilter.energyG
+
         let content = FilterContent(order: FilterContent.Order(type: .orderPriceAsc),
                                     property: typeProperty,
                                     studio: studio,
@@ -97,24 +162,24 @@ extension FilterInteractor {
                                     priceMin: 100,
                                     priceMax: 200000,
                                     maxPriceSlideRange: 1000000,
-                                    oneBedRoom: false,
-                                    twoBedRoom: false,
-                                    threeBedRoom: false,
-                                    fourBedRoom: false,
-                                    fiveOrMoreBedRoom: false,
-                                    localisation: 10,
-                                    buildBefore1950: false,
-                                    buildBetwen1950And2000: false,
-                                    buildAfter2000: false,
+                                    oneBedRoom: oneBedRoom,
+                                    twoBedRoom: twoBedRoom,
+                                    threeBedRoom: threeBedRoom,
+                                    fourBedRoom: fourBedRoom,
+                                    fiveOrMoreBedRoom: fiveOrMoreBedRoom,
+                                    localisation: localisationDistance,
+                                    buildBefore1950: buildBefore1950,
+                                    buildBetwen1950And2000: buildBetwen1950And2000,
+                                    buildAfter2000: buildAfter2000,
                                     minAreaSquareMeter: 0,
                                     maxAreaSquareMeter: 50,
-                                    a: false,
-                                    b: false,
-                                    c: false,
-                                    d: false,
-                                    e: false,
-                                    f: false,
-                                    g: false)
+                                    a: energyA,
+                                    b: energyB,
+                                    c: energyC,
+                                    d: energyD,
+                                    e: energyE,
+                                    f: energyF,
+                                    g: energyG)
         self.content = content
         return content
     }

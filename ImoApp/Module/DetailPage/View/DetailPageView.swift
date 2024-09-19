@@ -66,32 +66,10 @@ struct DetailPageView: View {
         }
     }
 
-    private var detailOverlay: some View {
-        HStack {
-            ImageLoaderView(dvImage: .asset("Avatar"),
-                            contentMode: .fit)
-            .frame(width: 30, height: 30)
-
-            Text("Title a voir ")
-                .foregroundStyle(.white)
-                .bold()
-
-            Spacer()
-
-            Text("Virtual Tour")
-                .foregroundStyle(.white)
-                .bold()
-        }
-        .padding()
-        .background(.ultraThinMaterial)
-        .clipShape(.rect(cornerRadius: 10))
-        .padding(.horizontal, 50)
-    }
-
     private var overlayImageHouse: some View {
         imageHouseDetail
             .overlay(alignment: .bottom) {
-                detailOverlay
+                DetailOverlayView()
                     .offset(y: detailOverlayMidY)
                     .background(
                         GeometryReader { geometry in

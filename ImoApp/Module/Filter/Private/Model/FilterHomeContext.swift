@@ -43,16 +43,7 @@ struct FilterHomeContext: Equatable {
             self.currentFilter?.fourBedRoom = value
         case let .fiveOrMoreBedroom(value):
             self.currentFilter?.fiveOrMoreBedRoom = value
-        case let .minPrice(min, max):
-            self.currentFilter?.priceMin = min
-            self.currentFilter?.priceMax = max
-        case let .maxPrice(_, max):
-            self.currentFilter?.priceMax = max
-        case let .minAreaSquareMeter(value):
-            self.currentFilter?.minAreaSquareMeter = value
-        case let .maxAreaSquareMeter(value):
-            self.currentFilter?.maxAreaSquareMeter = value
-        case let .localisation(localisation):
+        case let .localisationDistance(localisation):
             self.currentFilter?.localisation = localisation
         case let .buildBefore1950(state):
             self.currentFilter?.buildBefore1950 = state
