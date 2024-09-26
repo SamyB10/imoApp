@@ -32,23 +32,6 @@ final class HomePresenter {
             return HomeViewModel.ViewModel.SectionViewModel(header: createHeaderViewModel(with: $0.title),
                                                             itemHouse: createItemViewModel(with: $0))
         }
-        
-        
-        
-        //        return response.sections.forEach { section in
-        //            switch section.title {
-        //            case .paris:
-        //                HomeViewModel.ViewModel(header: createHeaderViewModel(with: section.title),
-        //                                        itemHouse: createItemViewModel(with: section))
-        //            case .marseille:
-        //                HomeViewModel.ViewModel(header: createHeaderViewModel(with: section.title),
-        //                                        itemHouse: createItemViewModel(with: section))
-        //
-        //            case .lyon:
-        //                HomeViewModel.ViewModel(header: createHeaderViewModel(with: section.title),
-        //                                        itemHouse: createItemViewModel(with: section))
-        //            }
-        //        }
     }
     
     private func createHeaderViewModel(with response: HomeViewModel.TitleSection) -> HeaderViewModel {
@@ -60,9 +43,6 @@ final class HomePresenter {
         case .paris:
                 .carousel(titleSection: response.title.rawValue,
                           createCardHomeViewModel(with: response.items))
-        case .marseille:
-                .stacked(titleSection: response.title.rawValue,
-                         createCardHomeViewModel(with: response.items))
         case .lyon:
                 .default(titleSection: response.title.rawValue,
                          createCardHomeViewModel(with: response.items))
@@ -76,7 +56,8 @@ final class HomePresenter {
                                                       addressHouse: $0.addressHouse,
                                                       numberRoom: $0.numberRoom,
                                                       price: $0.price,
-                                                      houseSurfaceArea: $0.houseSurfaceArea)
+                                                      houseSurfaceArea: $0.houseSurfaceArea,
+                                                      isFavorite: $0.isFavorite)
         }
     }
 }

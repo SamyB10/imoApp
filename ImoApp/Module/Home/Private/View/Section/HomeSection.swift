@@ -10,11 +10,11 @@ struct HomeSection: View {
     var section: HomeViewModel.ViewModel.SectionViewModel
     var body: some View {
         switch section.itemHouse {
-        case .carousel(let title, let items):
+        case .carousel(_, let items):
             SectionCarousel(header: section.header, items: items)
-        case .stacked(let title, let items):
+        case .stacked(_, let items):
             SectionStackedCard(header: section.header, items: items)
-        case .default(let title, let items):
+        case .default(_, let items):
             SectionDefault(header: section.header, items: items)
         }
     }

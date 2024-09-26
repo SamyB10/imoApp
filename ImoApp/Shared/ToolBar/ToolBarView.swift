@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct ToolBarView: View {
+    let apperance: ApperanceToolBar
     @State private var showSheet = false
 
     var body: some View {
@@ -14,14 +15,15 @@ struct ToolBarView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
-                        Button {
-                            showSheet = true
-                        } label: {
-                            Image(systemName: "slider.horizontal.3")
-                                .foregroundStyle(.black)
-                                .frame(width: 30, height: 30)
+                        if apperance == .home {
+                            Button {
+                                showSheet = true
+                            } label: {
+                                Image(systemName: "slider.horizontal.3")
+                                    .foregroundStyle(.black)
+                                    .frame(width: 30, height: 30)
+                            }
                         }
-
                         ImageLoaderView(dvImage: .asset("Avatar"),
                                         contentMode: .fit)
                         .frame(width: 30, height: 30)
@@ -35,12 +37,8 @@ struct ToolBarView: View {
 }
 
 #Preview {
-    ToolBarView()
+    ToolBarView(apperance: .home)
 }
-
-
-
-
 
 
 struct Navigation {

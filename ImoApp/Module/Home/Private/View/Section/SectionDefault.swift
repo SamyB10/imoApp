@@ -22,8 +22,9 @@ struct SectionDefault: View {
     var body: some View {
         Section {
             LazyVStack {
-                ForEach(items) { item in
-                    CardViewTest(viewModel: item)
+                ForEach(items.indices, id: \.self) { itemIndex in
+                    let item = items[itemIndex]
+                    CardView(viewModel: item, ratio: 16/9)
                         .padding(.horizontal)
                         .padding(.vertical, 5)
                         .onTapGesture {

@@ -23,23 +23,25 @@ struct ListItemDetailHouseView: View {
                 }
             }
         }
+        .padding(.top)
+        .frame(width: 250)
 #if !os(visionOS)
         .padding(.trailing)
 #endif
     }
 
-    private func createItemDetailHouse(with text: String, image: String)-> some View {
+    private func createItemDetailHouse(with text: String, image: String) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.gray)
                 .foregroundStyle(.clear)
-                .frame(height: 30)
             HStack {
                 Image(systemName: image)
                 Text("\(text)")
                     .font(.footnote)
                     .bold()
             }
+            .padding(5)
         }
     }
 }

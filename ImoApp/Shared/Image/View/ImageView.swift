@@ -47,12 +47,12 @@ public struct ImageLoaderView: View {
             if let ratio {
                 Image(imageAsset)
                     .resizable()
-                    .cornerRadius(cornerRadius)
+//                    .cornerRadius(cornerRadius)
                     .aspectRatio(ratio, contentMode: contentMode)
             } else {
                 Image(imageAsset)
                     .resizable()
-                    .cornerRadius(cornerRadius)
+//                    .cornerRadius(cornerRadius)
                     .aspectRatio(contentMode: contentMode)
             }
         case .systemName(let systemName):

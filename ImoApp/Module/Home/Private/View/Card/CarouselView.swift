@@ -17,7 +17,6 @@ struct CarouselView: View {
     }
 
     var body: some View {
-
         VStack(alignment: .leading) {
             imageHouse
             // MARK: Review gesture for not conflict between scrool View and item Gesture
@@ -28,12 +27,9 @@ struct CarouselView: View {
                 .gesture(handleGesture)
                 .animation(.spring(), value: isPressed)
 
-            Spacer()
-
             detailHouse
                 .padding()
         }
-
         .background(.white)
         .cornerRadius(viewModel.cornerRadius)
         .navigationDestination(isPresented: $navigateToNextPage) {
@@ -48,25 +44,26 @@ struct CarouselView: View {
         ImageLoaderView(dvImage: .asset(viewModel.imageHouse),
                         ratio: viewModel.ratio,
                         cornerRadius: viewModel.cornerRadius,
-                        contentMode: .fit)
+                        contentMode: .fill)
         .overlay(alignment: .topTrailing) {
-            FavoritesButtonView()
+            FavoritesButtonView(item: viewModel)
         }
         .containerRelativeFrame([.horizontal],
                                 count: columns,
                                 spacing: viewModel.horizontalSpacing)
     }
 
-    @ViewBuilder
     private var detailHouse: some View {
-        VStack(alignment: .leading,
-               spacing: 20) {
+        VStack(alignment: .leading, spacing: 5) {
             Text(viewModel.titleHouse)
-                .font(.customTitleFont(size: 22))
+                .font(.title2)
                 .foregroundColor(.black)
+                .fontWeight(.semibold)
 
             Text(viewModel.addressHouse)
-                .foregroundColor(.black)
+                .foregroundColor(.gray)
+                .font(.body)
+                .fontWeight(.medium)
 
             ListItemDetailHouseView(viewModelItem: ItemDetailHouse.itemViewModelTest)
         }

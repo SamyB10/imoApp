@@ -28,31 +28,34 @@ extension HomeViewModel.ViewModel {
         for _ in 1...4 {
             let randomImage = Int.random(in: 1...8)
             itemHouseCarousel.append(CardHomeViewModel(imageHouse: String(randomImage),
-                                               titleHouse: "Title House",
-                                               addressHouse: "Address House",
-                                               numberRoom: .random(in: 0...10),
-                                               price: .random(in: 50000.0...2000000.0),
-                                               houseSurfaceArea: .random(in: 10...1000)))
+                                                       titleHouse: "Title House",
+                                                       addressHouse: "Address House",
+                                                       numberRoom: .random(in: 0...10),
+                                                       price: .random(in: 50000.0...2000000.0),
+                                                       houseSurfaceArea: .random(in: 10...1000),
+                                                       isFavorite: false))
         }
 
         for _ in 1...10 {
             let randomImage = Int.random(in: 1...8)
             itemHouseStacked.append(CardHomeViewModel(imageHouse: String(randomImage),
-                                               titleHouse: "Title House",
-                                               addressHouse: "Address House",
-                                               numberRoom: .random(in: 0...10),
-                                               price: .random(in: 50000.0...2000000.0),
-                                               houseSurfaceArea: .random(in: 10...1000)))
+                                                      titleHouse: "Title House",
+                                                      addressHouse: "Address House",
+                                                      numberRoom: .random(in: 0...10),
+                                                      price: .random(in: 50000.0...2000000.0),
+                                                      houseSurfaceArea: .random(in: 10...1000),
+                                                      isFavorite: false))
         }
 
         for _ in 1...100 {
             let randomImage = Int.random(in: 1...8)
             itemHouseDefault.append(CardHomeViewModel(imageHouse: String(randomImage),
-                                               titleHouse: "Title House",
-                                               addressHouse: "Address House",
-                                               numberRoom: .random(in: 0...10),
-                                               price: .random(in: 50000.0...2000000.0),
-                                               houseSurfaceArea: .random(in: 10...1000)))
+                                                      titleHouse: "Title House",
+                                                      addressHouse: "Address House",
+                                                      numberRoom: .random(in: 0...10),
+                                                      price: .random(in: 50000.0...2000000.0),
+                                                      houseSurfaceArea: .random(in: 10...1000),
+                                                      isFavorite: false))
         }
 
 
@@ -66,13 +69,6 @@ extension HomeViewModel.ViewModel {
                 section = HomeViewModel.ViewModel.SectionViewModel(header: header,
                                                                    itemHouse: .carousel(titleSection: item.rawValue,
                                                                                         itemHouseCarousel))
-            case .marseille:
-                header = HeaderViewModel(apperance: .home,
-                                         title: item.rawValue)
-                section = HomeViewModel.ViewModel.SectionViewModel(header: header,
-                                                                   itemHouse: .stacked(titleSection: item.rawValue,
-                                                                                       itemHouseStacked))
-
             case .lyon:
                 header = HeaderViewModel(apperance: .home,
                                          title: item.rawValue)

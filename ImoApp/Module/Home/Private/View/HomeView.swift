@@ -27,7 +27,7 @@ struct HomeView: View {
                 }
                 .navigationTitle(manager.searchLocationViewModel.selectedLocation ?? "Nil")
                 .toolbar {
-                    ToolBarView()
+                    ToolBarView(apperance: .home)
                 }
                 .background(.ultraThickMaterial)
                 SearchSuggestionView(searchLocationViewModel: manager.searchLocationViewModel)
@@ -38,7 +38,7 @@ struct HomeView: View {
             manager.searchLocationViewModel.search()
         }
         .onAppear {
-            manager.didLoad()
+//            manager.didLoad()
         }
     }
 

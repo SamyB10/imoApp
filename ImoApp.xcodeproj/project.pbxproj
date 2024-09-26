@@ -81,6 +81,8 @@
 		1CFC558E2CA2E88E00C4287A /* PropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC558D2CA2E88E00C4287A /* PropertyType.swift */; };
 		1CFC55902CA2E8E700C4287A /* EneryPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC558F2CA2E8E600C4287A /* EneryPerformance.swift */; };
 		1CFC55922CA2E8F600C4287A /* BuildYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC55912CA2E8F600C4287A /* BuildYear.swift */; };
+		1CFC55982CA2F05F00C4287A /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC55972CA2F05F00C4287A /* FavoriteView.swift */; };
+		1CFC57702CA56A8400C4287A /* ApperanceToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC576F2CA56A8400C4287A /* ApperanceToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +162,8 @@
 		1CFC558D2CA2E88E00C4287A /* PropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyType.swift; sourceTree = "<group>"; };
 		1CFC558F2CA2E8E600C4287A /* EneryPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EneryPerformance.swift; sourceTree = "<group>"; };
 		1CFC55912CA2E8F600C4287A /* BuildYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildYear.swift; sourceTree = "<group>"; };
+		1CFC55972CA2F05F00C4287A /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		1CFC576F2CA56A8400C4287A /* ApperanceToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApperanceToolBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,7 @@
 		1C15FEBB2C5A7B390006F4E9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				1CFC55932CA2EF9D00C4287A /* Favorite */,
 				1CB52CC02C7DEF5B00796F27 /* Filter */,
 				1C53154C2C624AE300EFCC94 /* DetailPage */,
 				1C15FEBA2C5A7A6D0006F4E9 /* Home */,
@@ -556,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				1CC3EA1B2C73BE65007EEC4A /* ToolBarView.swift */,
+				1CFC576F2CA56A8400C4287A /* ApperanceToolBar.swift */,
 			);
 			path = ToolBar;
 			sourceTree = "<group>";
@@ -745,6 +751,38 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		1CFC55932CA2EF9D00C4287A /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				1CFC55952CA2EFFB00C4287A /* Public */,
+				1CFC55942CA2EFEE00C4287A /* Private */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		1CFC55942CA2EFEE00C4287A /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1CFC55962CA2F03300C4287A /* View */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		1CFC55952CA2EFFB00C4287A /* Public */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		1CFC55962CA2F03300C4287A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CFC55972CA2F05F00C4287A /* FavoriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -833,6 +871,7 @@
 				1C6A9C7B2C6516DC008E01FE /* StackedCardView.swift in Sources */,
 				1C1B77DC2C9ACB3800156F46 /* FilterDisplayLogic.swift in Sources */,
 				1CC3EA212C750283007EEC4A /* SearchSuggestionView.swift in Sources */,
+				1CFC57702CA56A8400C4287A /* ApperanceToolBar.swift in Sources */,
 				1C505FC22C7FBC89006E6E1E /* FilterSliderView.swift in Sources */,
 				1CEFBA712C6D0C360033C894 /* RequestHome.swift in Sources */,
 				1C1B77E12C9C177600156F46 /* DetailOverlayView.swift in Sources */,
@@ -859,6 +898,7 @@
 				1C828F2B2C779FEA0039B376 /* FilterViewManager.swift in Sources */,
 				1CFC55922CA2E8F600C4287A /* BuildYear.swift in Sources */,
 				1CB52CC82C7E0E0100796F27 /* SelectedFilterItem.swift in Sources */,
+				1CFC55982CA2F05F00C4287A /* FavoriteView.swift in Sources */,
 				1C5F88982C8A4484000CE367 /* SliderViewModel.swift in Sources */,
 				1C53153B2C5BDC3100EFCC94 /* CarouselView.swift in Sources */,
 				1C828F312C77BE1E0039B376 /* FilterInteractor.swift in Sources */,

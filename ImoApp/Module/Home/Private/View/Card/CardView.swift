@@ -6,50 +6,48 @@
 ////
 //
 import SwiftUI
-struct CardViewTest: View {
+struct CardView: View {
     private let viewModel: HomeViewModel.ViewModel.CardHomeViewModel
-    @State private var addFavorite: Bool = false
+    let ratio: Double
 
-    init(viewModel: HomeViewModel.ViewModel.CardHomeViewModel) {
+    init(viewModel: HomeViewModel.ViewModel.CardHomeViewModel,
+         ratio: Double) {
         self.viewModel = viewModel
+        self.ratio = ratio
     }
 
     var body: some View {
         VStack(alignment: .leading) {
             ImageLoaderView(dvImage: .asset(viewModel.imageHouse),
-                            ratio: 16/9,
+                            ratio: ratio,
                             cornerRadius: 10,
                             contentMode: .fill)
 
             .overlay(alignment: .topTrailing) {
-                FavoritesButtonView()
+                FavoritesButtonView(item: viewModel)
             }
             detailHouse
+                .padding()
         }
         .background(Color.white)
         .cornerRadius(10)
     }
 
-    @ViewBuilder
+
     private var detailHouse: some View {
-        VStack(alignment: .leading,
-               spacing: 20) {
+        VStack(alignment: .leading, spacing: 5) {
             Text(viewModel.titleHouse)
-                .font(.customTitleFont(size: 22))
+                .font(.title2)
                 .foregroundColor(.black)
+                .fontWeight(.semibold)
 
             Text(viewModel.addressHouse)
-                .foregroundColor(.black)
+                .foregroundColor(.gray)
+                .font(.body)
+                .fontWeight(.medium)
 
             ListItemDetailHouseView(viewModelItem: ItemDetailHouse.itemViewModelTest)
         }
-               .padding()
     }
-}
-
-#Preview {
-    CardViewTest(viewModel: .viewModelTest)
-        .frame(width: .infinity, height: 300)
-        .padding()
 }
 

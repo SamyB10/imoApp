@@ -18,14 +18,20 @@ struct SectionCarousel: View {
 
     var body: some View {
         Section {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    createItemCarousel
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        createItemCarousel
+                    }
+                    .padding(.bottom)
                 }
-                .padding(.bottom)
+                .onAppear {
+                    proxy.scrollTo(items.count / 2, anchor: .center)
+                }
             }
             .contentMargins(.horizontal, items.horizontalMarginScrollViewCarousel)
-            .scrollTargetBehavior(.paging)
+            .scrollTargetLayout()
+            .scrollTargetBehavior(.viewAligned)
         } header: {
             VStack(alignment: .leading) {
                 SectionHeaderView(viewModel: header)
@@ -36,8 +42,10 @@ struct SectionCarousel: View {
     }
     
     private var createItemCarousel: some View {
-        ForEach(items) { item in
+        ForEach(items.indices, id: \.self) { itemIndex in
+            let item = items[itemIndex]
             CarouselView(viewModel: item)
+                .id(itemIndex)
         }
     }
 }

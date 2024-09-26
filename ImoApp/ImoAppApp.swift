@@ -6,12 +6,28 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct ImoAppApp: App {
+    var sharedModelContainer: ModelContainer = {
+        let schema = Schema([
+            HomeViewModel.ViewModel.CardHomeViewModel.self,
+        ])
+
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+
+        do {
+            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+        } catch {
+            fatalError("Could not create ModelContainer: \(error)")
+        }
+    }()
+
     var body: some Scene {
         WindowGroup {
             constructHomeView()
+                .modelContainer(sharedModelContainer)
         }
     }
 
@@ -29,10 +45,16 @@ struct ImoAppApp: App {
         homeInteractor.inject(presenter: homePresenter)
         homePresenter.inject(display: manager)
 
+        let favoriteView = FavoriteView()
+
         let homeTab = Tabs.Tab(view: homeView,
                                title: "Home",
-                               image: "star")
-        let tabs = Tabs(tab: [homeTab])
+                               image: "house.fill")
+
+        let favoriteTab = Tabs.Tab(view: favoriteView,
+                                   title: "Favorites",
+                                   image: "star.fill")
+        let tabs = Tabs(tab: [homeTab, favoriteTab])
         return MainTabView(tabs: tabs)
     }
 }
