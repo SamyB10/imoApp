@@ -22,7 +22,6 @@ struct FavoriteView: View {
             }
             .onDelete(perform: deleteItems)
         }
-
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
             .background(.ultraThickMaterial)

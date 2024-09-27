@@ -12,12 +12,3 @@ struct DetailPageViewModel {
     let ownerName: String
     let price: Int
 }
-
-extension DetailPageViewModel {
-    static var sampleViewModel: DetailPageViewModel {
-        DetailPageViewModel(image: "coucher_soleil",
-                            title: "Title",
-                            ownerName: "Samy",
-                            price: 200000)
-    }
-}

@@ -11,7 +11,6 @@ struct SectionDefault: View {
     private let header: HeaderViewModel
     private let items: [HomeViewModel.ViewModel.CardHomeViewModel]
     @State private var selectedItem: HomeViewModel.ViewModel.CardHomeViewModel?
-    @State private var navigateToNextPage = false
 
     init(header: HeaderViewModel,
          items: [HomeViewModel.ViewModel.CardHomeViewModel]) {
@@ -21,36 +20,31 @@ struct SectionDefault: View {
 
     var body: some View {
         Section {
-            LazyVStack {
-                ForEach(items.indices, id: \.self) { itemIndex in
-                    let item = items[itemIndex]
+            cardView()
+        } header: {
+            headerView()
+        }
+    }
+
+    private func headerView() -> some View {
+        VStack(alignment: .leading) {
+            SectionHeaderView(viewModel: header)
+        }
+        .padding(.horizontal)
+    }
+
+    private func cardView() -> some View {
+        LazyVStack {
+            ForEach(items.indices, id: \.self) { itemIndex in
+                let item = items[itemIndex]
+                NavigationLink(value: item) {
                     CardView(viewModel: item, ratio: 16/9)
                         .padding(.horizontal)
                         .padding(.vertical, 5)
-                        .onTapGesture {
-                            selectedItem = item
-                            navigateToNextPage = true
-                        }
+                        .id(itemIndex)
                 }
-            }
-        } header: {
-            VStack(alignment: .leading) {
-                SectionHeaderView(viewModel: header)
-            }
-            .padding(.horizontal)
-        }
-        .navigationDestination(isPresented: $navigateToNextPage) {
-            if let selectedItem = selectedItem {
-                DetailPageView(viewModel: DetailPageViewModel(image: selectedItem.imageHouse,
-                                                              title: selectedItem.titleHouse,
-                                                              ownerName: "Samy",
-                                                              price: Int(selectedItem.price)))
+                .foregroundStyle(.black)
             }
         }
     }
-}
-
-#Preview {
-    SectionDefault(header: HeaderViewModel(apperance: .home, title: "Test"),
-                   items: HomeViewModel.ViewModel.CardHomeViewModel.viewModelSample)
 }

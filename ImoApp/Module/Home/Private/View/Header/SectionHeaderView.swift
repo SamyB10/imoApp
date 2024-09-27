@@ -22,7 +22,7 @@ struct SectionHeaderView: View {
             }
 
             Text(viewModel.title)
-//                .font(viewModel.font)
+                .font(viewModel.font)
                 .fontWeight(viewModel.fontWeight)
         }
     }

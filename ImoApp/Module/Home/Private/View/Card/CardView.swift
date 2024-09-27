@@ -7,6 +7,7 @@
 //
 import SwiftUI
 struct CardView: View {
+    @State private var navigateToNextPage = false
     private let viewModel: HomeViewModel.ViewModel.CardHomeViewModel
     let ratio: Double
 

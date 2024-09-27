@@ -15,6 +15,9 @@
 		1C1B77DC2C9ACB3800156F46 /* FilterDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B77DB2C9ACB3800156F46 /* FilterDisplayLogic.swift */; };
 		1C1B77E12C9C177600156F46 /* DetailOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B77E02C9C177600156F46 /* DetailOverlayView.swift */; };
 		1C1B77E42C9C187E00156F46 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B77E32C9C187E00156F46 /* HomeModel.swift */; };
+		1C3236172CA5AC55000C7784 /* SampleCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3236162CA5AC55000C7784 /* SampleCardViewModel.swift */; };
+		1C3236192CA5AC6E000C7784 /* SampleHomeViewModel.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3236182CA5AC6E000C7784 /* SampleHomeViewModel.ViewModel.swift */; };
+		1C32361B2CA5AC9F000C7784 /* SampleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C32361A2CA5AC9F000C7784 /* SampleDetailViewModel.swift */; };
 		1C505FBB2C7F4093006E6E1E /* ToggleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FBA2C7F4093006E6E1E /* ToggleViewModel.swift */; };
 		1C505FBD2C7F473C006E6E1E /* FilterToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FBC2C7F473C006E6E1E /* FilterToggleView.swift */; };
 		1C505FC22C7FBC89006E6E1E /* FilterSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C505FC12C7FBC89006E6E1E /* FilterSliderView.swift */; };
@@ -94,6 +97,9 @@
 		1C1B77DB2C9ACB3800156F46 /* FilterDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDisplayLogic.swift; sourceTree = "<group>"; };
 		1C1B77E02C9C177600156F46 /* DetailOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOverlayView.swift; sourceTree = "<group>"; };
 		1C1B77E32C9C187E00156F46 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		1C3236162CA5AC55000C7784 /* SampleCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCardViewModel.swift; sourceTree = "<group>"; };
+		1C3236182CA5AC6E000C7784 /* SampleHomeViewModel.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHomeViewModel.ViewModel.swift; sourceTree = "<group>"; };
+		1C32361A2CA5AC9F000C7784 /* SampleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDetailViewModel.swift; sourceTree = "<group>"; };
 		1C505FBA2C7F4093006E6E1E /* ToggleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewModel.swift; sourceTree = "<group>"; };
 		1C505FBC2C7F473C006E6E1E /* FilterToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterToggleView.swift; sourceTree = "<group>"; };
 		1C505FC12C7FBC89006E6E1E /* FilterSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSliderView.swift; sourceTree = "<group>"; };
@@ -293,6 +299,16 @@
 				1C15FEC02C5A7D930006F4E9 /* Home */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1C3236152CA5AC12000C7784 /* SampleModel */ = {
+			isa = PBXGroup;
+			children = (
+				1C3236162CA5AC55000C7784 /* SampleCardViewModel.swift */,
+				1C3236182CA5AC6E000C7784 /* SampleHomeViewModel.ViewModel.swift */,
+				1C32361A2CA5AC9F000C7784 /* SampleDetailViewModel.swift */,
+			);
+			path = SampleModel;
 			sourceTree = "<group>";
 		};
 		1C505FB92C7F407F006E6E1E /* Toggle */ = {
@@ -691,6 +707,7 @@
 				1C15FEBB2C5A7B390006F4E9 /* Module */,
 				1C15FEBC2C5A7B400006F4E9 /* Interactor */,
 				1CEFBA6B2C6D0B560033C894 /* Service */,
+				1C3236152CA5AC12000C7784 /* SampleModel */,
 				1CE588D92C4D42D7009DDDEA /* Assets.xcassets */,
 				1CE588DB2C4D42D7009DDDEA /* ImoApp.entitlements */,
 				1CE588DC2C4D42D7009DDDEA /* Preview Content */,
@@ -921,13 +938,16 @@
 				1C505FCD2C834450006E6E1E /* ToggleView.swift in Sources */,
 				1C5315452C5BF22B00EFCC94 /* CardViewModel.swift in Sources */,
 				1CFC558E2CA2E88E00C4287A /* PropertyType.swift in Sources */,
+				1C3236172CA5AC55000C7784 /* SampleCardViewModel.swift in Sources */,
 				1C5F88A22C8B5676000CE367 /* FilterViewModelCellTextField.swift in Sources */,
 				1C6A9C8A2C66563E008E01FE /* DisplayLogic.swift in Sources */,
 				1C7B50772C67C8EC004683C3 /* SectionDefault.swift in Sources */,
+				1C32361B2CA5AC9F000C7784 /* SampleDetailViewModel.swift in Sources */,
 				1C1B77E42C9C187E00156F46 /* HomeModel.swift in Sources */,
 				1C828F2E2C77BDFB0039B376 /* FilterPresenter.swift in Sources */,
 				1CA767B22C7A08FC00AC9662 /* FilterHomeContext.swift in Sources */,
 				1C505FCA2C81E42E006E6E1E /* FilterViewModelCell.swift in Sources */,
+				1C3236192CA5AC6E000C7784 /* SampleHomeViewModel.ViewModel.swift in Sources */,
 				1C785A872C94C96300937942 /* CircleSlider.swift in Sources */,
 				1C785A832C94C58B00937942 /* SliderCustomView.swift in Sources */,
 				1C505FD02C847519006E6E1E /* FilterTextFieldView.swift in Sources */,

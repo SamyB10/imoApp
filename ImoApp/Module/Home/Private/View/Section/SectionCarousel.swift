@@ -20,10 +20,7 @@ struct SectionCarousel: View {
         Section {
             ScrollViewReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        createItemCarousel
-                    }
-                    .padding(.bottom)
+                    createItemCarousel()
                 }
                 .onAppear {
                     proxy.scrollTo(items.count / 2, anchor: .center)
@@ -33,19 +30,29 @@ struct SectionCarousel: View {
             .scrollTargetLayout()
             .scrollTargetBehavior(.viewAligned)
         } header: {
-            VStack(alignment: .leading) {
-                SectionHeaderView(viewModel: header)
-            }
-            .padding(.horizontal)
-            .padding(.bottom)
+            createHeader()
         }
     }
-    
-    private var createItemCarousel: some View {
-        ForEach(items.indices, id: \.self) { itemIndex in
-            let item = items[itemIndex]
-            CarouselView(viewModel: item)
-                .id(itemIndex)
+
+    private func createItemCarousel() -> some View {
+        LazyHStack {
+            ForEach(items.indices, id: \.self) { itemIndex in
+                let item = items[itemIndex]
+                NavigationLink(value: item) {
+                    CarouselView(viewModel: item)
+                        .id(itemIndex)
+                }
+                .foregroundColor(.black)
+            }
         }
+        .padding(.bottom)
+    }
+
+    private func createHeader() -> some View {
+        VStack(alignment: .leading) {
+            SectionHeaderView(viewModel: header)
+        }
+        .padding(.horizontal)
+        .padding(.bottom)
     }
 }

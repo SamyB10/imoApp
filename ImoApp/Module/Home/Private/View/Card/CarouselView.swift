@@ -19,25 +19,11 @@ struct CarouselView: View {
     var body: some View {
         VStack(alignment: .leading) {
             imageHouse
-            // MARK: Review gesture for not conflict between scrool View and item Gesture
-                .scaleEffect(isPressed ? 0.90 : 1.0)
-                .onTapGesture {
-                    navigateToNextPage = true
-                }
-                .gesture(handleGesture)
-                .animation(.spring(), value: isPressed)
-
             detailHouse
                 .padding()
         }
         .background(.white)
         .cornerRadius(viewModel.cornerRadius)
-        .navigationDestination(isPresented: $navigateToNextPage) {
-            DetailPageView(viewModel: DetailPageViewModel(image: viewModel.imageHouse,
-                                                          title: viewModel.titleHouse,
-                                                          ownerName: "Samy",
-                                                          price: Int(viewModel.price)))
-        }
     }
 
     private var imageHouse: some View {

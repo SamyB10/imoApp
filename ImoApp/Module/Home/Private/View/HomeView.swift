@@ -32,6 +32,12 @@ struct HomeView: View {
                 .background(.ultraThickMaterial)
                 SearchSuggestionView(searchLocationViewModel: manager.searchLocationViewModel)
             }
+            .navigationDestination(for: HomeViewModel.ViewModel.CardHomeViewModel.self) { item in
+                DetailPageView(viewModel: .init(image: item.imageHouse,
+                                                title: item.titleHouse,
+                                                ownerName: "Samy",
+                                                price: Int(item.price)))
+            }
         }
         .searchable(text: $manager.searchLocationViewModel.searchText, prompt: "Region, Department, City")
         .onChange(of: manager.searchLocationViewModel.searchText) {
