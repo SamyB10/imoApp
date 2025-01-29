@@ -10,6 +10,7 @@ import SwiftUI
 struct StackedCardView: View {
     @State private var navigateToNextPage = false
     private let viewModel: HomeViewModel.ViewModel.CardHomeViewModel
+    @Namespace private var animation
 
     init(viewModel: HomeViewModel.ViewModel.CardHomeViewModel) {
         self.viewModel = viewModel
@@ -22,7 +23,8 @@ struct StackedCardView: View {
             }
 
             .navigationDestination(isPresented: $navigateToNextPage) {
-                DetailPageView(viewModel: DetailPageViewModel(image: viewModel.imageHouse,
+                DetailPageView(viewModel: DetailPageViewModel(id: viewModel.id,
+                                                              image: viewModel.imageHouse,
                                                               title: viewModel.titleHouse,
                                                               ownerName: "Samy",
                                                               price: Int(viewModel.price)))

@@ -3,13 +3,11 @@
 //  ImoApp
 //
 //  Created by Boussair Samy on 10/08/2024.
-////
 //
 import SwiftUI
-struct CardView: View {
-    @State private var navigateToNextPage = false
+struct HomeCardView: View {
     private let viewModel: HomeViewModel.ViewModel.CardHomeViewModel
-    let ratio: Double
+    private let ratio: CGFloat
 
     init(viewModel: HomeViewModel.ViewModel.CardHomeViewModel,
          ratio: Double) {
@@ -21,34 +19,39 @@ struct CardView: View {
         VStack(alignment: .leading) {
             ImageLoaderView(dvImage: .asset(viewModel.imageHouse),
                             ratio: ratio,
-                            cornerRadius: 10,
+                            cornerRadius: 20,
                             contentMode: .fill)
 
             .overlay(alignment: .topTrailing) {
                 FavoritesButtonView(item: viewModel)
             }
             detailHouse
-                .padding()
+                .padding(.top, 5)
+                .padding([.bottom, .horizontal])
         }
         .background(Color.white)
-        .cornerRadius(10)
+        .cornerRadius(20)
     }
 
 
     private var detailHouse: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(viewModel.titleHouse)
-                .font(.title2)
-                .foregroundColor(.black)
-                .fontWeight(.semibold)
+                Text(viewModel.titleHouse)
+                    .font(.system(size: 15))
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
 
             Text(viewModel.addressHouse)
+                .font(.system(size: 14))
                 .foregroundColor(.gray)
-                .font(.body)
-                .fontWeight(.medium)
+                .fontWeight(.light)
+
+            Text("\(viewModel.price.formatted()) €")
+                .font(.system(size: 12))
+                .foregroundColor(.black)
+                .fontWeight(.semibold)
 
             ListItemDetailHouseView(viewModelItem: ItemDetailHouse.itemViewModelTest)
         }
     }
 }
-

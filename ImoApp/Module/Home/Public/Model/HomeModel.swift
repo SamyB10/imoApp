@@ -11,7 +11,8 @@ public enum HomeViewModel {
     }
     
     public struct Section {
-        let title: TitleSection
+        let title: String
+        let type: TypeSection
         let items: [ItemHouse]
     }
     
@@ -21,14 +22,14 @@ public enum HomeViewModel {
         let titleHouse: String
         let addressHouse: String
         let numberRoom: Int
-        let price: Double
+        let price: Int
         let houseSurfaceArea: Int
         let isFavorite: Bool
     }
-    
-    public enum TitleSection: String, Hashable, CaseIterable {
-        case paris = "Paris"
-        case lyon = "Lyon"
+
+    public enum TypeSection: CaseIterable {
+        case carousel
+        case `default`
     }
 }
 
@@ -41,11 +42,13 @@ extension HomeViewModel.Response {
     private static func mockSections() -> [HomeViewModel.Section] {
         return [
             HomeViewModel.Section(
-                title: .paris,
+                title: "Paris",
+                type: .carousel,
                 items: mockItemsForCity(city: "Paris")
             ),
             HomeViewModel.Section(
-                title: .lyon,
+                title: "Lyon",
+                type: .default,
                 items: mockItemsForCity(city: "Lyon")
             )
         ]
@@ -64,7 +67,7 @@ extension HomeViewModel.Response {
                 titleHouse: "Maison \(index) à \(city)",
                 addressHouse: "\(index) Rue de \(city), 00000 \(city)",
                 numberRoom: Int.random(in: 1...8),
-                price: Double.random(in: 500000...3000000),
+                price: Int.random(in: 100000...3000000),
                 houseSurfaceArea: Int.random(in: 50...300),
                 isFavorite: false
             )

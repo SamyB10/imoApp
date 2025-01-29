@@ -10,9 +10,9 @@ import SwiftData
 
 extension HomeViewModel.ViewModel {
     enum TypeCardHome: Equatable, Hashable {
-        case carousel(titleSection: String, [CardHomeViewModel])
-        case stacked(titleSection: String, [CardHomeViewModel])
-        case `default`(titleSection: String, [CardHomeViewModel])
+        case carousel([CardHomeViewModel])
+        case stacked([CardHomeViewModel])
+        case `default`([CardHomeViewModel])
     }
 
     @Model
@@ -22,7 +22,7 @@ extension HomeViewModel.ViewModel {
         private(set) var titleHouse: String
         private(set) var addressHouse: String
         private(set) var numberRoom: Int
-        private(set) var price: Double
+        private(set) var price: Int
         private(set) var houseSurfaceArea: Int
         var isFavorite: Bool
 
@@ -30,7 +30,7 @@ extension HomeViewModel.ViewModel {
              titleHouse: String,
              addressHouse: String,
              numberRoom: Int,
-             price: Double,
+             price: Int,
              houseSurfaceArea: Int,
              isFavorite: Bool) {
             self.id = UUID().uuidString
@@ -68,7 +68,7 @@ extension HomeViewModel.ViewModel {
 }
 
 extension [HomeViewModel.ViewModel.CardHomeViewModel] {
-    var hMargin: CGFloat {
+    var horizontalMargin: CGFloat {
 #if os(macOS)
         40.0
 #else
@@ -76,7 +76,7 @@ extension [HomeViewModel.ViewModel.CardHomeViewModel] {
 #endif
     }
 
-    var hSpacing: CGFloat {
+    var horizontalSpacing: CGFloat {
         10.0
     }
 

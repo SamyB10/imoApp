@@ -11,7 +11,7 @@ extension HomeViewModel.ViewModel.CardHomeViewModel {
                                                                          titleHouse: "Title House",
                                                                          addressHouse: "Address House",
                                                                          numberRoom: 4,
-                                                                         price: 250.000,
+                                                                         price: 250000,
                                                                          houseSurfaceArea: 100,
                                                                          isFavorite: false)
 
@@ -23,7 +23,7 @@ extension HomeViewModel.ViewModel.CardHomeViewModel {
                                                                  titleHouse: "Title House",
                                                                  addressHouse: "Address House",
                                                                  numberRoom: 4,
-                                                                 price: 250.000,
+                                                                 price: 250000,
                                                                  houseSurfaceArea: 100,
                                                                  isFavorite: false)
 

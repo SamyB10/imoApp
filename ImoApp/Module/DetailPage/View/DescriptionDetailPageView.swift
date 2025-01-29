@@ -10,13 +10,24 @@ import SwiftUI
 struct DescriptionDetailPageView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Title House")
-                .font(.title)
-                .bold()
+            HStack {
+                Text("Title House")
+                    .font(.title)
+                    .bold()
+
+                Spacer()
+
+                Text("200 000 €")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+            }
+
             Text("House address")
                 .foregroundStyle(.gray)
                 .fontWeight(.light)
                 .padding(.bottom)
+
+
 
             ListItemDetailHouseView(viewModelItem: ItemDetailHouse.itemViewModelTest)
                 .padding(.bottom)
@@ -25,7 +36,7 @@ struct DescriptionDetailPageView: View {
                 .foregroundStyle(.gray)
                 .fontWeight(.light)
         }
-        .padding(.leading)
+        .padding(.horizontal)
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 extension HomeViewModel.ViewModel {
     static var sectionViewModel: [HomeViewModel.ViewModel.SectionViewModel] {
-        let title = HomeViewModel.TitleSection.allCases
+        let typeSection = HomeViewModel.TypeSection.allCases
         var homeSection: [HomeViewModel.ViewModel.SectionViewModel] = []
         var itemHouseCarousel: [CardHomeViewModel] = []
         var itemHouseStacked: [CardHomeViewModel] = []
@@ -20,7 +20,7 @@ extension HomeViewModel.ViewModel {
                                                        titleHouse: "Title House",
                                                        addressHouse: "Address House",
                                                        numberRoom: .random(in: 0...10),
-                                                       price: .random(in: 50000.0...2000000.0),
+                                                       price: .random(in: 500000...1000000),
                                                        houseSurfaceArea: .random(in: 10...1000),
                                                        isFavorite: false))
         }
@@ -31,7 +31,7 @@ extension HomeViewModel.ViewModel {
                                                       titleHouse: "Title House",
                                                       addressHouse: "Address House",
                                                       numberRoom: .random(in: 0...10),
-                                                      price: .random(in: 50000.0...2000000.0),
+                                                      price: .random(in: 500000...1000000),
                                                       houseSurfaceArea: .random(in: 10...1000),
                                                       isFavorite: false))
         }
@@ -42,28 +42,26 @@ extension HomeViewModel.ViewModel {
                                                       titleHouse: "Title House",
                                                       addressHouse: "Address House",
                                                       numberRoom: .random(in: 0...10),
-                                                      price: .random(in: 50000.0...2000000.0),
+                                                      price: .random(in: 100000...1000000),
                                                       houseSurfaceArea: .random(in: 10...1000),
                                                       isFavorite: false))
         }
 
 
-        for item in title {
+        for item in typeSection {
             let section: HomeViewModel.ViewModel.SectionViewModel
             let header: HeaderViewModel
             switch item {
-            case .paris:
+            case .carousel:
                 header = HeaderViewModel(apperance: .home,
-                                         title: item.rawValue)
+                                         title: "Paris")
                 section = HomeViewModel.ViewModel.SectionViewModel(header: header,
-                                                                   itemHouse: .carousel(titleSection: item.rawValue,
-                                                                                        itemHouseCarousel))
-            case .lyon:
+                                                                   itemHouse: .carousel(itemHouseCarousel))
+            case .default:
                 header = HeaderViewModel(apperance: .home,
-                                         title: item.rawValue)
+                                         title: "Lyon")
                 section = HomeViewModel.ViewModel.SectionViewModel(header: header,
-                                                                   itemHouse: .default(titleSection: item.rawValue,
-                                                                                       itemHouseDefault))
+                                                                   itemHouse: .default(itemHouseDefault))
             }
             homeSection.append(section)
         }

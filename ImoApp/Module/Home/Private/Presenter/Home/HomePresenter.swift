@@ -34,18 +34,16 @@ final class HomePresenter {
         }
     }
     
-    private func createHeaderViewModel(with response: HomeViewModel.TitleSection) -> HeaderViewModel {
-        return HeaderViewModel(apperance: .home, title: response.rawValue)
+    private func createHeaderViewModel(with response: String) -> HeaderViewModel {
+        return HeaderViewModel(apperance: .home, title: response)
     }
     
     private func createItemViewModel(with response: HomeViewModel.Section) -> HomeViewModel.ViewModel.TypeCardHome {
-        switch response.title {
-        case .paris:
-                .carousel(titleSection: response.title.rawValue,
-                          createCardHomeViewModel(with: response.items))
-        case .lyon:
-                .default(titleSection: response.title.rawValue,
-                         createCardHomeViewModel(with: response.items))
+        switch response.type {
+        case .carousel:
+                .carousel(createCardHomeViewModel(with: response.items))
+        case .default:
+                .default(createCardHomeViewModel(with: response.items))
         }
     }
     

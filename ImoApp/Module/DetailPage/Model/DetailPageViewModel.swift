@@ -6,7 +6,8 @@
 //
 
 import Foundation
-struct DetailPageViewModel {
+struct DetailPageViewModel: Identifiable, Hashable {
+    let id: String
     let image: String
     let title: String
     let ownerName: String

@@ -11,30 +11,69 @@ import SwiftData
 struct FavoriteView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [HomeViewModel.ViewModel.CardHomeViewModel]
+    @Namespace private var animation
 
     var body: some View {
         NavigationStack {
-            List {
-            ForEach(items) { item in
-                CardView(viewModel: item, ratio: 21/9)
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
+            ScrollView(.vertical) {
+                if items.isEmpty {
+                    ContentUnavailableView("No favorites", image: "star", description: Text("You don't have any favorites yet."))
+                        .symbolVariant(.slash)
+                } else {
+                    cardView()
+                }
             }
-            .onDelete(perform: deleteItems)
-        }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
+
+            .contentMargins(.horizontal, 20, for: .scrollContent)
             .background(.ultraThickMaterial)
-            .listRowSpacing(10)
             .navigationTitle("Favorites")
+
+            .toolbar {
+                ToolBarView(viewModel: ToolBarViewModel(appearance: .avatar))
+            }
+
+            .navigationDestination(for: HomeViewModel.ViewModel.CardHomeViewModel.self) { item in
+                DetailPageView(viewModel: .init(id: item.id,
+                                                image: item.imageHouse,
+                                                title: item.titleHouse,
+                                                ownerName: "Samy",
+                                                price: Int(item.price)))
+            }
         }
+
     }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                items[index].isFavorite.toggle()
-                modelContext.delete(items[index])
+    private func cardView() -> some View {
+        LazyVStack {
+            ForEach(items) { item in
+                if #available(iOS 18.0, *) {
+                    NavigationLink {
+                        DetailPageView(viewModel: .init(id: item.id,
+                                                        image: item.imageHouse,
+                                                        title: item.titleHouse,
+                                                        ownerName: "Samy",
+                                                        price: Int(item.price)))
+                        .navigationTransition(.zoom(sourceID: item.id,
+                                                    in: animation))
+                    } label: {
+                        HomeCardView(viewModel: item, ratio: 16/9)
+                    }
+                    .matchedTransitionSource(id: item.id, in: animation)
+                    .buttonStyle(PlainButtonStyle())
+                    .foregroundStyle(.black)
+                } else {
+                    NavigationLink {
+                        DetailPageView(viewModel: .init(id: item.id,
+                                                        image: item.imageHouse,
+                                                        title: item.titleHouse,
+                                                        ownerName: "Samy",
+                                                        price: Int(item.price)))
+                    } label: {
+                        HomeCardView(viewModel: item, ratio: 16/9)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .foregroundStyle(.black)
+                }
             }
         }
     }

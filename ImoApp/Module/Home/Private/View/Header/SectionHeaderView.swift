@@ -52,7 +52,7 @@ extension HeaderViewModel {
     var font: Font {
         switch apperance {
         case .home:
-                .title
+                .title2
         case .filter:
                 .title3
         }

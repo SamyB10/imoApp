@@ -37,7 +37,6 @@ struct ToggleView: View {
                 .labelStyle(.titleOnly)
                 .foregroundStyle(.black)
                 .font(.system(size: 13))
-//                .tint(.green)
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)

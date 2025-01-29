@@ -13,7 +13,6 @@ struct HomeView: View {
 
     // MARK: - Properties
     @ObservedObject private var manager: HomeViewManager
-    @State private var show: Bool = true
 
     init(manager: HomeViewManager) {
         self.manager = manager
@@ -21,30 +20,34 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                ScrollView(.vertical) {
-                    section
-                }
-                .navigationTitle(manager.searchLocationViewModel.selectedLocation ?? "Nil")
-                .toolbar {
-                    ToolBarView(apperance: .home)
-                }
-                .background(.ultraThickMaterial)
-                SearchSuggestionView(searchLocationViewModel: manager.searchLocationViewModel)
+            ScrollView(.vertical) {
+                section
             }
-            .navigationDestination(for: HomeViewModel.ViewModel.CardHomeViewModel.self) { item in
-                DetailPageView(viewModel: .init(image: item.imageHouse,
-                                                title: item.titleHouse,
-                                                ownerName: "Samy",
-                                                price: Int(item.price)))
+            .background(.ultraThickMaterial)
+
+            .navigationTitle(manager.searchLocationViewModel.selectedLocation ?? "S&B")
+            .toolbar {
+                ToolBarView(viewModel: ToolBarViewModel(appearance: .all))
             }
+            SearchSuggestionView(searchLocationViewModel: manager.searchLocationViewModel)
+                .navigationDestination(for: HomeViewModel.ViewModel.CardHomeViewModel.self) { item in
+                    let viewModel = DetailPageViewModel(id: item.id,
+                                                        image: item.imageHouse,
+                                                        title: item.titleHouse,
+                                                        ownerName: "Samy",
+                                                        price: Int(item.price))
+
+                    Navigation.navigationToDetailPage(with: viewModel)
+                }
         }
-        .searchable(text: $manager.searchLocationViewModel.searchText, prompt: "Region, Department, City")
+        .searchable(text: $manager.searchLocationViewModel.searchText,
+                    placement: .automatic,
+                    prompt: "Region, Department, City")
         .onChange(of: manager.searchLocationViewModel.searchText) {
             manager.searchLocationViewModel.search()
         }
         .onAppear {
-//            manager.didLoad()
+            //            manager.didLoad()
         }
     }
 

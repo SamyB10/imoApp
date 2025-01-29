@@ -13,12 +13,7 @@ public enum HomeServiceError: Error {
     case noResponse
 }
 
-protocol HomeService {
-//    func fetchRegions() async -> Result<[RestModelRegions], HomeServiceError>
-//    func mockRegions() async -> [RestModelRegions]
-}
+protocol HomeService {}
 
 // MARK: - HomeRequest
-final class RequestHome: HomeService {
-  
-}
+final class RequestHome: HomeService {}

@@ -17,52 +17,79 @@ struct DetailPageView: View {
     }
 
     var body: some View {
-        VStack(spacing: 50) {
-            overlayImageHouse
-
-            ScrollView {
-                DescriptionDetailPageView()
-                ScrollView(.horizontal) {
-                    VStack(alignment: .leading) {
-                        Section {
-                            HStack {
-                                ForEach(0..<10) {_ in
-                                    Color.blue
-                                        .cornerRadius(10)
-                                        .frame(width: 120, height: 120)
+        if #available(iOS 18.0, *) {
+            VStack(spacing: 50) {
+                overlayImageHouse
+                ScrollView {
+                    DescriptionDetailPageView()
+                    ScrollView(.horizontal) {
+                        VStack(alignment: .leading) {
+                            Section {
+                                HStack {
+                                    ForEach(0..<10) {_ in
+                                        Image(viewModel.image)
+                                            .resizable()
+                                            .cornerRadius(10)
+                                            .frame(width: 120, height: 120)
+                                            .padding(.bottom, 100)
+                                    }
                                 }
+                            } header: {
+                                Text("Galery")
+                                    .font(.title)
+                                    .foregroundStyle(.black)
                             }
-                        } header: {
-                            Text("Galery")
-                                .font(.title)
-                                .foregroundStyle(.black)
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
-        }
-        .ignoresSafeArea()
+            .ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
+        } else {
+            VStack(spacing: 50) {
+                overlayImageHouse
+                ScrollView {
+                    DescriptionDetailPageView()
+                    ScrollView(.horizontal) {
+                        VStack(alignment: .leading) {
+                            Section {
+                                HStack {
+                                    ForEach(0..<10) {_ in
+                                        Color.blue
+                                            .cornerRadius(10)
+                                            .frame(width: 120, height: 120)
+                                    }
+                                }
+                            } header: {
+                                Text("Galery")
+                                    .font(.title)
+                                    .foregroundStyle(.black)
+                            }
+                        }
+                        .padding()
+                    }
+                }
+            }
+            .ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
 
-        Spacer()
-
-            .navigationBarBackButtonHidden()
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .topBarTrailing) {
                     backButton
                 }
             }
+        }
     }
 
     private var backButton: some View {
         Button {
-            dismiss.callAsFunction()
+            dismiss()
         } label: {
             ImageLoaderView(dvImage: .systemName("arrow.left.circle.fill"),
                             contentMode: .fill)
             .frame(width: 30, height: 30)
-            .foregroundColor(.black)
-            .opacity(0.8)
+            .foregroundStyle(.white)
         }
     }
 

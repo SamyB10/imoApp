@@ -7,7 +7,7 @@
 
 import SwiftUI
 struct ToolBarView: View {
-    let apperance: ApperanceToolBar
+    let viewModel: ToolBarViewModel
     @State private var showSheet = false
 
     var body: some View {
@@ -15,18 +15,34 @@ struct ToolBarView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
-                        if apperance == .home {
+                        switch viewModel.appearance {
+                        case .filter:
                             Button {
                                 showSheet = true
                             } label: {
-                                Image(systemName: "slider.horizontal.3")
+                                Image(systemName: viewModel.imageFilterHome)
                                     .foregroundStyle(.black)
-                                    .frame(width: 30, height: 30)
+                                    .frame(width: viewModel.widthButton, height: viewModel.heightButton)
                             }
+                        case .avatar:
+                            ImageLoaderView(dvImage: .asset(viewModel.avatar),
+                                            contentMode: .fit)
+                            .frame(width: viewModel.widthButton, height: viewModel.heightButton)
+                        case .all:
+                            Button {
+                                showSheet = true
+                            } label: {
+                                Image(systemName: viewModel.imageFilterHome)
+                                    .foregroundStyle(.black)
+                                    .frame(width: viewModel.widthButton, height: viewModel.heightButton)
+                            }
+
+                            Spacer()
+
+                            ImageLoaderView(dvImage: .asset(viewModel.avatar),
+                                            contentMode: .fit)
+                            .frame(width: viewModel.widthButton, height: viewModel.heightButton)
                         }
-                        ImageLoaderView(dvImage: .asset("Avatar"),
-                                        contentMode: .fit)
-                        .frame(width: 30, height: 30)
                     }
                 }
             }
@@ -37,21 +53,5 @@ struct ToolBarView: View {
 }
 
 #Preview {
-    ToolBarView(apperance: .home)
-}
-
-
-struct Navigation {
-    static func navigationToFilter() -> some View {
-        let filterInteractor = FilterInteractor()
-//        let context = FilterHomeContext()
-        let filterPresenter = FilterPresenter()
-        let manager = FilterViewManager(interacor: filterInteractor)
-        let filterView = FilterView(manager: manager)
-
-        filterInteractor.inject(presenter: filterPresenter)
-        filterPresenter.inject(display: manager)
-
-        return filterView
-    }
+    ToolBarView(viewModel: ToolBarViewModel(appearance: .all))
 }

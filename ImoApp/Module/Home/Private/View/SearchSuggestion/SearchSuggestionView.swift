@@ -14,7 +14,6 @@ struct SearchSuggestionView: View {
 
 
     var body: some View {
-
         if !searchLocationViewModel.searchText.isEmpty {
             List {
                 ForEach(searchLocationViewModel.suggestions, id: \.self) { suggestion in
@@ -27,10 +26,6 @@ struct SearchSuggestionView: View {
                         }
                 }
             }
-        } else {
-            Color.black
-                .opacity(isSearching ? 0.3 : 0)
-                .allowsHitTesting(false)
         }
     }
 }

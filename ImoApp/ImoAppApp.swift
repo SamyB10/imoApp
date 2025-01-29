@@ -26,8 +26,10 @@ struct ImoAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            constructHomeView()
-                .modelContainer(sharedModelContainer)
+            VStack {
+                constructHomeView()
+                    .modelContainer(sharedModelContainer)
+            }
         }
     }
 

@@ -8,7 +8,8 @@
 import Foundation
 extension DetailPageViewModel {
     static var sampleViewModel: DetailPageViewModel {
-        DetailPageViewModel(image: "coucher_soleil",
+        DetailPageViewModel(id: UUID().uuidString,
+                            image: "coucher_soleil",
                             title: "Title",
                             ownerName: "Samy",
                             price: 200000)

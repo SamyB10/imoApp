@@ -23,8 +23,8 @@ struct ListItemDetailHouseView: View {
                 }
             }
         }
-        .padding(.top)
-        .frame(width: 250)
+        .padding(.top, 5)
+        .frame(width: 200)
 #if !os(visionOS)
         .padding(.trailing)
 #endif
@@ -37,8 +37,11 @@ struct ListItemDetailHouseView: View {
                 .foregroundStyle(.clear)
             HStack {
                 Image(systemName: image)
+                    .resizable()
+                    .frame(width: 12, height: 12)
+
                 Text("\(text)")
-                    .font(.footnote)
+                    .font(.system(size: 10))
                     .bold()
             }
             .padding(5)
