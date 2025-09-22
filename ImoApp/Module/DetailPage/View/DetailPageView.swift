@@ -44,8 +44,8 @@ struct DetailPageView: View {
                     }
                 }
             }
+            
             .ignoresSafeArea()
-            .navigationBarBackButtonHidden(true)
         } else {
             VStack(spacing: 50) {
                 overlayImageHouse

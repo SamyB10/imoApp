@@ -19,21 +19,24 @@ struct SectionCarousel: View {
     }
 
     var body: some View {
-        Section {
-            ScrollViewReader { proxy in
-                ScrollView(.horizontal, showsIndicators: false) {
-                    createItemCarousel()
-                        .padding(.bottom)
-                }
-                .onAppear {
-                    proxy.scrollTo(items.count / 2, anchor: .center)
-                }
+        VStack(alignment: .leading) {
+            Section {
+//                ScrollViewReader { proxy in
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//                        createItemCarousel()
+//                            .padding()
+//                    }
+//                    .onAppear {
+//                        proxy.scrollTo(items.count / 2, anchor: .center)
+//                    }
+//                }
+                test()
+                .contentMargins(.horizontal, items.horizontalMarginScrollViewCarousel)
+                .scrollTargetLayout()
+                .scrollTargetBehavior(.viewAligned)
+            } header: {
+                SectionHeaderView(viewModel: header)
             }
-            .contentMargins(.horizontal, items.horizontalMarginScrollViewCarousel)
-            .scrollTargetLayout()
-            .scrollTargetBehavior(.viewAligned)
-        } header: {
-            createHeader()
         }
     }
 
@@ -52,15 +55,14 @@ struct SectionCarousel: View {
                                                     in: namespace))
                     } label: {
                         HomeCardView(viewModel: item, ratio: 16/9)
-                            .matchedTransitionSource(id: item.id, in: namespace)
                             .id(itemIndex)
                             .containerRelativeFrame([.horizontal],
                                                     count: columns,
                                                     spacing: item.horizontalSpacing)
                     }
+                    .matchedTransitionSource(id: item.id, in: namespace)
                     .buttonStyle(PlainButtonStyle())
                     .foregroundStyle(.black)
-
                 } else {
                     NavigationLink {
                         DetailPageView(viewModel: .init(id: item.id,
@@ -86,11 +88,19 @@ struct SectionCarousel: View {
         sizeClass == .compact ? 1 : 2
     }
 
-    private func createHeader() -> some View {
-        VStack(alignment: .leading) {
-            SectionHeaderView(viewModel: header)
+    private func test() -> some View {
+        ScrollView(.horizontal) {
+            LazyHStack {
+                ForEach(items.indices, id: \.self) { itemIndex in
+                    let item = items[itemIndex]
+                    HomeCardView(viewModel: item, ratio: 16/9)
+                        .id(itemIndex)
+                        .containerRelativeFrame([.horizontal],
+                                                count: columns,
+                                                spacing: item.horizontalSpacing)
+                }
+            }
         }
-        .padding(.horizontal)
-        .padding(.bottom)
+        
     }
 }

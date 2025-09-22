@@ -36,10 +36,10 @@ struct HomeCardView: View {
 
     private var detailHouse: some View {
         VStack(alignment: .leading, spacing: 5) {
-                Text(viewModel.titleHouse)
-                    .font(.system(size: 15))
-                    .foregroundColor(.black)
-                    .fontWeight(.semibold)
+            Text(viewModel.titleHouse)
+                .font(.system(size: 15))
+                .foregroundColor(.black)
+                .fontWeight(.semibold)
 
             Text(viewModel.addressHouse)
                 .font(.system(size: 14))
